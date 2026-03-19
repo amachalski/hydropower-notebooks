@@ -1,0 +1,35 @@
+.reveal, .reveal h1, .reveal h2, .reveal h3, .reveal h4 {
+    font-family: "Segoe UI", "Roboto", "Noto Sans", "Arial", sans-serif !important;
+}
+.reveal {
+    font-size: 32px !important;
+}
+.reveal h1 {
+    font-size: 2.0em !important;
+}
+.reveal h2 {
+    font-size: 1.6em !important;
+}
+.reveal h3 {
+    font-size: 1.3em !important;
+}
+.reveal pre {
+    font-size: 0.65em !important;
+    width: 100% !important;
+}
+.reveal code {
+    font-size: 0.85em !important;
+}
+.reveal table {
+    font-size: 0.8em !important;
+}
+.reveal li {
+    margin-bottom: 0.3em !important;
+    line-height: 1.4 !important;
+}
+.reveal blockquote {
+    font-size: 0.9em !important;
+}
+.reveal p {
+    line-height: 1.4 !important;
+}
