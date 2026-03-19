@@ -1,10 +1,18 @@
 # hydropower-notebooks
 
-Zestaw notebooków Jupyter do analiz hydrologicznych i projektowania Małych Elektrowni Wodnych (MEW).
+**[PL]** Zestaw notebooków Jupyter do analiz hydrologicznych i projektowania Małych Elektrowni Wodnych (MEW).
+
+**[EN]** A set of Jupyter notebooks for hydrological analysis and Small Hydropower Plant (SHP) design.
+
+---
+
+## PL — Polski
 
 Materiały dydaktyczne — kod wielokrotnego użytku w `src/`, analizy krok po kroku w `notebooks/`.
 
-## Zawartość
+> **Dla studentów:** Kod w tym repozytorium ma charakter informacyjny i poglądowy — służy jako podpowiedź i punkt wyjścia. Proszę tworzyć własne obliczenia samodzielnie, korzystając z tego kodu tylko gdy jest to konieczne. Korzystanie z pomocy LLM jest mile widziane, ale pamiętajcie — **to Wy odpowiadacie za poprawność wyników**.
+
+### Zawartość
 
 | Notebook | Temat |
 |----------|-------|
@@ -13,7 +21,7 @@ Materiały dydaktyczne — kod wielokrotnego użytku w `src/`, analizy krok po k
 | `02_data_quality` | Kontrola jakości danych, uzupełnianie luk |
 | `03_hydro_statistics` | Statystyka hydrologiczna: FDC, przepływy charakterystyczne |
 
-### Moduły (`src/`)
+#### Moduły (`src/`)
 
 | Moduł | Opis |
 |-------|------|
@@ -21,19 +29,14 @@ Materiały dydaktyczne — kod wielokrotnego użytku w `src/`, analizy krok po k
 | `data_quality.py` | Detekcja luk, interpolacja, korelacja stacji, outliers |
 | `hydro_stats.py` | Krzywa sum czasów przepływu, NNQ/SNQ/SSQ/SWQ/WWQ |
 
-## Źródło danych
+### Źródło danych
 
 Dane hydrologiczne z publicznego archiwum [IMGW](https://danepubliczne.imgw.pl/data/dane_pomiarowo_obserwacyjne/dane_hydrologiczne/dobowe/) — dobowe stany wody i przepływy.
-
-## Wymagania
-
-- Python 3.11+
-- Miniconda (zalecane) lub pip
 
 ### Instalacja
 
 ```bash
-# Miniconda
+# Miniconda (zalecane)
 conda env create -f environment.yml
 conda activate ew
 
@@ -54,26 +57,87 @@ jupyter lab 01_data_acquisition.ipynb
 
 Lub otwórz notebooki w VS Code (rozszerzenie Jupyter).
 
-## Struktura projektu
-
-```
-├── ai/                  # Dokumentacja projektu, plan, metodologia
-├── data/
-│   ├── raw/             # Pobrane ZIP z IMGW (nie w repo)
-│   └── processed/       # Przetworzone Parquet (nie w repo)
-├── src/                 # Moduły Pythona
-├── notebooks/           # Notebooki Jupyter
-├── environment.yml      # Środowisko conda
-├── requirements.txt     # Zależności pip
-└── .gitignore
-```
-
-## Jak to powstało
+### Jak to powstało
 
 Projekt został stworzony wspólnie z agentem LLM (Claude Code). Każdy notebook zawiera przykładowe prompty, które mogłyby wygenerować dany kod — jako materiał dydaktyczny o pracy z AI.
 
 Szczegóły metodologii: [`ai/methodology.md`](ai/methodology.md)
 
-## Licencja
+---
 
-MIT — patrz [LICENSE](LICENSE)
+## EN — English
+
+Teaching materials — reusable modules in `src/`, step-by-step analyses in `notebooks/`.
+
+> **For students:** The code in this repository is provided for reference and as a starting point. Please create your own calculations independently, reusing this code only when necessary. LLM assistance is encouraged, but remember — **you are responsible for the correctness of your results**.
+
+### Contents
+
+| Notebook | Topic |
+|----------|-------|
+| `00_llm_agents_for_coding` | Presentation: LLM agents for coding, environment setup |
+| `01_data_acquisition` | Downloading hydrological data from IMGW archive |
+| `02_data_quality` | Data quality control, gap filling |
+| `03_hydro_statistics` | Hydrological statistics: FDC, characteristic flows |
+
+#### Modules (`src/`)
+
+| Module | Description |
+|--------|-------------|
+| `imgw.py` | IMGW data download & parsing (2 CSV format eras, Parquet output) |
+| `data_quality.py` | Gap detection, interpolation, station correlation, outliers |
+| `hydro_stats.py` | Flow duration curve, NNQ/SNQ/SSQ/SWQ/WWQ characteristic flows |
+
+### Data source
+
+Hydrological data from the public [IMGW](https://danepubliczne.imgw.pl/data/dane_pomiarowo_obserwacyjne/dane_hydrologiczne/dobowe/) archive — daily water levels and discharge (Polish Institute of Meteorology and Water Management).
+
+### Installation
+
+```bash
+# Miniconda (recommended)
+conda env create -f environment.yml
+conda activate ew
+
+# Alternative: pip
+python -m venv venv
+source venv/bin/activate  # Linux/Mac
+venv\Scripts\activate     # Windows
+pip install -r requirements.txt
+```
+
+### Usage
+
+```bash
+conda activate ew
+cd notebooks
+jupyter lab 01_data_acquisition.ipynb
+```
+
+Or open notebooks in VS Code (Jupyter extension).
+
+### How it was built
+
+This project was built collaboratively with an LLM agent (Claude Code). Each notebook contains example prompts that could generate the code — serving as teaching material about working with AI.
+
+Methodology details: [`ai/methodology.md`](ai/methodology.md)
+
+---
+
+## Project structure
+
+```
+├── ai/                  # Project docs, plan, methodology
+├── data/
+│   ├── raw/             # Downloaded IMGW ZIPs (not in repo)
+│   └── processed/       # Processed Parquet files (not in repo)
+├── src/                 # Reusable Python modules
+├── notebooks/           # Jupyter notebooks
+├── environment.yml      # Conda environment
+├── requirements.txt     # pip dependencies
+└── .gitignore
+```
+
+## License / Licencja
+
+MIT — see [LICENSE](LICENSE)
