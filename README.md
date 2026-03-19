@@ -29,7 +29,7 @@ Materiały dydaktyczne — kod wielokrotnego użytku w `src/`, analizy krok po k
 |-------|------|
 | `imgw.py` | Pobieranie i parsowanie danych IMGW (2 formaty CSV, Parquet) |
 | `data_quality.py` | Detekcja luk, interpolacja, korelacja stacji, outliers |
-| `hydro_stats.py` | Krzywa sum czasów przepływu, NNQ/SNQ/SSQ/SWQ/WWQ |
+| `hydro_stats.py` | Krzywa uporządkowana przepływu, NNQ/SNQ/SSQ/SWQ/WWQ |
 
 ### Źródło danych
 
