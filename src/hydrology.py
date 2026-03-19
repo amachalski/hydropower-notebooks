@@ -308,3 +308,147 @@ def transfer_series(
     result = df[df["station_id"] == station_id].copy()
     result[column] = result[column] * (A_target / A_gauge) ** n
     return result
+
+
+# ============================================================
+# YEAR FILTERING
+# ============================================================
+
+def year_completeness(
+    df: pd.DataFrame,
+    station_id: str,
+    column: str = "discharge_m3s",
+) -> pd.DataFrame:
+    """Calculate completeness per year for a station.
+
+    Returns DataFrame with year, total_days, valid_days, missing_days, pct_valid.
+    """
+    sdf = df[df["station_id"] == station_id].copy()
+    sdf["year"] = sdf["date"].dt.year
+
+    stats = sdf.groupby("year")[column].agg(
+        valid_days="count",
+        total_days="size",
+    )
+    stats["missing_days"] = stats["total_days"] - stats["valid_days"]
+    stats["pct_valid"] = (stats["valid_days"] / stats["total_days"] * 100).round(1)
+    stats.index.name = "year"
+    return stats
+
+
+def identify_flood_years(
+    df: pd.DataFrame,
+    station_id: str,
+    column: str = "discharge_m3s",
+    threshold_factor: float = 3.0,
+) -> list[int]:
+    """Identify years with extreme floods (annual max >> long-term SWQ).
+
+    A year is flagged if its max flow exceeds threshold_factor * SWQ.
+
+    Returns list of years.
+    """
+    sdf = df[df["station_id"] == station_id].dropna(subset=[column, "date"]).copy()
+    sdf["year"] = sdf["date"].dt.year
+
+    annual_max = sdf.groupby("year")[column].max()
+    swq = annual_max.mean()  # SWQ = mean of annual maxima
+
+    flood_years = annual_max[annual_max > threshold_factor * swq].index.tolist()
+    return flood_years
+
+
+def filter_years(
+    df: pd.DataFrame,
+    station_id: str,
+    years_to_remove: list[int],
+) -> pd.DataFrame:
+    """Remove specified years from a station's data.
+
+    Returns filtered DataFrame (all stations, only specified station's years removed).
+    """
+    mask = (df["station_id"] == station_id) & (df["date"].dt.year.isin(years_to_remove))
+    return df[~mask].reset_index(drop=True)
+
+
+def filter_incomplete_years(
+    df: pd.DataFrame,
+    station_id: str,
+    min_completeness: float = 0.95,
+    column: str = "discharge_m3s",
+) -> pd.DataFrame:
+    """Remove years with less than min_completeness fraction of valid data.
+
+    Returns filtered DataFrame.
+    """
+    comp = year_completeness(df, station_id, column)
+    incomplete = comp[comp["pct_valid"] < min_completeness * 100].index.tolist()
+    if incomplete:
+        print(f"Removing {len(incomplete)} incomplete years: {incomplete}")
+    return filter_years(df, station_id, incomplete)
+
+
+# ============================================================
+# AVERAGE SORTED YEAR (sredni rok uporzadkowany)
+# ============================================================
+
+def sorted_year(
+    df: pd.DataFrame,
+    station_id: str,
+    year: int,
+    column: str = "discharge_m3s",
+) -> np.ndarray:
+    """Get sorted (descending) daily flows for a single year."""
+    sdf = df[(df["station_id"] == station_id) & (df["date"].dt.year == year)]
+    values = sdf[column].dropna().values
+    return np.sort(values)[::-1]
+
+
+def average_sorted_year(
+    df: pd.DataFrame,
+    station_id: str,
+    column: str = "discharge_m3s",
+) -> pd.DataFrame:
+    """Calculate average sorted year (sredni rok uporzadkowany).
+
+    For each year:
+    1. Sort daily flows from highest to lowest (365 values)
+    2. Assign rank 1..365
+
+    Then for each rank position, calculate mean, min, max across all years.
+    This gives a smoothed "typical" FDC based on annual averages.
+
+    Returns DataFrame with columns: rank, mean, min, max, std, n_years
+    """
+    sdf = df[df["station_id"] == station_id].dropna(subset=[column, "date"]).copy()
+    sdf["year"] = sdf["date"].dt.year
+
+    years = sdf["year"].unique()
+    sorted_arrays = []
+
+    for year in sorted(years):
+        vals = sorted_year(df, station_id, year, column)
+        if len(vals) >= 360:  # accept years with at least 360 days
+            # Resample to exactly 365 values if needed
+            if len(vals) != 365:
+                x_old = np.linspace(0, 1, len(vals))
+                x_new = np.linspace(0, 1, 365)
+                vals = np.interp(x_new, x_old, vals)
+            sorted_arrays.append(vals)
+
+    if not sorted_arrays:
+        return pd.DataFrame()
+
+    matrix = np.array(sorted_arrays)  # shape: (n_years, 365)
+
+    result = pd.DataFrame({
+        "rank": np.arange(1, 366),
+        "mean": matrix.mean(axis=0).round(3),
+        "min": matrix.min(axis=0).round(3),
+        "max": matrix.max(axis=0).round(3),
+        "std": matrix.std(axis=0).round(3),
+        "n_years": len(sorted_arrays),
+    })
+    # Add exceedance percentage (rank/365 * 100)
+    result["exceedance_pct"] = (result["rank"] / 365 * 100).round(2)
+    return result
