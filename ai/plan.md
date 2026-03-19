@@ -2,14 +2,14 @@
 
 ## Phase 1: Data Infrastructure
 - [x] Project structure, git, conda env, requirements
-- [x] `src/imgw.py` — IMGW data download & parsing (2 format eras, sentinel values, Parquet)
+- [x] `src/imgw_data.py` — IMGW data download & parsing (2 format eras, sentinel values, Parquet)
 - [x] `01_data_acquisition.ipynb` — Station discovery, download, first look
-- [x] `src/data_quality.py` — Gap detection, filling, validation
+- [x] `src/hydrology.py` — Gap detection, filling, validation
 - [x] `02_data_quality.ipynb` — Data QC notebook
 - [x] `00_llm_agents_for_coding.ipynb` — Presentation: LLM agents, setup, tools
 
 ## Phase 2: Hydrological Analysis
-- [x] `src/hydro_stats.py` — Flow duration curves, characteristic flows
+- [x] `src/hydrology.py` — Flow duration curves, characteristic flows
 - [x] `03_hydro_statistics.ipynb` — Statistical analysis notebook
 
 ## Phase 3: Power & Turbine Design

@@ -27,9 +27,9 @@ Materiały dydaktyczne — kod wielokrotnego użytku w `src/`, analizy krok po k
 
 | Moduł | Opis |
 |-------|------|
-| `imgw.py` | Pobieranie i parsowanie danych IMGW (2 formaty CSV, Parquet) |
-| `data_quality.py` | Detekcja luk, interpolacja, korelacja stacji, outliers |
-| `hydro_stats.py` | Krzywa uporządkowana przepływu, NNQ/SNQ/SSQ/SWQ/WWQ |
+| `imgw_data.py` | Pobieranie i parsowanie danych IMGW (2 formaty CSV, Parquet) |
+| `hydrology.py` | Detekcja luk, interpolacja, korelacja stacji, outliers |
+| `hydrology.py` | Krzywa uporządkowana przepływu, NNQ/SNQ/SSQ/SWQ/WWQ |
 
 ### Źródło danych
 
@@ -88,9 +88,9 @@ Teaching materials — reusable modules in `src/`, step-by-step analyses in `not
 
 | Module | Description |
 |--------|-------------|
-| `imgw.py` | IMGW data download & parsing (2 CSV format eras, Parquet output) |
-| `data_quality.py` | Gap detection, interpolation, station correlation, outliers |
-| `hydro_stats.py` | Flow duration curve, NNQ/SNQ/SSQ/SWQ/WWQ characteristic flows |
+| `imgw_data.py` | IMGW data download & parsing (2 CSV format eras, Parquet output) |
+| `hydrology.py` | Gap detection, interpolation, station correlation, outliers |
+| `hydrology.py` | Flow duration curve, NNQ/SNQ/SSQ/SWQ/WWQ characteristic flows |
 
 ### Data source
 
