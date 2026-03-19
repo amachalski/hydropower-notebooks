@@ -10,6 +10,8 @@
 
 Materiały dydaktyczne — kod wielokrotnego użytku w `src/`, analizy krok po kroku w `notebooks/`.
 
+**Cel zajęć:** Głównym celem jest nauka obliczeń związanych z projektowaniem elektrowni wodnych (hydrologia, potencjał energetyczny, dobór turbiny). Dodatkowym celem jest praktyczne wykorzystanie nowoczesnych narzędzi: agentów LLM do wspomagania programowania, Pythona z bibliotekami do analizy danych (pandas, numpy, plotly, scipy) oraz środowiska Jupyter do dokumentowania i prezentacji wyników.
+
 > **Dla studentów:** Kod w tym repozytorium ma charakter informacyjny i poglądowy — służy jako podpowiedź i punkt wyjścia. Proszę tworzyć własne obliczenia samodzielnie, korzystając z tego kodu tylko gdy jest to konieczne. Korzystanie z pomocy LLM jest mile widziane, ale pamiętajcie — **to Wy odpowiadacie za poprawność wyników**.
 
 ### Zawartość
@@ -68,6 +70,8 @@ Szczegóły metodologii: [`ai/methodology.md`](ai/methodology.md)
 ## EN — English
 
 Teaching materials — reusable modules in `src/`, step-by-step analyses in `notebooks/`.
+
+**Course objectives:** The primary goal is learning hydropower plant design calculations (hydrology, energy potential, turbine selection). An additional goal is hands-on experience with modern tools: LLM agents for programming assistance, Python data analysis libraries (pandas, numpy, plotly, scipy), and the Jupyter environment for documenting and presenting results.
 
 > **For students:** The code in this repository is provided for reference and as a starting point. Please create your own calculations independently, reusing this code only when necessary. LLM assistance is encouraged, but remember — **you are responsible for the correctness of your results**.
 
