@@ -1,8 +1,8 @@
 # hydropower-notebooks
 
-**[PL]** Zestaw notebooków Jupyter do analiz hydrologicznych i projektowania Małych Elektrowni Wodnych (MEW).
+**[PL]** Zestaw notebooków Jupyter do analiz hydrologicznych i projektowania elektrowni wodnych.
 
-**[EN]** A set of Jupyter notebooks for hydrological analysis and Small Hydropower Plant (SHP) design.
+**[EN]** A set of Jupyter notebooks for hydrological analysis and hydropower plant design.
 
 ---
 
