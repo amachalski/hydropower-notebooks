@@ -1,8 +1,8 @@
 # hydropower-notebooks
 
-**[PL]** Zestaw notebooków Jupyter do analiz hydrologicznych i projektowania elektrowni wodnych.
+**[PL]** Zestaw notebooków Jupyter do analiz hydrologicznych i projektowania elektrowni wodnych. **⚠️ Materiały w opracowaniu.**
 
-**[EN]** A set of Jupyter notebooks for hydrological analysis and hydropower plant design.
+**[EN]** A set of Jupyter notebooks for hydrological analysis and hydropower plant design. **⚠️ Work in progress.**
 
 ---
 
