@@ -1,0 +1,20 @@
+{
+  "51.2261,16.4928": {
+    "label": "Malczyce (Odra)",
+    "lat": 51.2261,
+    "lng": 16.4928,
+    "area_km2": 26860.48
+  },
+  "51.2606,16.7267": {
+    "label": "Brzeg Dolny (Odra)",
+    "lat": 51.2606,
+    "lng": 16.7267,
+    "area_km2": 26495.24
+  },
+  "51.2433,16.6097": {
+    "label": "MEW (miedzy Malczyce a Brzeg Dolny)",
+    "lat": 51.2433,
+    "lng": 16.6097,
+    "area_km2": 26544.94
+  }
+}

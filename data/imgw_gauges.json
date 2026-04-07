@@ -1,0 +1,4794 @@
+[
+ {
+  "id": "151140030",
+  "name": "Przewoźniki",
+  "river": "Skroda",
+  "lat": 51.5253,
+  "lng": 14.8217,
+  "voivodeship": "lubuskie"
+ },
+ {
+  "id": "153190040",
+  "name": "Bągart",
+  "river": "Dzierzgoń",
+  "lat": 53.9661,
+  "lng": 19.3692,
+  "voivodeship": "pomorskie"
+ },
+ {
+  "id": "149210120",
+  "name": "Godowa",
+  "river": "Stobnica",
+  "lat": 49.8486,
+  "lng": 21.8117,
+  "voivodeship": "podkarpackie"
+ },
+ {
+  "id": "154190080",
+  "name": "Żukowo",
+  "river": "Jez. Drużno",
+  "lat": 54.1028,
+  "lng": 19.4508,
+  "voivodeship": "warmińsko-mazurskie"
+ },
+ {
+  "id": "154180220",
+  "name": "Gdańska Głowa",
+  "river": "Wisła",
+  "lat": 54.2669,
+  "lng": 18.9514,
+  "voivodeship": "pomorskie"
+ },
+ {
+  "id": "154190050",
+  "name": "Nowe Batorowo",
+  "river": "Zalew Wiślany",
+  "lat": 54.2306,
+  "lng": 19.3631,
+  "voivodeship": "warmińsko-mazurskie"
+ },
+ {
+  "id": "154180210",
+  "name": "Ujście Wisły",
+  "river": "Wisła",
+  "lat": 54.3528,
+  "lng": 18.9428,
+  "voivodeship": "pomorskie"
+ },
+ {
+  "id": "154180190",
+  "name": "Przegalina",
+  "river": "Wisła",
+  "lat": 54.3106,
+  "lng": 18.9292,
+  "voivodeship": "pomorskie"
+ },
+ {
+  "id": "154190060",
+  "name": "Elbląg",
+  "river": "Elbląg",
+  "lat": 54.1722,
+  "lng": 19.3878,
+  "voivodeship": "warmińsko-mazurskie"
+ },
+ {
+  "id": "154180200",
+  "name": "Świbno",
+  "river": "Wisła",
+  "lat": 54.3364,
+  "lng": 18.9356,
+  "voivodeship": "pomorskie"
+ },
+ {
+  "id": "153140190",
+  "name": "Regalica Szczecin",
+  "river": "Regalica",
+  "lat": 53.3689,
+  "lng": 14.5925,
+  "voivodeship": "zachodniopomorskie"
+ },
+ {
+  "id": "154160150",
+  "name": "Darłowo",
+  "river": "Wieprza",
+  "lat": 54.4392,
+  "lng": 16.3803,
+  "voivodeship": "zachodniopomorskie"
+ },
+ {
+  "id": "154180100",
+  "name": "Władysławowo",
+  "river": "Bałtyk",
+  "lat": 54.7967,
+  "lng": 18.4186,
+  "voivodeship": "pomorskie"
+ },
+ {
+  "id": "154190020",
+  "name": "Tujsk",
+  "river": "Szkarpawa",
+  "lat": 54.2842,
+  "lng": 19.1383,
+  "voivodeship": "pomorskie"
+ },
+ {
+  "id": "153140020",
+  "name": "Widuchowa",
+  "river": "Odra",
+  "lat": 53.1225,
+  "lng": 14.3819,
+  "voivodeship": "zachodniopomorskie"
+ },
+ {
+  "id": "154160110",
+  "name": "Ustka",
+  "river": "Bałtyk",
+  "lat": 54.5881,
+  "lng": 16.8539,
+  "voivodeship": "pomorskie"
+ },
+ {
+  "id": "154190090",
+  "name": "Tolkmicko",
+  "river": "Zalew Wiślany",
+  "lat": 54.3233,
+  "lng": 19.5231,
+  "voivodeship": "warmińsko-mazurskie"
+ },
+ {
+  "id": "153180120",
+  "name": "Hel",
+  "river": "Bałtyk",
+  "lat": 54.6019,
+  "lng": 18.8006,
+  "voivodeship": "pomorskie"
+ },
+ {
+  "id": "153140030",
+  "name": "Gryfino",
+  "river": "Odra",
+  "lat": 53.2569,
+  "lng": 14.4844,
+  "voivodeship": "zachodniopomorskie"
+ },
+ {
+  "id": "154180140",
+  "name": "Gdańsk",
+  "river": "-",
+  "lat": 54.3997,
+  "lng": 18.6981,
+  "voivodeship": "pomorskie"
+ },
+ {
+  "id": "154180180",
+  "name": "Suchy Dąb",
+  "river": "Bielawa",
+  "lat": 54.2314,
+  "lng": 18.7319,
+  "voivodeship": "pomorskie"
+ },
+ {
+  "id": "153230130",
+  "name": "Harasimowicze",
+  "river": "Sidra",
+  "lat": 53.6625,
+  "lng": 23.4489,
+  "voivodeship": "podlaskie"
+ },
+ {
+  "id": "154170100",
+  "name": "Łeba",
+  "river": "Bałtyk",
+  "lat": 54.7633,
+  "lng": 17.5506,
+  "voivodeship": "pomorskie"
+ },
+ {
+  "id": "154180160",
+  "name": "Sobieszewo",
+  "river": "Martwa Wisła",
+  "lat": 54.3464,
+  "lng": 18.8153,
+  "voivodeship": "pomorskie"
+ },
+ {
+  "id": "153140050",
+  "name": "Szczecin",
+  "river": "Odra",
+  "lat": 53.4225,
+  "lng": 14.5597,
+  "voivodeship": "zachodniopomorskie"
+ },
+ {
+  "id": "154190030",
+  "name": "Osłonka",
+  "river": "Zalew Wiślany",
+  "lat": 54.265,
+  "lng": 19.245,
+  "voivodeship": "pomorskie"
+ },
+ {
+  "id": "154180120",
+  "name": "Gdynia",
+  "river": "Bałtyk",
+  "lat": 54.5178,
+  "lng": 18.5553,
+  "voivodeship": "pomorskie"
+ },
+ {
+  "id": "154190040",
+  "name": "Dolna Kępa",
+  "river": "Nogat",
+  "lat": 54.2525,
+  "lng": 19.3,
+  "voivodeship": "warmińsko-mazurskie"
+ },
+ {
+  "id": "154150030",
+  "name": "Kołobrzeg",
+  "river": "Bałtyk",
+  "lat": 54.1867,
+  "lng": 15.5533,
+  "voivodeship": "zachodniopomorskie"
+ },
+ {
+  "id": "154190010",
+  "name": "Nowy Dwór Gdański",
+  "river": "Święta",
+  "lat": 54.2144,
+  "lng": 19.1131,
+  "voivodeship": "pomorskie"
+ },
+ {
+  "id": "154180090",
+  "name": "Puck",
+  "river": "Zatoka Pucka",
+  "lat": 54.7225,
+  "lng": 18.4108,
+  "voivodeship": "pomorskie"
+ },
+ {
+  "id": "153140010",
+  "name": "Świnoujście",
+  "river": "Zatoka Pomorska (ujście Świny)",
+  "lat": 53.9083,
+  "lng": 14.2644,
+  "voivodeship": "zachodniopomorskie"
+ },
+ {
+  "id": "153140070",
+  "name": "Dziwnów",
+  "river": "Dziwna",
+  "lat": 54.0206,
+  "lng": 14.7317,
+  "voivodeship": "zachodniopomorskie"
+ },
+ {
+  "id": "153140040",
+  "name": "Trzebież",
+  "river": "Zalew Szczeciński",
+  "lat": 53.6592,
+  "lng": 14.5189,
+  "voivodeship": "zachodniopomorskie"
+ },
+ {
+  "id": "153140060",
+  "name": "Wolin",
+  "river": "Dziwna",
+  "lat": 53.8381,
+  "lng": 14.6167,
+  "voivodeship": "zachodniopomorskie"
+ },
+ {
+  "id": "154190130",
+  "name": "Nowa Pasłęka",
+  "river": "Zalew Wiślany",
+  "lat": 54.4258,
+  "lng": 19.7461,
+  "voivodeship": "warmińsko-mazurskie"
+ },
+ {
+  "id": "154170090",
+  "name": "Izbica",
+  "river": "Jez. Łebsko",
+  "lat": 54.6811,
+  "lng": 17.4281,
+  "voivodeship": "pomorskie"
+ },
+ {
+  "id": "154180170",
+  "name": "Wiślina",
+  "river": "Motława",
+  "lat": 54.3075,
+  "lng": 18.7253,
+  "voivodeship": "pomorskie"
+ },
+ {
+  "id": "153190170",
+  "name": "Ostróda",
+  "river": "Jez. Drwęckie",
+  "lat": 53.7028,
+  "lng": 19.9594,
+  "voivodeship": "warmińsko-mazurskie"
+ },
+ {
+  "id": "154190150",
+  "name": "Pierzchały",
+  "river": "Jez. Pierzchalskie; Pasłęka",
+  "lat": 54.3006,
+  "lng": 19.8489,
+  "voivodeship": "warmińsko-mazurskie"
+ },
+ {
+  "id": "154170190",
+  "name": "Borucino",
+  "river": "Jez. Raduńskie Górne",
+  "lat": 54.2533,
+  "lng": 17.9914,
+  "voivodeship": "pomorskie"
+ },
+ {
+  "id": "154190100",
+  "name": "Pasłęk",
+  "river": "Wąska",
+  "lat": 54.0706,
+  "lng": 19.66,
+  "voivodeship": "warmińsko-mazurskie"
+ },
+ {
+  "id": "151180130",
+  "name": "Działoszyn",
+  "river": "Warta",
+  "lat": 51.1103,
+  "lng": 18.8733,
+  "voivodeship": "łódzkie"
+ },
+ {
+  "id": "150170290",
+  "name": "Opole - Groszowice",
+  "river": "Odra",
+  "lat": 50.6342,
+  "lng": 17.9383,
+  "voivodeship": "opolskie"
+ },
+ {
+  "id": "149190070",
+  "name": "Łodygowice",
+  "river": "Żylica",
+  "lat": 49.7272,
+  "lng": 19.1361,
+  "voivodeship": "śląskie"
+ },
+ {
+  "id": "153210140",
+  "name": "Szkwa",
+  "river": "Szkwa",
+  "lat": 53.1803,
+  "lng": 21.6858,
+  "voivodeship": "mazowieckie"
+ },
+ {
+  "id": "153220160",
+  "name": "Osowiec 2",
+  "river": "Ełk (Kanał Rudzki)",
+  "lat": 53.4867,
+  "lng": 22.6267,
+  "voivodeship": "podlaskie"
+ },
+ {
+  "id": "153220270",
+  "name": "Babino",
+  "river": "Narew",
+  "lat": 53.1542,
+  "lng": 22.9425,
+  "voivodeship": "podlaskie"
+ },
+ {
+  "id": "152230120",
+  "name": "Bondary - Siemianówka",
+  "river": "Zb Siemianówka",
+  "lat": 52.9403,
+  "lng": 23.7572,
+  "voivodeship": "podlaskie"
+ },
+ {
+  "id": "152230040",
+  "name": "Ploski",
+  "river": "Narew",
+  "lat": 52.9022,
+  "lng": 23.2322,
+  "voivodeship": "podlaskie"
+ },
+ {
+  "id": "150150010",
+  "name": "Mirsk",
+  "river": "Kwisa",
+  "lat": 50.9892,
+  "lng": 15.3842,
+  "voivodeship": "dolnośląskie"
+ },
+ {
+  "id": "153150050",
+  "name": "Resko",
+  "river": "Rega",
+  "lat": 53.7728,
+  "lng": 15.3953,
+  "voivodeship": "zachodniopomorskie"
+ },
+ {
+  "id": "151170030",
+  "name": "Trestno",
+  "river": "Odra",
+  "lat": 51.0822,
+  "lng": 17.1469,
+  "voivodeship": "dolnośląskie"
+ },
+ {
+  "id": "151230010",
+  "name": "Trawniki",
+  "river": "Wieprz",
+  "lat": 51.1386,
+  "lng": 23.0011,
+  "voivodeship": "lubelskie"
+ },
+ {
+  "id": "152150110",
+  "name": "Skwierzyna",
+  "river": "Warta",
+  "lat": 52.6019,
+  "lng": 15.5003,
+  "voivodeship": "lubuskie"
+ },
+ {
+  "id": "154180150",
+  "name": "Tczew",
+  "river": "Wisła",
+  "lat": 54.0872,
+  "lng": 18.8056,
+  "voivodeship": "pomorskie"
+ },
+ {
+  "id": "149220140",
+  "name": "Polana",
+  "river": "Czarny",
+  "lat": 49.3025,
+  "lng": 22.5742,
+  "voivodeship": "podkarpackie"
+ },
+ {
+  "id": "154180260",
+  "name": "Pruszcz Gdański_kanał",
+  "river": "Kanał Raduni",
+  "lat": 54.2533,
+  "lng": 18.63,
+  "voivodeship": "pomorskie"
+ },
+ {
+  "id": "152180160",
+  "name": "Konin-Morzysław",
+  "river": "Kanał Ślesiński",
+  "lat": 52.2306,
+  "lng": 18.2942,
+  "voivodeship": "wielkopolskie"
+ },
+ {
+  "id": "152200110",
+  "name": "Modlin",
+  "river": "Wisła",
+  "lat": 52.4306,
+  "lng": 20.6597,
+  "voivodeship": "mazowieckie"
+ },
+ {
+  "id": "152200030",
+  "name": "Wyszogród",
+  "river": "Wisła",
+  "lat": 52.3847,
+  "lng": 20.1931,
+  "voivodeship": "mazowieckie"
+ },
+ {
+  "id": "152200150",
+  "name": "Wychódźc",
+  "river": "Wisła",
+  "lat": 52.3939,
+  "lng": 20.4228,
+  "voivodeship": "mazowieckie"
+ },
+ {
+  "id": "150200070",
+  "name": "Biskupice",
+  "river": "Szreniawa",
+  "lat": 50.1775,
+  "lng": 20.4992,
+  "voivodeship": "małopolskie"
+ },
+ {
+  "id": "150180030",
+  "name": "Koźle",
+  "river": "Odra",
+  "lat": 50.3519,
+  "lng": 18.1467,
+  "voivodeship": "opolskie"
+ },
+ {
+  "id": "150210030",
+  "name": "Mocha",
+  "river": "Łagowica",
+  "lat": 50.6706,
+  "lng": 21.0803,
+  "voivodeship": "świętokrzyskie"
+ },
+ {
+  "id": "150180160",
+  "name": "Pyskowice Dzierżno",
+  "river": "Drama",
+  "lat": 50.3825,
+  "lng": 18.5431,
+  "voivodeship": "śląskie"
+ },
+ {
+  "id": "150180150",
+  "name": "Pyskowice Dzierżno",
+  "river": "Kłodnica",
+  "lat": 50.3797,
+  "lng": 18.5433,
+  "voivodeship": "śląskie"
+ },
+ {
+  "id": "149220110",
+  "name": "Kalnica",
+  "river": "Wetlina",
+  "lat": 49.1889,
+  "lng": 22.4292,
+  "voivodeship": "podkarpackie"
+ },
+ {
+  "id": "151220080",
+  "name": "Tchórzew",
+  "river": "Tyśmienica",
+  "lat": 51.6792,
+  "lng": 22.5561,
+  "voivodeship": "lubelskie"
+ },
+ {
+  "id": "150240010",
+  "name": "Strzyżów",
+  "river": "Bug",
+  "lat": 50.8394,
+  "lng": 24.0358,
+  "voivodeship": "lubelskie"
+ },
+ {
+  "id": "154190160",
+  "name": "Pierzchały",
+  "river": "Jez. Pierzchalskie; Pasłęka",
+  "lat": 54.3008,
+  "lng": 19.8489,
+  "voivodeship": "warmińsko-mazurskie"
+ },
+ {
+  "id": "150180280",
+  "name": "Rybnik Gotartowice",
+  "river": "Ruda",
+  "lat": 50.0856,
+  "lng": 18.6286,
+  "voivodeship": "śląskie"
+ },
+ {
+  "id": "149210090",
+  "name": "Krempna-Kotań",
+  "river": "Wisłoka",
+  "lat": 49.5153,
+  "lng": 21.4831,
+  "voivodeship": "podkarpackie"
+ },
+ {
+  "id": "150230040",
+  "name": "Krasnystaw",
+  "river": "Wieprz",
+  "lat": 50.9853,
+  "lng": 23.1767,
+  "voivodeship": "lubelskie"
+ },
+ {
+  "id": "153220090",
+  "name": "Czachy",
+  "river": "Wissa",
+  "lat": 53.3781,
+  "lng": 22.4461,
+  "voivodeship": "podlaskie"
+ },
+ {
+  "id": "153170100",
+  "name": "Nakło-Zachód",
+  "river": "Noteć",
+  "lat": 53.1236,
+  "lng": 17.5622,
+  "voivodeship": "kujawsko-pomorskie"
+ },
+ {
+  "id": "153220180",
+  "name": "Zawady",
+  "river": "Ślina",
+  "lat": 53.1569,
+  "lng": 22.6736,
+  "voivodeship": "podlaskie"
+ },
+ {
+  "id": "152180050",
+  "name": "Sławsk",
+  "river": "Warta",
+  "lat": 52.1983,
+  "lng": 18.1333,
+  "voivodeship": "wielkopolskie"
+ },
+ {
+  "id": "152140020",
+  "name": "Gozdowice",
+  "river": "Odra",
+  "lat": 52.7642,
+  "lng": 14.3178,
+  "voivodeship": "zachodniopomorskie"
+ },
+ {
+  "id": "152150010",
+  "name": "Świerkocin",
+  "river": "Warta",
+  "lat": 52.6506,
+  "lng": 14.9994,
+  "voivodeship": "lubuskie"
+ },
+ {
+  "id": "150170130",
+  "name": "Ujście Nysy Kłodzkiej",
+  "river": "Odra",
+  "lat": 50.8183,
+  "lng": 17.6611,
+  "voivodeship": "opolskie"
+ },
+ {
+  "id": "151190080",
+  "name": "Kłudzice",
+  "river": "Luciąża",
+  "lat": 51.3492,
+  "lng": 19.7819,
+  "voivodeship": "łódzkie"
+ },
+ {
+  "id": "152140010",
+  "name": "Bielinek",
+  "river": "Odra",
+  "lat": 52.9292,
+  "lng": 14.1542,
+  "voivodeship": "zachodniopomorskie"
+ },
+ {
+  "id": "152150080",
+  "name": "Santok 2",
+  "river": "Warta",
+  "lat": 52.7336,
+  "lng": 15.3967,
+  "voivodeship": "lubuskie"
+ },
+ {
+  "id": "150190350",
+  "name": "Januszewice",
+  "river": "Czarna",
+  "lat": 50.9417,
+  "lng": 19.9608,
+  "voivodeship": "świętokrzyskie"
+ },
+ {
+  "id": "153230060",
+  "name": "Zawady",
+  "river": "Biała",
+  "lat": 53.1603,
+  "lng": 23.1067,
+  "voivodeship": "podlaskie"
+ },
+ {
+  "id": "150190160",
+  "name": "Oświęcim",
+  "river": "Soła",
+  "lat": 50.04,
+  "lng": 19.2186,
+  "voivodeship": "małopolskie"
+ },
+ {
+  "id": "150190310",
+  "name": "Balice",
+  "river": "Rudawa",
+  "lat": 50.0931,
+  "lng": 19.8067,
+  "voivodeship": "małopolskie"
+ },
+ {
+  "id": "149210040",
+  "name": "Łabuzie",
+  "river": "Wisłoka",
+  "lat": 49.9878,
+  "lng": 21.3097,
+  "voivodeship": "podkarpackie"
+ },
+ {
+  "id": "152150020",
+  "name": "Stary Raduszec",
+  "river": "Bóbr",
+  "lat": 52.0364,
+  "lng": 15.0786,
+  "voivodeship": "lubuskie"
+ },
+ {
+  "id": "152230200",
+  "name": "Zabuże",
+  "river": "Bug",
+  "lat": 52.3175,
+  "lng": 23.0489,
+  "voivodeship": "mazowieckie"
+ },
+ {
+  "id": "152200010",
+  "name": "Kęszyce",
+  "river": "Rawka",
+  "lat": 52.1358,
+  "lng": 20.1314,
+  "voivodeship": "łódzkie"
+ },
+ {
+  "id": "151190120",
+  "name": "Dąbrowa",
+  "river": "Czarna",
+  "lat": 51.3139,
+  "lng": 19.9717,
+  "voivodeship": "łódzkie"
+ },
+ {
+  "id": "150150090",
+  "name": "Łomnica",
+  "river": "Łomnica",
+  "lat": 50.8764,
+  "lng": 15.8031,
+  "voivodeship": "dolnośląskie"
+ },
+ {
+  "id": "153220170",
+  "name": "Osowiec",
+  "river": "Biebrza",
+  "lat": 53.4831,
+  "lng": 22.6386,
+  "voivodeship": "podlaskie"
+ },
+ {
+  "id": "154150040",
+  "name": "Bardy",
+  "river": "Parsęta",
+  "lat": 54.0917,
+  "lng": 15.7139,
+  "voivodeship": "zachodniopomorskie"
+ },
+ {
+  "id": "150210210",
+  "name": "Radomysl",
+  "river": "San",
+  "lat": 50.6736,
+  "lng": 21.9308,
+  "voivodeship": "podkarpackie"
+ },
+ {
+  "id": "150170120",
+  "name": "Niemodlin",
+  "river": "Ścinawa Niemodlińska",
+  "lat": 50.6456,
+  "lng": 17.6244,
+  "voivodeship": "opolskie"
+ },
+ {
+  "id": "152210150",
+  "name": "Popowo",
+  "river": "Zb. Dębe",
+  "lat": 52.5281,
+  "lng": 21.1756,
+  "voivodeship": "mazowieckie"
+ },
+ {
+  "id": "149190060",
+  "name": "Jawiszowice",
+  "river": "Wisła",
+  "lat": 49.9725,
+  "lng": 19.1219,
+  "voivodeship": "małopolskie"
+ },
+ {
+  "id": "150220070",
+  "name": "Rzuchów",
+  "river": "San",
+  "lat": 50.2469,
+  "lng": 22.5019,
+  "voivodeship": "podkarpackie"
+ },
+ {
+  "id": "152190100",
+  "name": "Bielawy",
+  "river": "Mroga",
+  "lat": 52.0736,
+  "lng": 19.65,
+  "voivodeship": "łódzkie"
+ },
+ {
+  "id": "151150080",
+  "name": "Żagań",
+  "river": "Bóbr",
+  "lat": 51.6181,
+  "lng": 15.3158,
+  "voivodeship": "lubuskie"
+ },
+ {
+  "id": "149200090",
+  "name": "Dobczyce",
+  "river": "Raba",
+  "lat": 49.8836,
+  "lng": 20.0861,
+  "voivodeship": "małopolskie"
+ },
+ {
+  "id": "152150040",
+  "name": "Gorzów Wielkopolski",
+  "river": "Warta",
+  "lat": 52.73,
+  "lng": 15.2531,
+  "voivodeship": "lubuskie"
+ },
+ {
+  "id": "150210190",
+  "name": "Zawichost",
+  "river": "Wisła",
+  "lat": 50.8058,
+  "lng": 21.8631,
+  "voivodeship": "świętokrzyskie"
+ },
+ {
+  "id": "149200140",
+  "name": "Sromowce Wyżne",
+  "river": "Dunajec",
+  "lat": 49.4006,
+  "lng": 20.3539,
+  "voivodeship": "małopolskie"
+ },
+ {
+  "id": "150210080",
+  "name": "Nietulisko Duże",
+  "river": "Kamienna",
+  "lat": 50.9789,
+  "lng": 21.2419,
+  "voivodeship": "świętokrzyskie"
+ },
+ {
+  "id": "149210110",
+  "name": "Krosno",
+  "river": "Wisłok",
+  "lat": 49.6939,
+  "lng": 21.7747,
+  "voivodeship": "podkarpackie"
+ },
+ {
+  "id": "149180230",
+  "name": "Podkępie",
+  "river": "Wapienica",
+  "lat": 49.8956,
+  "lng": 18.9775,
+  "voivodeship": "śląskie"
+ },
+ {
+  "id": "153220230",
+  "name": "Kulesze Chobotki",
+  "river": "Nereśl",
+  "lat": 53.2417,
+  "lng": 22.7647,
+  "voivodeship": "podlaskie"
+ },
+ {
+  "id": "153180080",
+  "name": "Chełmno",
+  "river": "Wisła",
+  "lat": 53.3631,
+  "lng": 18.415,
+  "voivodeship": "kujawsko-pomorskie"
+ },
+ {
+  "id": "150190170",
+  "name": "Pustynia",
+  "river": "Wisła",
+  "lat": 50.0633,
+  "lng": 19.2364,
+  "voivodeship": "małopolskie"
+ },
+ {
+  "id": "151170050",
+  "name": "Zbytowa",
+  "river": "Widawa",
+  "lat": 51.1058,
+  "lng": 17.4067,
+  "voivodeship": "dolnośląskie"
+ },
+ {
+  "id": "152230110",
+  "name": "Bondary - Siemianówka",
+  "river": "Zb Siemianówka",
+  "lat": 52.9403,
+  "lng": 23.7489,
+  "voivodeship": "podlaskie"
+ },
+ {
+  "id": "150140030",
+  "name": "Turoszów",
+  "river": "Miedzianka",
+  "lat": 50.9389,
+  "lng": 14.9178,
+  "voivodeship": "dolnośląskie"
+ },
+ {
+  "id": "150210180",
+  "name": "Annopol",
+  "river": "Wisła",
+  "lat": 50.8992,
+  "lng": 21.8322,
+  "voivodeship": "lubelskie"
+ },
+ {
+  "id": "149200110",
+  "name": "Trybsz 2",
+  "river": "Białka",
+  "lat": 49.4178,
+  "lng": 20.1175,
+  "voivodeship": "małopolskie"
+ },
+ {
+  "id": "153210190",
+  "name": "Pisz",
+  "river": "Pisa",
+  "lat": 53.6244,
+  "lng": 21.8064,
+  "voivodeship": "warmińsko-mazurskie"
+ },
+ {
+  "id": "150200020",
+  "name": "Bocheniec",
+  "river": "Wierna Rzeka",
+  "lat": 50.8025,
+  "lng": 20.3117,
+  "voivodeship": "świętokrzyskie"
+ },
+ {
+  "id": "149200170",
+  "name": "Proszówki",
+  "river": "Raba",
+  "lat": 49.9964,
+  "lng": 20.4383,
+  "voivodeship": "małopolskie"
+ },
+ {
+  "id": "149200310",
+  "name": "Grybów",
+  "river": "Biała",
+  "lat": 49.6239,
+  "lng": 20.9458,
+  "voivodeship": "małopolskie"
+ },
+ {
+  "id": "149210140",
+  "name": "Iskrzynia",
+  "river": "Morwawa",
+  "lat": 49.6772,
+  "lng": 21.8644,
+  "voivodeship": "podkarpackie"
+ },
+ {
+  "id": "153160210",
+  "name": "Ptusza",
+  "river": "Gwda",
+  "lat": 53.3667,
+  "lng": 16.7964,
+  "voivodeship": "wielkopolskie"
+ },
+ {
+  "id": "154210100",
+  "name": "Mieduniszki",
+  "river": "Węgorapa",
+  "lat": 54.3264,
+  "lng": 21.98,
+  "voivodeship": "warmińsko-mazurskie"
+ },
+ {
+  "id": "150160040",
+  "name": "Kudowa Zdrój-Zakrze",
+  "river": "Klikawa",
+  "lat": 50.4308,
+  "lng": 16.2439,
+  "voivodeship": "dolnośląskie"
+ },
+ {
+  "id": "153200090",
+  "name": "Szypry",
+  "river": "Jez. Wadąg",
+  "lat": 53.8356,
+  "lng": 20.5736,
+  "voivodeship": "warmińsko-mazurskie"
+ },
+ {
+  "id": "153180100",
+  "name": "Grudziądz",
+  "river": "Wisła",
+  "lat": 53.485,
+  "lng": 18.7453,
+  "voivodeship": "kujawsko-pomorskie"
+ },
+ {
+  "id": "151190090",
+  "name": "Przedbórz",
+  "river": "Pilica",
+  "lat": 51.0894,
+  "lng": 19.875,
+  "voivodeship": "łódzkie"
+ },
+ {
+  "id": "149180220",
+  "name": "Pszczyna",
+  "river": "Pszczynka",
+  "lat": 49.9792,
+  "lng": 18.9458,
+  "voivodeship": "śląskie"
+ },
+ {
+  "id": "154210070",
+  "name": "Węgorzewo",
+  "river": "Węgorapa",
+  "lat": 54.2267,
+  "lng": 21.7308,
+  "voivodeship": "warmińsko-mazurskie"
+ },
+ {
+  "id": "152170080",
+  "name": "Pyzdry",
+  "river": "Warta",
+  "lat": 52.1678,
+  "lng": 17.6953,
+  "voivodeship": "wielkopolskie"
+ },
+ {
+  "id": "153170140",
+  "name": "Smukała",
+  "river": "Brda",
+  "lat": 53.1881,
+  "lng": 17.9631,
+  "voivodeship": "kujawsko-pomorskie"
+ },
+ {
+  "id": "152160070",
+  "name": "Czarnków",
+  "river": "Noteć",
+  "lat": 52.9083,
+  "lng": 16.5542,
+  "voivodeship": "wielkopolskie"
+ },
+ {
+  "id": "153220190",
+  "name": "Rajgród 2",
+  "river": "Jez.Rajgrodzkie",
+  "lat": 53.7328,
+  "lng": 22.6997,
+  "voivodeship": "podlaskie"
+ },
+ {
+  "id": "150210200",
+  "name": "Grębów",
+  "river": "Łęg",
+  "lat": 50.5758,
+  "lng": 21.9119,
+  "voivodeship": "podkarpackie"
+ },
+ {
+  "id": "152180120",
+  "name": "Koło",
+  "river": "Warta",
+  "lat": 52.1953,
+  "lng": 18.6344,
+  "voivodeship": "wielkopolskie"
+ },
+ {
+  "id": "153170010",
+  "name": "Białośliwie",
+  "river": "Noteć",
+  "lat": 53.0736,
+  "lng": 17.1247,
+  "voivodeship": "wielkopolskie"
+ },
+ {
+  "id": "153220140",
+  "name": "Przechody",
+  "river": "Ełk (Kanał.Rudzki)",
+  "lat": 53.555,
+  "lng": 22.5864,
+  "voivodeship": "podlaskie"
+ },
+ {
+  "id": "149200260",
+  "name": "Nowy Sącz 1",
+  "river": "Łubinka",
+  "lat": 49.6353,
+  "lng": 20.7047,
+  "voivodeship": "małopolskie"
+ },
+ {
+  "id": "153160170",
+  "name": "Ujście",
+  "river": "Noteć",
+  "lat": 53.0547,
+  "lng": 16.7303,
+  "voivodeship": "wielkopolskie"
+ },
+ {
+  "id": "152210090",
+  "name": "Wyszków",
+  "river": "Bug",
+  "lat": 52.5883,
+  "lng": 21.4528,
+  "voivodeship": "mazowieckie"
+ },
+ {
+  "id": "149190100",
+  "name": "Żywiec",
+  "river": "Soła",
+  "lat": 49.6864,
+  "lng": 19.1933,
+  "voivodeship": "śląskie"
+ },
+ {
+  "id": "149190050",
+  "name": "Rajcza",
+  "river": "Soła",
+  "lat": 49.5139,
+  "lng": 19.1164,
+  "voivodeship": "śląskie"
+ },
+ {
+  "id": "152150140",
+  "name": "Gościmiec",
+  "river": "Noteć",
+  "lat": 52.7756,
+  "lng": 15.6383,
+  "voivodeship": "lubuskie"
+ },
+ {
+  "id": "153220070",
+  "name": "Wizna",
+  "river": "Narew",
+  "lat": 53.2011,
+  "lng": 22.4086,
+  "voivodeship": "podlaskie"
+ },
+ {
+  "id": "152190120",
+  "name": "Kępa Polska",
+  "river": "Wisła",
+  "lat": 52.4314,
+  "lng": 19.9633,
+  "voivodeship": "mazowieckie"
+ },
+ {
+  "id": "152230070",
+  "name": "Malowa Góra",
+  "river": "Krzna",
+  "lat": 52.1036,
+  "lng": 23.4675,
+  "voivodeship": "lubelskie"
+ },
+ {
+  "id": "152140070",
+  "name": "Kostrzyn n. Odrą",
+  "river": "Warta",
+  "lat": 52.5819,
+  "lng": 14.6622,
+  "voivodeship": "lubuskie"
+ },
+ {
+  "id": "153220260",
+  "name": "Dębowo",
+  "river": "Biebrza",
+  "lat": 53.6097,
+  "lng": 22.9303,
+  "voivodeship": "podlaskie"
+ },
+ {
+  "id": "154160070",
+  "name": "Stary Kraków",
+  "river": "Wieprza",
+  "lat": 54.4422,
+  "lng": 16.6064,
+  "voivodeship": "zachodniopomorskie"
+ },
+ {
+  "id": "149190350",
+  "name": "Krzczonów",
+  "river": "Krzczonówka",
+  "lat": 49.7367,
+  "lng": 19.9539,
+  "voivodeship": "małopolskie"
+ },
+ {
+  "id": "150220080",
+  "name": "Tryńcza",
+  "river": "Wisłok",
+  "lat": 50.1622,
+  "lng": 22.5472,
+  "voivodeship": "podkarpackie"
+ },
+ {
+  "id": "151220090",
+  "name": "Lubartów",
+  "river": "Wieprz",
+  "lat": 51.4981,
+  "lng": 22.6436,
+  "voivodeship": "lubelskie"
+ },
+ {
+  "id": "152180030",
+  "name": "Pakość",
+  "river": "Noteć",
+  "lat": 52.8,
+  "lng": 18.0931,
+  "voivodeship": "kujawsko-pomorskie"
+ },
+ {
+  "id": "149200160",
+  "name": "Krościenko",
+  "river": "Dunajec",
+  "lat": 49.4417,
+  "lng": 20.4294,
+  "voivodeship": "małopolskie"
+ },
+ {
+  "id": "154210080",
+  "name": "Prynowo",
+  "river": "Węgorapa",
+  "lat": 54.2442,
+  "lng": 21.72,
+  "voivodeship": "warmińsko-mazurskie"
+ },
+ {
+  "id": "150190100",
+  "name": "Niwka",
+  "river": "Biała Przemsza",
+  "lat": 50.2358,
+  "lng": 19.1608,
+  "voivodeship": "śląskie"
+ },
+ {
+  "id": "150170040",
+  "name": "Oława",
+  "river": "Odra",
+  "lat": 50.9464,
+  "lng": 17.3064,
+  "voivodeship": "dolnośląskie"
+ },
+ {
+  "id": "152200020",
+  "name": "Trzciniec",
+  "river": "Wkra",
+  "lat": 52.9306,
+  "lng": 20.1719,
+  "voivodeship": "mazowieckie"
+ },
+ {
+  "id": "151160060",
+  "name": "Głogów",
+  "river": "Odra",
+  "lat": 51.6739,
+  "lng": 16.0592,
+  "voivodeship": "dolnośląskie"
+ },
+ {
+  "id": "149180250",
+  "name": "Czechowice Dziedzice",
+  "river": "Iłownica",
+  "lat": 49.9136,
+  "lng": 18.9864,
+  "voivodeship": "śląskie"
+ },
+ {
+  "id": "152170010",
+  "name": "Śrem",
+  "river": "Warta",
+  "lat": 52.0931,
+  "lng": 17.0161,
+  "voivodeship": "wielkopolskie"
+ },
+ {
+  "id": "149190120",
+  "name": "Czaniec (Kobiernice)",
+  "river": "Soła",
+  "lat": 49.8483,
+  "lng": 19.2278,
+  "voivodeship": "śląskie"
+ },
+ {
+  "id": "153180110",
+  "name": "Brody Pomorskie",
+  "river": "Wierzyca",
+  "lat": 53.8583,
+  "lng": 18.7603,
+  "voivodeship": "pomorskie"
+ },
+ {
+  "id": "150160270",
+  "name": "Kamieniec Ząbkowicki",
+  "river": "Budzówka",
+  "lat": 50.5322,
+  "lng": 16.865,
+  "voivodeship": "dolnośląskie"
+ },
+ {
+  "id": "152210040",
+  "name": "Warszawa - Nadwilanówka",
+  "river": "Wisła",
+  "lat": 52.1928,
+  "lng": 21.1039,
+  "voivodeship": "mazowieckie"
+ },
+ {
+  "id": "150200090",
+  "name": "Slowik",
+  "river": "Bobrza",
+  "lat": 50.8328,
+  "lng": 20.5361,
+  "voivodeship": "świętokrzyskie"
+ },
+ {
+  "id": "150200170",
+  "name": "Żabno",
+  "river": "Dunajec",
+  "lat": 50.1319,
+  "lng": 20.8619,
+  "voivodeship": "małopolskie"
+ },
+ {
+  "id": "149220060",
+  "name": "Lesko",
+  "river": "San",
+  "lat": 49.4692,
+  "lng": 22.3222,
+  "voivodeship": "podkarpackie"
+ },
+ {
+  "id": "154220010",
+  "name": "Banie Mazurskie",
+  "river": "Gołdapa",
+  "lat": 54.2478,
+  "lng": 22.0297,
+  "voivodeship": "warmińsko-mazurskie"
+ },
+ {
+  "id": "149200330",
+  "name": "Ciężkowice",
+  "river": "Biała",
+  "lat": 49.7922,
+  "lng": 20.9736,
+  "voivodeship": "małopolskie"
+ },
+ {
+  "id": "152140060",
+  "name": "Kostrzyn n. Odrą",
+  "river": "Odra",
+  "lat": 52.5992,
+  "lng": 14.6106,
+  "voivodeship": "lubuskie"
+ },
+ {
+  "id": "153230020",
+  "name": "Karpowicze",
+  "river": "Brzozówka",
+  "lat": 53.5853,
+  "lng": 23.0433,
+  "voivodeship": "podlaskie"
+ },
+ {
+  "id": "153180020",
+  "name": "Fordon",
+  "river": "Wisła",
+  "lat": 53.1464,
+  "lng": 18.17,
+  "voivodeship": "kujawsko-pomorskie"
+ },
+ {
+  "id": "152170060",
+  "name": "Nowa Wieś Podgórna",
+  "river": "Warta",
+  "lat": 52.1417,
+  "lng": 17.59,
+  "voivodeship": "wielkopolskie"
+ },
+ {
+  "id": "150200080",
+  "name": "Pinczów",
+  "river": "Nida",
+  "lat": 50.5142,
+  "lng": 20.5203,
+  "voivodeship": "świętokrzyskie"
+ },
+ {
+  "id": "151180080",
+  "name": "Sieradz",
+  "river": "Warta",
+  "lat": 51.5994,
+  "lng": 18.7425,
+  "voivodeship": "łódzkie"
+ },
+ {
+  "id": "151170060",
+  "name": "Bogdaj",
+  "river": "Polska Woda",
+  "lat": 51.5161,
+  "lng": 17.5642,
+  "voivodeship": "wielkopolskie"
+ },
+ {
+  "id": "152160100",
+  "name": "Oborniki",
+  "river": "Warta",
+  "lat": 52.6436,
+  "lng": 16.8136,
+  "voivodeship": "wielkopolskie"
+ },
+ {
+  "id": "154150010",
+  "name": "Trzebiatów",
+  "river": "Rega",
+  "lat": 54.0633,
+  "lng": 15.2608,
+  "voivodeship": "zachodniopomorskie"
+ },
+ {
+  "id": "151160150",
+  "name": "Malczyce",
+  "river": "Odra",
+  "lat": 51.2261,
+  "lng": 16.4928,
+  "voivodeship": "dolnośląskie"
+ },
+ {
+  "id": "149210130",
+  "name": "Żarnowa",
+  "river": "Wisłok",
+  "lat": 49.8778,
+  "lng": 21.8175,
+  "voivodeship": "podkarpackie"
+ },
+ {
+  "id": "150210120",
+  "name": "Mielec 2",
+  "river": "Wisłoka",
+  "lat": 50.2792,
+  "lng": 21.4303,
+  "voivodeship": "podkarpackie"
+ },
+ {
+  "id": "153180090",
+  "name": "Toruń",
+  "river": "Wisła",
+  "lat": 53.0078,
+  "lng": 18.6075,
+  "voivodeship": "kujawsko-pomorskie"
+ },
+ {
+  "id": "151220010",
+  "name": "Kośmin",
+  "river": "Wieprz",
+  "lat": 51.5731,
+  "lng": 22.0014,
+  "voivodeship": "lubelskie"
+ },
+ {
+  "id": "151160230",
+  "name": "Ślęza",
+  "river": "Ślęza",
+  "lat": 51.0375,
+  "lng": 16.985,
+  "voivodeship": "dolnośląskie"
+ },
+ {
+  "id": "150170180",
+  "name": "Racławice Śląskie",
+  "river": "Osobłoga",
+  "lat": 50.3153,
+  "lng": 17.7889,
+  "voivodeship": "opolskie"
+ },
+ {
+  "id": "150220160",
+  "name": "Osuchy",
+  "river": "Tanew",
+  "lat": 50.3989,
+  "lng": 22.955,
+  "voivodeship": "lubelskie"
+ },
+ {
+  "id": "154190170",
+  "name": "Łozy",
+  "river": "Pasłęka",
+  "lat": 54.1947,
+  "lng": 19.9508,
+  "voivodeship": "warmińsko-mazurskie"
+ },
+ {
+  "id": "149180210",
+  "name": "Zabrzeg",
+  "river": "Wisła",
+  "lat": 49.9253,
+  "lng": 18.9353,
+  "voivodeship": "śląskie"
+ },
+ {
+  "id": "149220180",
+  "name": "Stuposiany",
+  "river": "Wołosaty",
+  "lat": 49.1856,
+  "lng": 22.6836,
+  "voivodeship": "podkarpackie"
+ },
+ {
+  "id": "149200100",
+  "name": "Łysa Polana",
+  "river": "Białka",
+  "lat": 49.2636,
+  "lng": 20.115,
+  "voivodeship": "małopolskie"
+ },
+ {
+  "id": "153200040",
+  "name": "Tomaryny",
+  "river": "Pasłęka",
+  "lat": 53.7361,
+  "lng": 20.2067,
+  "voivodeship": "warmińsko-mazurskie"
+ },
+ {
+  "id": "150230070",
+  "name": "Gozdów",
+  "river": "Huczwa",
+  "lat": 50.7775,
+  "lng": 23.8072,
+  "voivodeship": "lubelskie"
+ },
+ {
+  "id": "149220190",
+  "name": "Przemyśl",
+  "river": "San",
+  "lat": 49.7847,
+  "lng": 22.7672,
+  "voivodeship": "podkarpackie"
+ },
+ {
+  "id": "152200090",
+  "name": "Krubice",
+  "river": "Utrata",
+  "lat": 52.2397,
+  "lng": 20.4517,
+  "voivodeship": "mazowieckie"
+ },
+ {
+  "id": "154180060",
+  "name": "Goręczyno",
+  "river": "Radunia",
+  "lat": 54.2636,
+  "lng": 18.1647,
+  "voivodeship": "pomorskie"
+ },
+ {
+  "id": "153220130",
+  "name": "Strękowa Góra",
+  "river": "Narew",
+  "lat": 53.2197,
+  "lng": 22.5386,
+  "voivodeship": "podlaskie"
+ },
+ {
+  "id": "151210120",
+  "name": "Dęblin",
+  "river": "Wisła",
+  "lat": 51.5628,
+  "lng": 21.8264,
+  "voivodeship": "lubelskie"
+ },
+ {
+  "id": "152210060",
+  "name": "Zambski Kościelne",
+  "river": "Narew",
+  "lat": 52.7561,
+  "lng": 21.2061,
+  "voivodeship": "mazowieckie"
+ },
+ {
+  "id": "149210010",
+  "name": "Ropa",
+  "river": "Ropa",
+  "lat": 49.5858,
+  "lng": 21.0464,
+  "voivodeship": "małopolskie"
+ },
+ {
+  "id": "152210030",
+  "name": "Maków Mazowiecki",
+  "river": "Orzyc",
+  "lat": 52.8608,
+  "lng": 21.1069,
+  "voivodeship": "mazowieckie"
+ },
+ {
+  "id": "154210020",
+  "name": "Prosna",
+  "river": "Guber",
+  "lat": 54.2336,
+  "lng": 21.0867,
+  "voivodeship": "warmińsko-mazurskie"
+ },
+ {
+  "id": "153220100",
+  "name": "Burzyn",
+  "river": "Biebrza",
+  "lat": 53.2742,
+  "lng": 22.4592,
+  "voivodeship": "podlaskie"
+ },
+ {
+  "id": "150200150",
+  "name": "Karsy",
+  "river": "Wisła",
+  "lat": 50.275,
+  "lng": 20.7747,
+  "voivodeship": "małopolskie"
+ },
+ {
+  "id": "153190120",
+  "name": "Rodzone",
+  "river": "Drwęca",
+  "lat": 53.5222,
+  "lng": 19.6597,
+  "voivodeship": "warmińsko-mazurskie"
+ },
+ {
+  "id": "151160220",
+  "name": "Kanclerzowice",
+  "river": "Sąsiecznica",
+  "lat": 51.4536,
+  "lng": 16.9561,
+  "voivodeship": "dolnośląskie"
+ },
+ {
+  "id": "151210080",
+  "name": "Kazanów",
+  "river": "Iłżanka",
+  "lat": 51.2733,
+  "lng": 21.4667,
+  "voivodeship": "mazowieckie"
+ },
+ {
+  "id": "150200100",
+  "name": "Popędzynka",
+  "river": "Wisła",
+  "lat": 50.1414,
+  "lng": 20.5494,
+  "voivodeship": "małopolskie"
+ },
+ {
+  "id": "153160020",
+  "name": "Tychówko",
+  "river": "Parsęta",
+  "lat": 53.9006,
+  "lng": 16.0653,
+  "voivodeship": "zachodniopomorskie"
+ },
+ {
+  "id": "152180110",
+  "name": "Kościelec",
+  "river": "Kiełbaska",
+  "lat": 52.1753,
+  "lng": 18.5753,
+  "voivodeship": "wielkopolskie"
+ },
+ {
+  "id": "152160140",
+  "name": "Poznań Most Rocha",
+  "river": "Warta",
+  "lat": 52.4022,
+  "lng": 16.9453,
+  "voivodeship": "wielkopolskie"
+ },
+ {
+  "id": "150200010",
+  "name": "Mniszek",
+  "river": "Biała Nida",
+  "lat": 50.7275,
+  "lng": 20.285,
+  "voivodeship": "świętokrzyskie"
+ },
+ {
+  "id": "151140050",
+  "name": "Ręczyn",
+  "river": "Witka",
+  "lat": 51.0431,
+  "lng": 14.98,
+  "voivodeship": "dolnośląskie"
+ },
+ {
+  "id": "151190100",
+  "name": "Sulejów",
+  "river": "Pilica",
+  "lat": 51.3436,
+  "lng": 19.8861,
+  "voivodeship": "łódzkie"
+ },
+ {
+  "id": "150190360",
+  "name": "Gromiec",
+  "river": "Wisła",
+  "lat": 50.0356,
+  "lng": 19.3822,
+  "voivodeship": "małopolskie"
+ },
+ {
+  "id": "152180060",
+  "name": "Posoka",
+  "river": "Powa",
+  "lat": 52.2031,
+  "lng": 18.2225,
+  "voivodeship": "wielkopolskie"
+ },
+ {
+  "id": "149190270",
+  "name": "Radziszów",
+  "river": "Skawinka",
+  "lat": 49.94,
+  "lng": 19.8089,
+  "voivodeship": "małopolskie"
+ },
+ {
+  "id": "150210160",
+  "name": "Koprzywnica",
+  "river": "Koprzywianka",
+  "lat": 50.5958,
+  "lng": 21.5731,
+  "voivodeship": "świętokrzyskie"
+ },
+ {
+  "id": "152160050",
+  "name": "Wronki",
+  "river": "Warta",
+  "lat": 52.7117,
+  "lng": 16.38,
+  "voivodeship": "wielkopolskie"
+ },
+ {
+  "id": "152150050",
+  "name": "Nietków",
+  "river": "Odra",
+  "lat": 52.0464,
+  "lng": 15.3475,
+  "voivodeship": "lubuskie"
+ },
+ {
+  "id": "150210060",
+  "name": "Staszów",
+  "river": "Czarna",
+  "lat": 50.5564,
+  "lng": 21.1731,
+  "voivodeship": "świętokrzyskie"
+ },
+ {
+  "id": "149200050",
+  "name": "Nowy Targ - Kowaniec",
+  "river": "Dunajec",
+  "lat": 49.4869,
+  "lng": 20.0536,
+  "voivodeship": "małopolskie"
+ },
+ {
+  "id": "152190030",
+  "name": "Włocławek",
+  "river": "Wisła",
+  "lat": 52.6633,
+  "lng": 19.0694,
+  "voivodeship": "kujawsko-pomorskie"
+ },
+ {
+  "id": "149180090",
+  "name": "Borki Mizerów",
+  "river": "Pszczynka",
+  "lat": 49.9986,
+  "lng": 18.7686,
+  "voivodeship": "śląskie"
+ },
+ {
+  "id": "153160180",
+  "name": "Piła",
+  "river": "Gwda",
+  "lat": 53.1514,
+  "lng": 16.7397,
+  "voivodeship": "wielkopolskie"
+ },
+ {
+  "id": "152210020",
+  "name": "Piaseczno",
+  "river": "Jeziorka",
+  "lat": 52.0633,
+  "lng": 21.0394,
+  "voivodeship": "mazowieckie"
+ },
+ {
+  "id": "149200190",
+  "name": "Gołkowice",
+  "river": "Dunajec",
+  "lat": 49.5497,
+  "lng": 20.57,
+  "voivodeship": "małopolskie"
+ },
+ {
+  "id": "149220030",
+  "name": "Olchowce",
+  "river": "San",
+  "lat": 49.5561,
+  "lng": 22.2186,
+  "voivodeship": "podkarpackie"
+ },
+ {
+  "id": "149200150",
+  "name": "Tylmanowa",
+  "river": "Ochotnica",
+  "lat": 49.5172,
+  "lng": 20.3869,
+  "voivodeship": "małopolskie"
+ },
+ {
+  "id": "150190280",
+  "name": "Wąsosz",
+  "river": "Pilica",
+  "lat": 50.7511,
+  "lng": 19.6828,
+  "voivodeship": "śląskie"
+ },
+ {
+  "id": "151150130",
+  "name": "Szprotawa 2",
+  "river": "Szprotawa",
+  "lat": 51.5653,
+  "lng": 15.5553,
+  "voivodeship": "lubuskie"
+ },
+ {
+  "id": "150180110",
+  "name": "Ruda Kozielska",
+  "river": "Ruda",
+  "lat": 50.2047,
+  "lng": 18.4017,
+  "voivodeship": "śląskie"
+ },
+ {
+  "id": "149190280",
+  "name": "Koniówka",
+  "river": "Czarny Dunajec",
+  "lat": 49.3956,
+  "lng": 19.8181,
+  "voivodeship": "małopolskie"
+ },
+ {
+  "id": "149180120",
+  "name": "Górki Wielkie",
+  "river": "Brennica",
+  "lat": 49.7725,
+  "lng": 18.8525,
+  "voivodeship": "śląskie"
+ },
+ {
+  "id": "151180170",
+  "name": "Rogóźno",
+  "river": "Widawka",
+  "lat": 51.4356,
+  "lng": 18.9742,
+  "voivodeship": "łódzkie"
+ },
+ {
+  "id": "150160160",
+  "name": "Mietków",
+  "river": "Bystrzyca",
+  "lat": 50.9683,
+  "lng": 16.6506,
+  "voivodeship": "dolnośląskie"
+ },
+ {
+  "id": "150190190",
+  "name": "Piwoń",
+  "river": "Przemsza",
+  "lat": 50.4831,
+  "lng": 19.2533,
+  "voivodeship": "śląskie"
+ },
+ {
+  "id": "152220080",
+  "name": "Suraż",
+  "river": "Narew",
+  "lat": 52.9489,
+  "lng": 22.955,
+  "voivodeship": "podlaskie"
+ },
+ {
+  "id": "150170060",
+  "name": "Nysa",
+  "river": "Nysa Kłodzka",
+  "lat": 50.4811,
+  "lng": 17.3417,
+  "voivodeship": "opolskie"
+ },
+ {
+  "id": "153210120",
+  "name": "Walery",
+  "river": "Rozoga",
+  "lat": 53.1472,
+  "lng": 21.6194,
+  "voivodeship": "mazowieckie"
+ },
+ {
+  "id": "153230010",
+  "name": "Fasty",
+  "river": "Supraśl",
+  "lat": 53.1786,
+  "lng": 23.0267,
+  "voivodeship": "podlaskie"
+ },
+ {
+  "id": "153220050",
+  "name": "Ełk 2",
+  "river": "Jez. Ełckie",
+  "lat": 53.8203,
+  "lng": 22.3442,
+  "voivodeship": "warmińsko-mazurskie"
+ },
+ {
+  "id": "153190090",
+  "name": "Nowe Miasto Lubawskie",
+  "river": "Drwęca",
+  "lat": 53.4222,
+  "lng": 19.59,
+  "voivodeship": "warmińsko-mazurskie"
+ },
+ {
+  "id": "149210100",
+  "name": "Zboiska",
+  "river": "Jasiołka",
+  "lat": 49.5744,
+  "lng": 21.6983,
+  "voivodeship": "podkarpackie"
+ },
+ {
+  "id": "149200280",
+  "name": "Zgłobice",
+  "river": "Dunajec",
+  "lat": 49.975,
+  "lng": 20.8797,
+  "voivodeship": "małopolskie"
+ },
+ {
+  "id": "154200020",
+  "name": "Krosno",
+  "river": "Drwęca Warmińska",
+  "lat": 54.1308,
+  "lng": 20.1728,
+  "voivodeship": "warmińsko-mazurskie"
+ },
+ {
+  "id": "153230110",
+  "name": "Supraśl",
+  "river": "Supraśl",
+  "lat": 53.2125,
+  "lng": 23.3383,
+  "voivodeship": "podlaskie"
+ },
+ {
+  "id": "154180270",
+  "name": "Pruszcz Gdański",
+  "river": "Radunia",
+  "lat": 54.25,
+  "lng": 18.6303,
+  "voivodeship": "pomorskie"
+ },
+ {
+  "id": "152170130",
+  "name": "Ląd",
+  "river": "Warta",
+  "lat": 52.2036,
+  "lng": 17.8861,
+  "voivodeship": "wielkopolskie"
+ },
+ {
+  "id": "150170150",
+  "name": "Karłowice (Wapienniki)",
+  "river": "Stobrawa",
+  "lat": 50.8786,
+  "lng": 17.7217,
+  "voivodeship": "opolskie"
+ },
+ {
+  "id": "149190200",
+  "name": "Sucha Beskidzka",
+  "river": "Stryszawka",
+  "lat": 49.7433,
+  "lng": 19.6011,
+  "voivodeship": "małopolskie"
+ },
+ {
+  "id": "149220130",
+  "name": "Zatwarnica",
+  "river": "San",
+  "lat": 49.235,
+  "lng": 22.5631,
+  "voivodeship": "podkarpackie"
+ },
+ {
+  "id": "149190380",
+  "name": "Zakopane Harenda",
+  "river": "Cicha Woda",
+  "lat": 49.3161,
+  "lng": 19.9775,
+  "voivodeship": "małopolskie"
+ },
+ {
+  "id": "154210060",
+  "name": "Przystań",
+  "river": "Jez. Mamry",
+  "lat": 54.1908,
+  "lng": 21.6503,
+  "voivodeship": "warmińsko-mazurskie"
+ },
+ {
+  "id": "149190290",
+  "name": "Jordanów",
+  "river": "Skawa",
+  "lat": 49.6364,
+  "lng": 19.83,
+  "voivodeship": "małopolskie"
+ },
+ {
+  "id": "151140060",
+  "name": "Zgorzelec",
+  "river": "Nysa Łużycka",
+  "lat": 51.1611,
+  "lng": 14.9936,
+  "voivodeship": "dolnośląskie"
+ },
+ {
+  "id": "150210130",
+  "name": "Pustków",
+  "river": "Wisłoka",
+  "lat": 50.1433,
+  "lng": 21.465,
+  "voivodeship": "podkarpackie"
+ },
+ {
+  "id": "152140090",
+  "name": "Biała Góra",
+  "river": "Odra",
+  "lat": 52.0933,
+  "lng": 14.7272,
+  "voivodeship": "lubuskie"
+ },
+ {
+  "id": "151180100",
+  "name": "Osjaków",
+  "river": "Warta",
+  "lat": 51.2856,
+  "lng": 18.785,
+  "voivodeship": "łódzkie"
+ },
+ {
+  "id": "154180020",
+  "name": "Miłoszewo",
+  "river": "Łeba",
+  "lat": 54.44,
+  "lng": 18.0294,
+  "voivodeship": "pomorskie"
+ },
+ {
+  "id": "152140050",
+  "name": "Słubice",
+  "river": "Odra",
+  "lat": 52.3481,
+  "lng": 14.5556,
+  "voivodeship": "-"
+ },
+ {
+  "id": "153180060",
+  "name": "Krąplewice",
+  "river": "Wda",
+  "lat": 53.4894,
+  "lng": 18.3808,
+  "voivodeship": "kujawsko-pomorskie"
+ },
+ {
+  "id": "150170010",
+  "name": "Zborowice",
+  "river": "Oława",
+  "lat": 50.8056,
+  "lng": 17.1706,
+  "voivodeship": "dolnośląskie"
+ },
+ {
+  "id": "151160140",
+  "name": "Osetno",
+  "river": "Barycz",
+  "lat": 51.6317,
+  "lng": 16.4622,
+  "voivodeship": "dolnośląskie"
+ },
+ {
+  "id": "150160140",
+  "name": "Dzierżoniów",
+  "river": "Piława",
+  "lat": 50.7258,
+  "lng": 16.6461,
+  "voivodeship": "dolnośląskie"
+ },
+ {
+  "id": "153220080",
+  "name": "Prostki",
+  "river": "Ełk",
+  "lat": 53.7006,
+  "lng": 22.4392,
+  "voivodeship": "warmińsko-mazurskie"
+ },
+ {
+  "id": "149180100",
+  "name": "Skoczów",
+  "river": "Wisła",
+  "lat": 49.8033,
+  "lng": 18.7917,
+  "voivodeship": "śląskie"
+ },
+ {
+  "id": "150190340",
+  "name": "Kraków - Bielany",
+  "river": "Wisła",
+  "lat": 50.0403,
+  "lng": 19.8433,
+  "voivodeship": "małopolskie"
+ },
+ {
+  "id": "152220010",
+  "name": "Zaliwie-Piegawki",
+  "river": "Liwiec",
+  "lat": 52.2531,
+  "lng": 22.0947,
+  "voivodeship": "mazowieckie"
+ },
+ {
+  "id": "154200010",
+  "name": "Bornity",
+  "river": "Wałsza",
+  "lat": 54.1858,
+  "lng": 20.0478,
+  "voivodeship": "warmińsko-mazurskie"
+ },
+ {
+  "id": "150220060",
+  "name": "Gorliczyna",
+  "river": "Mleczka Zachodnia",
+  "lat": 50.0856,
+  "lng": 22.4872,
+  "voivodeship": "podkarpackie"
+ },
+ {
+  "id": "150210150",
+  "name": "Koło",
+  "river": "Wisła",
+  "lat": 50.5047,
+  "lng": 21.5111,
+  "voivodeship": "podkarpackie"
+ },
+ {
+  "id": "152230080",
+  "name": "Krzyczew",
+  "river": "Bug",
+  "lat": 52.1469,
+  "lng": 23.4992,
+  "voivodeship": "lubelskie"
+ },
+ {
+  "id": "150210220",
+  "name": "Włochy",
+  "river": "Pokrzywianka",
+  "lat": 50.9075,
+  "lng": 21.1469,
+  "voivodeship": "świętokrzyskie"
+ },
+ {
+  "id": "151210190",
+  "name": "Puławy",
+  "river": "Wisła",
+  "lat": 51.4453,
+  "lng": 21.9456,
+  "voivodeship": "lubelskie"
+ },
+ {
+  "id": "152150100",
+  "name": "Bledzew",
+  "river": "Obra",
+  "lat": 52.5175,
+  "lng": 15.4211,
+  "voivodeship": "lubuskie"
+ },
+ {
+  "id": "149220040",
+  "name": "Dynów",
+  "river": "San",
+  "lat": 49.8008,
+  "lng": 22.2442,
+  "voivodeship": "podkarpackie"
+ },
+ {
+  "id": "152150130",
+  "name": "Cigacice",
+  "river": "Odra",
+  "lat": 52.0331,
+  "lng": 15.6075,
+  "voivodeship": "lubuskie"
+ },
+ {
+  "id": "150190180",
+  "name": "Jeleń",
+  "river": "Przemsza",
+  "lat": 50.1611,
+  "lng": 19.2397,
+  "voivodeship": "śląskie"
+ },
+ {
+  "id": "151180050",
+  "name": "Dębe",
+  "river": "Swędrnia",
+  "lat": 51.7914,
+  "lng": 18.1978,
+  "voivodeship": "wielkopolskie"
+ },
+ {
+  "id": "151150030",
+  "name": "Iłowa",
+  "river": "Czerna Mała",
+  "lat": 51.5031,
+  "lng": 15.1983,
+  "voivodeship": "lubuskie"
+ },
+ {
+  "id": "149200220",
+  "name": "Stary Sącz",
+  "river": "Poprad",
+  "lat": 49.5686,
+  "lng": 20.6597,
+  "voivodeship": "małopolskie"
+ },
+ {
+  "id": "150180170",
+  "name": "Pyskowice",
+  "river": "Drama",
+  "lat": 50.3864,
+  "lng": 18.5889,
+  "voivodeship": "śląskie"
+ },
+ {
+  "id": "152150190",
+  "name": "Nowe Drezdenko",
+  "river": "Noteć",
+  "lat": 52.8508,
+  "lng": 15.8375,
+  "voivodeship": "lubuskie"
+ },
+ {
+  "id": "151210060",
+  "name": "Rogożek",
+  "river": "Radomka",
+  "lat": 51.6356,
+  "lng": 21.3586,
+  "voivodeship": "mazowieckie"
+ },
+ {
+  "id": "150220140",
+  "name": "Charytany",
+  "river": "Szkło",
+  "lat": 50.0033,
+  "lng": 22.9386,
+  "voivodeship": "podkarpackie"
+ },
+ {
+  "id": "150190260",
+  "name": "Smolice",
+  "river": "Wisła",
+  "lat": 50.0311,
+  "lng": 19.4603,
+  "voivodeship": "małopolskie"
+ },
+ {
+  "id": "153220280",
+  "name": "Białobrzegi",
+  "river": "Netta",
+  "lat": 53.8042,
+  "lng": 22.9664,
+  "voivodeship": "podlaskie"
+ },
+ {
+  "id": "150180020",
+  "name": "Turawa",
+  "river": "Mała Panew",
+  "lat": 50.7397,
+  "lng": 18.0767,
+  "voivodeship": "opolskie"
+ },
+ {
+  "id": "149180070",
+  "name": "Cieszyn",
+  "river": "Młynówka",
+  "lat": 49.7461,
+  "lng": 18.6314,
+  "voivodeship": "śląskie"
+ },
+ {
+  "id": "151210040",
+  "name": "Brody Iłżeckie",
+  "river": "Kamienna",
+  "lat": 51.0214,
+  "lng": 21.2028,
+  "voivodeship": "świętokrzyskie"
+ },
+ {
+  "id": "153210200",
+  "name": "Maldanin",
+  "river": "Jez. Roś",
+  "lat": 53.6506,
+  "lng": 21.8239,
+  "voivodeship": "warmińsko-mazurskie"
+ },
+ {
+  "id": "151200120",
+  "name": "Białobrzegi",
+  "river": "Pilica",
+  "lat": 51.6575,
+  "lng": 20.9511,
+  "voivodeship": "mazowieckie"
+ },
+ {
+  "id": "150170170",
+  "name": "Branice 2",
+  "river": "Młynówka",
+  "lat": 50.0514,
+  "lng": 17.7719,
+  "voivodeship": "opolskie"
+ },
+ {
+  "id": "150210110",
+  "name": "Głowaczowa",
+  "river": "Grabinianka",
+  "lat": 50.0497,
+  "lng": 21.3125,
+  "voivodeship": "podkarpackie"
+ },
+ {
+  "id": "152230190",
+  "name": "Białowieża",
+  "river": "Narewka",
+  "lat": 52.7014,
+  "lng": 23.8414,
+  "voivodeship": "podlaskie"
+ },
+ {
+  "id": "150220030",
+  "name": "Nisko",
+  "river": "San",
+  "lat": 50.52,
+  "lng": 22.1928,
+  "voivodeship": "podkarpackie"
+ },
+ {
+  "id": "149210050",
+  "name": "Krajowice",
+  "river": "Wisłoka",
+  "lat": 49.7722,
+  "lng": 21.4125,
+  "voivodeship": "podkarpackie"
+ },
+ {
+  "id": "153140090",
+  "name": "Goleniów",
+  "river": "Ina",
+  "lat": 53.5631,
+  "lng": 14.8269,
+  "voivodeship": "zachodniopomorskie"
+ },
+ {
+  "id": "149220010",
+  "name": "Nowosielce",
+  "river": "Pielnica",
+  "lat": 49.5669,
+  "lng": 22.0708,
+  "voivodeship": "podkarpackie"
+ },
+ {
+  "id": "152229999",
+  "name": "Małkinia",
+  "river": "Bug",
+  "lat": 52.6742,
+  "lng": 22.0161,
+  "voivodeship": "mazowieckie"
+ },
+ {
+  "id": "150190010",
+  "name": "Brynica",
+  "river": "Brynica",
+  "lat": 50.4725,
+  "lng": 19.0006,
+  "voivodeship": "śląskie"
+ },
+ {
+  "id": "151190020",
+  "name": "Szczerców",
+  "river": "Widawka",
+  "lat": 51.3283,
+  "lng": 19.1136,
+  "voivodeship": "łódzkie"
+ },
+ {
+  "id": "150170090",
+  "name": "Brzeg (most)",
+  "river": "Odra",
+  "lat": 50.8656,
+  "lng": 17.4694,
+  "voivodeship": "opolskie"
+ },
+ {
+  "id": "151150040",
+  "name": "Nowogród Bobrzański",
+  "river": "Bóbr",
+  "lat": 51.7986,
+  "lng": 15.2369,
+  "voivodeship": "lubuskie"
+ },
+ {
+  "id": "153210220",
+  "name": "Dobrylas",
+  "river": "Pisa",
+  "lat": 53.2858,
+  "lng": 21.8647,
+  "voivodeship": "podlaskie"
+ },
+ {
+  "id": "151150150",
+  "name": "Nowa Sól",
+  "river": "Odra",
+  "lat": 51.8022,
+  "lng": 15.7217,
+  "voivodeship": "lubuskie"
+ },
+ {
+  "id": "151150120",
+  "name": "Szprotawa",
+  "river": "Bóbr",
+  "lat": 51.5614,
+  "lng": 15.5267,
+  "voivodeship": "lubuskie"
+ },
+ {
+  "id": "152210100",
+  "name": "Czarnowo",
+  "river": "Orz",
+  "lat": 52.8833,
+  "lng": 21.5372,
+  "voivodeship": "mazowieckie"
+ },
+ {
+  "id": "153180130",
+  "name": "Kwidzyn",
+  "river": "Liwa",
+  "lat": 53.7222,
+  "lng": 18.9114,
+  "voivodeship": "pomorskie"
+ },
+ {
+  "id": "154210090",
+  "name": "Giżycko",
+  "river": "Pisa (Kanał Giżycki)",
+  "lat": 54.0356,
+  "lng": 21.7611,
+  "voivodeship": "warmińsko-mazurskie"
+ },
+ {
+  "id": "149220150",
+  "name": "Dwernik",
+  "river": "San",
+  "lat": 49.2186,
+  "lng": 22.6328,
+  "voivodeship": "podkarpackie"
+ },
+ {
+  "id": "149200040",
+  "name": "Kasinka Mała",
+  "river": "Raba",
+  "lat": 49.7047,
+  "lng": 20.0325,
+  "voivodeship": "małopolskie"
+ },
+ {
+  "id": "149190140",
+  "name": "Łękawica",
+  "river": "Łękawka",
+  "lat": 49.7117,
+  "lng": 19.2622,
+  "voivodeship": "śląskie"
+ },
+ {
+  "id": "151150090",
+  "name": "Łozy",
+  "river": "Kwisa",
+  "lat": 51.4914,
+  "lng": 15.3686,
+  "voivodeship": "lubuskie"
+ },
+ {
+  "id": "149200230",
+  "name": "Czchów",
+  "river": "Dunajec",
+  "lat": 49.8164,
+  "lng": 20.6819,
+  "voivodeship": "małopolskie"
+ },
+ {
+  "id": "153210170",
+  "name": "Ptaki",
+  "river": "Pisa",
+  "lat": 53.3931,
+  "lng": 21.7922,
+  "voivodeship": "podlaskie"
+ },
+ {
+  "id": "151150050",
+  "name": "Dobroszów Wielki",
+  "river": "Bóbr",
+  "lat": 51.7742,
+  "lng": 15.2561,
+  "voivodeship": "lubuskie"
+ },
+ {
+  "id": "149190230",
+  "name": "Czernichów - Prom",
+  "river": "Wisła",
+  "lat": 49.9814,
+  "lng": 19.6631,
+  "voivodeship": "małopolskie"
+ },
+ {
+  "id": "149210160",
+  "name": "Sieniawa",
+  "river": "Wisłok",
+  "lat": 49.5678,
+  "lng": 21.93,
+  "voivodeship": "podkarpackie"
+ },
+ {
+  "id": "150180070",
+  "name": "Lenartowice",
+  "river": "Kłodnica",
+  "lat": 50.3575,
+  "lng": 18.2356,
+  "voivodeship": "opolskie"
+ },
+ {
+  "id": "151150100",
+  "name": "Nowogrodziec",
+  "river": "Kwisa",
+  "lat": 51.2031,
+  "lng": 15.3958,
+  "voivodeship": "dolnośląskie"
+ },
+ {
+  "id": "150210020",
+  "name": "Szczucin",
+  "river": "Wisła",
+  "lat": 50.3269,
+  "lng": 21.0772,
+  "voivodeship": "małopolskie"
+ },
+ {
+  "id": "151160100",
+  "name": "Piątnica",
+  "river": "Kaczawa",
+  "lat": 51.2278,
+  "lng": 16.1992,
+  "voivodeship": "dolnośląskie"
+ },
+ {
+  "id": "152200120",
+  "name": "Borkowo",
+  "river": "Wkra",
+  "lat": 52.5617,
+  "lng": 20.6656,
+  "voivodeship": "mazowieckie"
+ },
+ {
+  "id": "150220040",
+  "name": "Sarzyna",
+  "river": "Trzebośnica",
+  "lat": 50.3272,
+  "lng": 22.3475,
+  "voivodeship": "podkarpackie"
+ },
+ {
+  "id": "149200120",
+  "name": "Niedzica",
+  "river": "Niedziczanka",
+  "lat": 49.4114,
+  "lng": 20.3022,
+  "voivodeship": "małopolskie"
+ },
+ {
+  "id": "150220090",
+  "name": "Leżachów",
+  "river": "San",
+  "lat": 50.1403,
+  "lng": 22.6031,
+  "voivodeship": "podkarpackie"
+ },
+ {
+  "id": "153150010",
+  "name": "Stargard",
+  "river": "Ina",
+  "lat": 53.3503,
+  "lng": 15.0408,
+  "voivodeship": "zachodniopomorskie"
+ },
+ {
+  "id": "149200030",
+  "name": "Nowy Targ",
+  "river": "Czarny Dunajec",
+  "lat": 49.4844,
+  "lng": 20.0311,
+  "voivodeship": "małopolskie"
+ },
+ {
+  "id": "149220050",
+  "name": "Zagórz",
+  "river": "Osława",
+  "lat": 49.5133,
+  "lng": 22.2689,
+  "voivodeship": "podkarpackie"
+ },
+ {
+  "id": "150180210",
+  "name": "Niwki",
+  "river": "Liswarta",
+  "lat": 50.8208,
+  "lng": 18.6625,
+  "voivodeship": "śląskie"
+ },
+ {
+  "id": "149180300",
+  "name": "Olza",
+  "river": "Odra",
+  "lat": 49.9547,
+  "lng": 18.3264,
+  "voivodeship": "śląskie"
+ },
+ {
+  "id": "150160070",
+  "name": "Lubachów",
+  "river": "Bystrzyca",
+  "lat": 50.7658,
+  "lng": 16.4311,
+  "voivodeship": "dolnośląskie"
+ },
+ {
+  "id": "149190020",
+  "name": "Kamesznica",
+  "river": "Bystra",
+  "lat": 49.5681,
+  "lng": 19.0697,
+  "voivodeship": "śląskie"
+ },
+ {
+  "id": "150170200",
+  "name": "Domaradz",
+  "river": "Bogacica",
+  "lat": 50.9542,
+  "lng": 17.8644,
+  "voivodeship": "opolskie"
+ },
+ {
+  "id": "152160110",
+  "name": "Kowanówko",
+  "river": "Wełna",
+  "lat": 52.6686,
+  "lng": 16.8367,
+  "voivodeship": "wielkopolskie"
+ },
+ {
+  "id": "150200120",
+  "name": "Morawica",
+  "river": "Czarna Nida",
+  "lat": 50.7503,
+  "lng": 20.6167,
+  "voivodeship": "świętokrzyskie"
+ },
+ {
+  "id": "151150170",
+  "name": "Świerzawa",
+  "river": "Kaczawa",
+  "lat": 51.0178,
+  "lng": 15.8878,
+  "voivodeship": "dolnośląskie"
+ },
+ {
+  "id": "151160200",
+  "name": "Korzeńsko",
+  "river": "Orla",
+  "lat": 51.5392,
+  "lng": 16.8725,
+  "voivodeship": "dolnośląskie"
+ },
+ {
+  "id": "152230100",
+  "name": "Narewka",
+  "river": "Narewka",
+  "lat": 52.8631,
+  "lng": 23.7253,
+  "voivodeship": "podlaskie"
+ },
+ {
+  "id": "149220070",
+  "name": "Hoczew",
+  "river": "Hoczewka",
+  "lat": 49.4239,
+  "lng": 22.3283,
+  "voivodeship": "podkarpackie"
+ },
+ {
+  "id": "150160120",
+  "name": "Krasków",
+  "river": "Bystrzyca",
+  "lat": 50.9156,
+  "lng": 16.5839,
+  "voivodeship": "dolnośląskie"
+ },
+ {
+  "id": "153230170",
+  "name": "Nowosiółki",
+  "river": "Supraśl",
+  "lat": 53.1733,
+  "lng": 23.53,
+  "voivodeship": "podlaskie"
+ },
+ {
+  "id": "150190130",
+  "name": "Łagisza",
+  "river": "Czarna Przemsza",
+  "lat": 50.3503,
+  "lng": 19.1856,
+  "voivodeship": "śląskie"
+ },
+ {
+  "id": "154200030",
+  "name": "Smolajny",
+  "river": "Łyna",
+  "lat": 54.0258,
+  "lng": 20.3969,
+  "voivodeship": "warmińsko-mazurskie"
+ },
+ {
+  "id": "149180130",
+  "name": "Istebna",
+  "river": "Olza",
+  "lat": 49.5719,
+  "lng": 18.8928,
+  "voivodeship": "śląskie"
+ },
+ {
+  "id": "151180160",
+  "name": "Poddębice",
+  "river": "Ner",
+  "lat": 51.8917,
+  "lng": 18.9494,
+  "voivodeship": "łódzkie"
+ },
+ {
+  "id": "150170030",
+  "name": "Oława 2",
+  "river": "Oława",
+  "lat": 50.9478,
+  "lng": 17.2928,
+  "voivodeship": "dolnośląskie"
+ },
+ {
+  "id": "151180060",
+  "name": "Kraszewice",
+  "river": "Łużyca",
+  "lat": 51.5192,
+  "lng": 18.225,
+  "voivodeship": "wielkopolskie"
+ },
+ {
+  "id": "151180180",
+  "name": "Grabno",
+  "river": "Grabia",
+  "lat": 51.4583,
+  "lng": 18.9853,
+  "voivodeship": "łódzkie"
+ },
+ {
+  "id": "149180080",
+  "name": "Drogomyśl",
+  "river": "Wisła",
+  "lat": 49.8858,
+  "lng": 18.7494,
+  "voivodeship": "śląskie"
+ },
+ {
+  "id": "149210150",
+  "name": "Puławy",
+  "river": "Wisłok",
+  "lat": 49.49,
+  "lng": 21.9067,
+  "voivodeship": "podkarpackie"
+ },
+ {
+  "id": "151200100",
+  "name": "Bzin",
+  "river": "Kamienna",
+  "lat": 51.1036,
+  "lng": 20.8556,
+  "voivodeship": "świętokrzyskie"
+ },
+ {
+  "id": "152210120",
+  "name": "Łochów",
+  "river": "Liwiec",
+  "lat": 52.51,
+  "lng": 21.6783,
+  "voivodeship": "mazowieckie"
+ },
+ {
+  "id": "152230030",
+  "name": "Chraboły",
+  "river": "Orlanka",
+  "lat": 52.8622,
+  "lng": 23.1958,
+  "voivodeship": "podlaskie"
+ },
+ {
+  "id": "149200010",
+  "name": "Poronin",
+  "river": "Poroniec",
+  "lat": 49.3372,
+  "lng": 20.0031,
+  "voivodeship": "małopolskie"
+ },
+ {
+  "id": "151180040",
+  "name": "Mirków",
+  "river": "Prosna",
+  "lat": 51.3156,
+  "lng": 18.1547,
+  "voivodeship": "łódzkie"
+ },
+ {
+  "id": "153220060",
+  "name": "Ełk",
+  "river": "Ełk",
+  "lat": 53.8317,
+  "lng": 22.3833,
+  "voivodeship": "warmińsko-mazurskie"
+ },
+ {
+  "id": "149210080",
+  "name": "Jasło",
+  "river": "Jasiołka",
+  "lat": 49.7503,
+  "lng": 21.4731,
+  "voivodeship": "podkarpackie"
+ },
+ {
+  "id": "150180010",
+  "name": "Kamionka",
+  "river": "Stradunia",
+  "lat": 50.3911,
+  "lng": 18.0425,
+  "voivodeship": "opolskie"
+ },
+ {
+  "id": "150210100",
+  "name": "Połaniec",
+  "river": "Czarna",
+  "lat": 50.4347,
+  "lng": 21.285,
+  "voivodeship": "świętokrzyskie"
+ },
+ {
+  "id": "150180130",
+  "name": "Rybnik Stodoły",
+  "river": "Ruda",
+  "lat": 50.1542,
+  "lng": 18.4831,
+  "voivodeship": "śląskie"
+ },
+ {
+  "id": "151170090",
+  "name": "Namysłów",
+  "river": "Widawa",
+  "lat": 51.0803,
+  "lng": 17.71,
+  "voivodeship": "opolskie"
+ },
+ {
+  "id": "152150200",
+  "name": "Międzychód",
+  "river": "Warta",
+  "lat": 52.6042,
+  "lng": 15.8861,
+  "voivodeship": "wielkopolskie"
+ },
+ {
+  "id": "149180030",
+  "name": "Łaziska",
+  "river": "Olza",
+  "lat": 49.9244,
+  "lng": 18.4431,
+  "voivodeship": "śląskie"
+ },
+ {
+  "id": "150160030",
+  "name": "Chwaliszów",
+  "river": "Strzegomka",
+  "lat": 50.8778,
+  "lng": 16.2331,
+  "voivodeship": "dolnośląskie"
+ },
+ {
+  "id": "150170050",
+  "name": "Biała Nyska",
+  "river": "Biała Głuchołaska",
+  "lat": 50.4336,
+  "lng": 17.2975,
+  "voivodeship": "opolskie"
+ },
+ {
+  "id": "150190330",
+  "name": "Ojców",
+  "river": "Prądnik",
+  "lat": 50.1947,
+  "lng": 19.8325,
+  "voivodeship": "małopolskie"
+ },
+ {
+  "id": "151200080",
+  "name": "Odrzywół",
+  "river": "Drzewiczka",
+  "lat": 51.5194,
+  "lng": 20.5628,
+  "voivodeship": "mazowieckie"
+ },
+ {
+  "id": "150160020",
+  "name": "Świebodzice",
+  "river": "Pełcznica",
+  "lat": 50.8603,
+  "lng": 16.3136,
+  "voivodeship": "dolnośląskie"
+ },
+ {
+  "id": "149190010",
+  "name": "Czechowice-Bestwina",
+  "river": "Biała",
+  "lat": 49.8914,
+  "lng": 19.0303,
+  "voivodeship": "śląskie"
+ },
+ {
+  "id": "154170160",
+  "name": "Lębork",
+  "river": "Łeba",
+  "lat": 54.5419,
+  "lng": 17.7475,
+  "voivodeship": "pomorskie"
+ },
+ {
+  "id": "154220110",
+  "name": "Gołdap 2",
+  "river": "Gołdapa",
+  "lat": 54.3128,
+  "lng": 22.3119,
+  "voivodeship": "warmińsko-mazurskie"
+ },
+ {
+  "id": "153190050",
+  "name": "Brodnica",
+  "river": "Drwęca",
+  "lat": 53.2553,
+  "lng": 19.4008,
+  "voivodeship": "kujawsko-pomorskie"
+ },
+ {
+  "id": "154210010",
+  "name": "Sępopol",
+  "river": "Łyna",
+  "lat": 54.2661,
+  "lng": 21.0058,
+  "voivodeship": "warmińsko-mazurskie"
+ },
+ {
+  "id": "153160040",
+  "name": "Czaplinek",
+  "river": "jez. Drawsko",
+  "lat": 53.5608,
+  "lng": 16.2261,
+  "voivodeship": "zachodniopomorskie"
+ },
+ {
+  "id": "150210010",
+  "name": "Raków",
+  "river": "Czarna",
+  "lat": 50.6761,
+  "lng": 21.0286,
+  "voivodeship": "świętokrzyskie"
+ },
+ {
+  "id": "149200290",
+  "name": "Muszyna",
+  "river": "Poprad",
+  "lat": 49.35,
+  "lng": 20.8853,
+  "voivodeship": "małopolskie"
+ },
+ {
+  "id": "153200020",
+  "name": "Szreńsk",
+  "river": "Mławka",
+  "lat": 53.0097,
+  "lng": 20.1283,
+  "voivodeship": "mazowieckie"
+ },
+ {
+  "id": "150200160",
+  "name": "Daleszyce",
+  "river": "Czarna Nida",
+  "lat": 50.8008,
+  "lng": 20.8131,
+  "voivodeship": "świętokrzyskie"
+ },
+ {
+  "id": "150190210",
+  "name": "Kuźnica Sulikowska",
+  "river": "Mitręga",
+  "lat": 50.4531,
+  "lng": 19.2728,
+  "voivodeship": "śląskie"
+ },
+ {
+  "id": "150200050",
+  "name": "Michałów",
+  "river": "Mierzawa",
+  "lat": 50.4917,
+  "lng": 20.4564,
+  "voivodeship": "świętokrzyskie"
+ },
+ {
+  "id": "150160110",
+  "name": "Szalejów Dolny",
+  "river": "Bystrzyca Dusznicka",
+  "lat": 50.4197,
+  "lng": 16.6047,
+  "voivodeship": "dolnośląskie"
+ },
+ {
+  "id": "151150020",
+  "name": "Ostróżno",
+  "river": "Witka",
+  "lat": 51.0208,
+  "lng": 15.0328,
+  "voivodeship": "dolnośląskie"
+ },
+ {
+  "id": "149190160",
+  "name": "Rudze",
+  "river": "Wieprzówka",
+  "lat": 49.9617,
+  "lng": 19.4425,
+  "voivodeship": "małopolskie"
+ },
+ {
+  "id": "150160190",
+  "name": "Międzylesie",
+  "river": "Nysa Kłodzka",
+  "lat": 50.1556,
+  "lng": 16.6642,
+  "voivodeship": "dolnośląskie"
+ },
+ {
+  "id": "150220120",
+  "name": "Zakłodzie",
+  "river": "Pór",
+  "lat": 50.7575,
+  "lng": 22.86,
+  "voivodeship": "lubelskie"
+ },
+ {
+  "id": "150150020",
+  "name": "Mirsk 2",
+  "river": "Czarny Potok",
+  "lat": 50.9867,
+  "lng": 15.3839,
+  "voivodeship": "dolnośląskie"
+ },
+ {
+  "id": "150160080",
+  "name": "Tłumaczów",
+  "river": "Ścinawka",
+  "lat": 50.5519,
+  "lng": 16.4361,
+  "voivodeship": "dolnośląskie"
+ },
+ {
+  "id": "150200040",
+  "name": "Tokarnia",
+  "river": "Czarna Nida",
+  "lat": 50.7742,
+  "lng": 20.4531,
+  "voivodeship": "świętokrzyskie"
+ },
+ {
+  "id": "153220200",
+  "name": "Rajgród",
+  "river": "Jegrznia",
+  "lat": 53.7306,
+  "lng": 22.7017,
+  "voivodeship": "podlaskie"
+ },
+ {
+  "id": "150210040",
+  "name": "Rzepin",
+  "river": "Świślin",
+  "lat": 50.9728,
+  "lng": 21.0919,
+  "voivodeship": "świętokrzyskie"
+ },
+ {
+  "id": "150210170",
+  "name": "Sandomierz",
+  "river": "Wisła",
+  "lat": 50.6725,
+  "lng": 21.7461,
+  "voivodeship": "świętokrzyskie"
+ },
+ {
+  "id": "150190060",
+  "name": "Bojszowy",
+  "river": "Gostynia",
+  "lat": 50.0611,
+  "lng": 19.1083,
+  "voivodeship": "śląskie"
+ },
+ {
+  "id": "149180110",
+  "name": "Ustroń Obłaziec",
+  "river": "Wisła",
+  "lat": 49.6806,
+  "lng": 18.8503,
+  "voivodeship": "śląskie"
+ },
+ {
+  "id": "149200020",
+  "name": "Szaflary",
+  "river": "Biały Dunajec",
+  "lat": 49.4242,
+  "lng": 20.0247,
+  "voivodeship": "małopolskie"
+ },
+ {
+  "id": "149190030",
+  "name": "Mikuszowice",
+  "river": "Biała",
+  "lat": 49.7794,
+  "lng": 19.0742,
+  "voivodeship": "śląskie"
+ },
+ {
+  "id": "150180060",
+  "name": "Racibórz Miedonia",
+  "river": "Odra",
+  "lat": 50.1219,
+  "lng": 18.2297,
+  "voivodeship": "śląskie"
+ },
+ {
+  "id": "149180140",
+  "name": "Wisła",
+  "river": "Wisła",
+  "lat": 49.6319,
+  "lng": 18.9008,
+  "voivodeship": "śląskie"
+ },
+ {
+  "id": "152180150",
+  "name": "Dąbie",
+  "river": "Ner",
+  "lat": 52.0847,
+  "lng": 18.8239,
+  "voivodeship": "wielkopolskie"
+ },
+ {
+  "id": "152190050",
+  "name": "Kwiatkówek",
+  "river": "Bzura",
+  "lat": 52.0625,
+  "lng": 19.2175,
+  "voivodeship": "łódzkie"
+ },
+ {
+  "id": "150200140",
+  "name": "Borzęcin",
+  "river": "Uszwica",
+  "lat": 50.065,
+  "lng": 20.7056,
+  "voivodeship": "małopolskie"
+ },
+ {
+  "id": "152160090",
+  "name": "Kościan",
+  "river": "Kanał Mosiński",
+  "lat": 52.09,
+  "lng": 16.6442,
+  "voivodeship": "wielkopolskie"
+ },
+ {
+  "id": "152200050",
+  "name": "Żuków",
+  "river": "Bzura",
+  "lat": 52.2617,
+  "lng": 20.2692,
+  "voivodeship": "mazowieckie"
+ },
+ {
+  "id": "151160020",
+  "name": "Rzymówka",
+  "river": "Kaczawa",
+  "lat": 51.1394,
+  "lng": 16.0256,
+  "voivodeship": "dolnośląskie"
+ },
+ {
+  "id": "152200130",
+  "name": "Orzechowo",
+  "river": "Narew",
+  "lat": 52.4881,
+  "lng": 20.8644,
+  "voivodeship": "mazowieckie"
+ },
+ {
+  "id": "151160050",
+  "name": "Dunino",
+  "river": "Kaczawa",
+  "lat": 51.1569,
+  "lng": 16.0772,
+  "voivodeship": "dolnośląskie"
+ },
+ {
+  "id": "149190210",
+  "name": "Sucha Beskidzka 2",
+  "river": "Skawa",
+  "lat": 49.7394,
+  "lng": 19.6086,
+  "voivodeship": "małopolskie"
+ },
+ {
+  "id": "150160090",
+  "name": "Łażany",
+  "river": "Strzegomka",
+  "lat": 50.9531,
+  "lng": 16.4925,
+  "voivodeship": "dolnośląskie"
+ },
+ {
+  "id": "153210180",
+  "name": "Zaruzie",
+  "river": "Ruź",
+  "lat": 53.1483,
+  "lng": 21.8003,
+  "voivodeship": "podlaskie"
+ },
+ {
+  "id": "151150110",
+  "name": "Gryfów Śląski",
+  "river": "Kwisa",
+  "lat": 51.0264,
+  "lng": 15.4131,
+  "voivodeship": "dolnośląskie"
+ },
+ {
+  "id": "153200070",
+  "name": "Olsztyn",
+  "river": "Łyna",
+  "lat": 53.7564,
+  "lng": 20.4717,
+  "voivodeship": "warmińsko-mazurskie"
+ },
+ {
+  "id": "149200060",
+  "name": "Mszana Dolna",
+  "river": "Raba",
+  "lat": 49.6581,
+  "lng": 20.0592,
+  "voivodeship": "małopolskie"
+ },
+ {
+  "id": "154170010",
+  "name": "Słupsk",
+  "river": "Słupia",
+  "lat": 54.47,
+  "lng": 17.0314,
+  "voivodeship": "pomorskie"
+ },
+ {
+  "id": "154150050",
+  "name": "Białogard",
+  "river": "Parsęta",
+  "lat": 54.0031,
+  "lng": 15.9764,
+  "voivodeship": "zachodniopomorskie"
+ },
+ {
+  "id": "151160130",
+  "name": "Ścinawa",
+  "river": "Odra",
+  "lat": 51.4089,
+  "lng": 16.4433,
+  "voivodeship": "dolnośląskie"
+ },
+ {
+  "id": "150220050",
+  "name": "Harasiuki",
+  "river": "Tanew",
+  "lat": 50.4775,
+  "lng": 22.4742,
+  "voivodeship": "podkarpackie"
+ },
+ {
+  "id": "151230040",
+  "name": "Włodawa",
+  "river": "Bug",
+  "lat": 51.5514,
+  "lng": 23.5664,
+  "voivodeship": "lubelskie"
+ },
+ {
+  "id": "149200320",
+  "name": "Koszyce Wielkie",
+  "river": "Biała",
+  "lat": 49.9972,
+  "lng": 20.9494,
+  "voivodeship": "małopolskie"
+ },
+ {
+  "id": "151160190",
+  "name": "Jarnołtów",
+  "river": "Bystrzyca",
+  "lat": 51.1217,
+  "lng": 16.8428,
+  "voivodeship": "dolnośląskie"
+ },
+ {
+  "id": "149210030",
+  "name": "Klęczany",
+  "river": "Ropa",
+  "lat": 49.7014,
+  "lng": 21.2167,
+  "voivodeship": "małopolskie"
+ },
+ {
+  "id": "151220100",
+  "name": "Sobianowice",
+  "river": "Bystrzyca",
+  "lat": 51.3017,
+  "lng": 22.6881,
+  "voivodeship": "lubelskie"
+ },
+ {
+  "id": "149190300",
+  "name": "Kościelisko-Kiry",
+  "river": "Potok Kościeliski",
+  "lat": 49.2758,
+  "lng": 19.8681,
+  "voivodeship": "małopolskie"
+ },
+ {
+  "id": "151190010",
+  "name": "Kule",
+  "river": "Liswarta",
+  "lat": 51.0428,
+  "lng": 19.0481,
+  "voivodeship": "śląskie"
+ },
+ {
+  "id": "151180150",
+  "name": "Widawa",
+  "river": "Nieciecz",
+  "lat": 51.4383,
+  "lng": 18.9467,
+  "voivodeship": "łódzkie"
+ },
+ {
+  "id": "152140130",
+  "name": "Połęcko",
+  "river": "Odra",
+  "lat": 52.0525,
+  "lng": 14.8922,
+  "voivodeship": "lubuskie"
+ },
+ {
+  "id": "149220100",
+  "name": "Terka",
+  "river": "Solinka",
+  "lat": 49.2997,
+  "lng": 22.4292,
+  "voivodeship": "podkarpackie"
+ },
+ {
+  "id": "149190090",
+  "name": "Żabnica",
+  "river": "Żabniczanka",
+  "lat": 49.5647,
+  "lng": 19.1803,
+  "voivodeship": "śląskie"
+ },
+ {
+  "id": "150170160",
+  "name": "Branice 1",
+  "river": "Opawa",
+  "lat": 50.0511,
+  "lng": 17.7694,
+  "voivodeship": "opolskie"
+ },
+ {
+  "id": "150190200",
+  "name": "Lgota Nadwarcie",
+  "river": "Warta",
+  "lat": 50.6183,
+  "lng": 19.2594,
+  "voivodeship": "śląskie"
+ },
+ {
+  "id": "150160280",
+  "name": "Borów",
+  "river": "Ślęza",
+  "lat": 50.8889,
+  "lng": 16.9906,
+  "voivodeship": "dolnośląskie"
+ },
+ {
+  "id": "149190180",
+  "name": "Wadowice",
+  "river": "Skawa",
+  "lat": 49.8772,
+  "lng": 19.5111,
+  "voivodeship": "małopolskie"
+ },
+ {
+  "id": "150160180",
+  "name": "Kłodzko",
+  "river": "Nysa Kłodzka",
+  "lat": 50.4425,
+  "lng": 16.6586,
+  "voivodeship": "dolnośląskie"
+ },
+ {
+  "id": "151180120",
+  "name": "Burzenin",
+  "river": "Warta",
+  "lat": 51.4583,
+  "lng": 18.8378,
+  "voivodeship": "łódzkie"
+ },
+ {
+  "id": "149190260",
+  "name": "Osielec",
+  "river": "Skawa",
+  "lat": 49.6833,
+  "lng": 19.7392,
+  "voivodeship": "małopolskie"
+ },
+ {
+  "id": "153210090",
+  "name": "Ostrołęka",
+  "river": "Narew",
+  "lat": 53.0839,
+  "lng": 21.5628,
+  "voivodeship": "mazowieckie"
+ },
+ {
+  "id": "150210140",
+  "name": "Brzeźnica",
+  "river": "Wielopolka",
+  "lat": 50.1064,
+  "lng": 21.4869,
+  "voivodeship": "podkarpackie"
+ },
+ {
+  "id": "151170080",
+  "name": "Odolanów 2",
+  "river": "Kuroch",
+  "lat": 51.5783,
+  "lng": 17.6703,
+  "voivodeship": "wielkopolskie"
+ },
+ {
+  "id": "153170120",
+  "name": "Tuchola",
+  "river": "Brda",
+  "lat": 53.5731,
+  "lng": 17.9036,
+  "voivodeship": "kujawsko-pomorskie"
+ },
+ {
+  "id": "151160160",
+  "name": "Rydzyna",
+  "river": "Polski Rów",
+  "lat": 51.7828,
+  "lng": 16.6689,
+  "voivodeship": "wielkopolskie"
+ },
+ {
+  "id": "153180030",
+  "name": "Bożepole",
+  "river": "Wierzyca",
+  "lat": 53.9764,
+  "lng": 18.2311,
+  "voivodeship": "pomorskie"
+ },
+ {
+  "id": "149220080",
+  "name": "Cisna",
+  "river": "Solinka",
+  "lat": 49.2131,
+  "lng": 22.3333,
+  "voivodeship": "podkarpackie"
+ },
+ {
+  "id": "149200250",
+  "name": "Nowy Sącz",
+  "river": "Kamienica",
+  "lat": 49.6253,
+  "lng": 20.6958,
+  "voivodeship": "małopolskie"
+ },
+ {
+  "id": "149200240",
+  "name": "Nowy Sącz",
+  "river": "Dunajec",
+  "lat": 49.6272,
+  "lng": 20.6872,
+  "voivodeship": "małopolskie"
+ },
+ {
+  "id": "150200030",
+  "name": "Brzegi",
+  "river": "Nida",
+  "lat": 50.7419,
+  "lng": 20.4139,
+  "voivodeship": "świętokrzyskie"
+ },
+ {
+  "id": "152180140",
+  "name": "Grzegorzew",
+  "river": "Rgilewka",
+  "lat": 52.2,
+  "lng": 18.7428,
+  "voivodeship": "wielkopolskie"
+ },
+ {
+  "id": "150170110",
+  "name": "Prudnik",
+  "river": "Prudnik",
+  "lat": 50.3194,
+  "lng": 17.5886,
+  "voivodeship": "opolskie"
+ },
+ {
+  "id": "152170120",
+  "name": "Samarzewo",
+  "river": "Wrześnica",
+  "lat": 52.2233,
+  "lng": 17.7431,
+  "voivodeship": "wielkopolskie"
+ },
+ {
+  "id": "151140040",
+  "name": "Przewóz",
+  "river": "Nysa Łużycka",
+  "lat": 51.4722,
+  "lng": 14.9469,
+  "voivodeship": "lubuskie"
+ },
+ {
+  "id": "149180240",
+  "name": "Goczałkowice",
+  "river": "Wisła",
+  "lat": 49.9317,
+  "lng": 18.9858,
+  "voivodeship": "śląskie"
+ },
+ {
+  "id": "153190150",
+  "name": "Lidzbark",
+  "river": "Wel",
+  "lat": 53.2667,
+  "lng": 19.8186,
+  "voivodeship": "warmińsko-mazurskie"
+ },
+ {
+  "id": "150150120",
+  "name": "Bukówka",
+  "river": "Bóbr",
+  "lat": 50.7128,
+  "lng": 15.9575,
+  "voivodeship": "dolnośląskie"
+ },
+ {
+  "id": "151180090",
+  "name": "Niechmirów",
+  "river": "Oleśnica",
+  "lat": 51.3881,
+  "lng": 18.7622,
+  "voivodeship": "łódzkie"
+ },
+ {
+  "id": "150200060",
+  "name": "Sierosławice",
+  "river": "Wisła",
+  "lat": 50.1319,
+  "lng": 20.4567,
+  "voivodeship": "małopolskie"
+ },
+ {
+  "id": "149180020",
+  "name": "Chałupki",
+  "river": "Odra",
+  "lat": 49.9219,
+  "lng": 18.3278,
+  "voivodeship": "śląskie"
+ },
+ {
+  "id": "151190060",
+  "name": "Bobry",
+  "river": "Warta",
+  "lat": 51.0253,
+  "lng": 19.4053,
+  "voivodeship": "łódzkie"
+ },
+ {
+  "id": "149190080",
+  "name": "Cięcina",
+  "river": "Soła",
+  "lat": 49.6247,
+  "lng": 19.1489,
+  "voivodeship": "śląskie"
+ },
+ {
+  "id": "151140010",
+  "name": "Gubin",
+  "river": "Nysa Łużycka",
+  "lat": 51.9719,
+  "lng": 14.7069,
+  "voivodeship": "lubuskie"
+ },
+ {
+  "id": "150240020",
+  "name": "Kryłów",
+  "river": "Bug",
+  "lat": 50.6772,
+  "lng": 24.0625,
+  "voivodeship": "lubelskie"
+ },
+ {
+  "id": "153210210",
+  "name": "Nowogród",
+  "river": "Narew",
+  "lat": 53.2267,
+  "lng": 21.8653,
+  "voivodeship": "podlaskie"
+ },
+ {
+  "id": "151150160",
+  "name": "Zagrodno",
+  "river": "Skora",
+  "lat": 51.1889,
+  "lng": 15.8639,
+  "voivodeship": "dolnośląskie"
+ },
+ {
+  "id": "149180200",
+  "name": "Wisła Czarne",
+  "river": "Czarna Wisełka",
+  "lat": 49.6075,
+  "lng": 18.9261,
+  "voivodeship": "śląskie"
+ },
+ {
+  "id": "150150080",
+  "name": "Jelenia Góra",
+  "river": "Bóbr",
+  "lat": 50.9108,
+  "lng": 15.7214,
+  "voivodeship": "dolnośląskie"
+ },
+ {
+  "id": "152160120",
+  "name": "Ryczywół",
+  "river": "Flinta",
+  "lat": 52.8158,
+  "lng": 16.8394,
+  "voivodeship": "wielkopolskie"
+ },
+ {
+  "id": "151160080",
+  "name": "Rzeszotary",
+  "river": "Czarna Woda",
+  "lat": 51.2489,
+  "lng": 16.1447,
+  "voivodeship": "dolnośląskie"
+ },
+ {
+  "id": "151170040",
+  "name": "Łąki",
+  "river": "Barycz",
+  "lat": 51.4931,
+  "lng": 17.1464,
+  "voivodeship": "dolnośląskie"
+ },
+ {
+  "id": "151180020",
+  "name": "Piwonice",
+  "river": "Prosna",
+  "lat": 51.7267,
+  "lng": 18.1072,
+  "voivodeship": "wielkopolskie"
+ },
+ {
+  "id": "149190150",
+  "name": "Pewel Mała",
+  "river": "Koszarawa",
+  "lat": 49.6586,
+  "lng": 19.3056,
+  "voivodeship": "śląskie"
+ },
+ {
+  "id": "152220050",
+  "name": "Frankopol",
+  "river": "Bug",
+  "lat": 52.415,
+  "lng": 22.5608,
+  "voivodeship": "podlaskie"
+ },
+ {
+  "id": "149200080",
+  "name": "Mszana Dolna",
+  "river": "Mszanka",
+  "lat": 49.6747,
+  "lng": 20.0794,
+  "voivodeship": "małopolskie"
+ },
+ {
+  "id": "149190040",
+  "name": "Ujsoły",
+  "river": "Woda Ujsolska",
+  "lat": 49.4925,
+  "lng": 19.1172,
+  "voivodeship": "śląskie"
+ },
+ {
+  "id": "150160210",
+  "name": "Wilkanów",
+  "river": "Wilczka",
+  "lat": 50.2653,
+  "lng": 16.6622,
+  "voivodeship": "dolnośląskie"
+ },
+ {
+  "id": "150180220",
+  "name": "Gliwice",
+  "river": "Kłodnica",
+  "lat": 50.2981,
+  "lng": 18.6683,
+  "voivodeship": "śląskie"
+ },
+ {
+  "id": "151180070",
+  "name": "Gorzów Śląski",
+  "river": "Prosna",
+  "lat": 51.0353,
+  "lng": 18.4344,
+  "voivodeship": "opolskie"
+ },
+ {
+  "id": "149180010",
+  "name": "Krzyżanowice",
+  "river": "Odra",
+  "lat": 49.9936,
+  "lng": 18.2872,
+  "voivodeship": "śląskie"
+ },
+ {
+  "id": "150210090",
+  "name": "Kunów",
+  "river": "Kamienna",
+  "lat": 50.9619,
+  "lng": 21.2789,
+  "voivodeship": "świętokrzyskie"
+ },
+ {
+  "id": "151190030",
+  "name": "Łask",
+  "river": "Grabia",
+  "lat": 51.5969,
+  "lng": 19.1219,
+  "voivodeship": "łódzkie"
+ },
+ {
+  "id": "150150100",
+  "name": "Wojanów",
+  "river": "Bóbr",
+  "lat": 50.8703,
+  "lng": 15.8269,
+  "voivodeship": "dolnośląskie"
+ },
+ {
+  "id": "151150140",
+  "name": "Dąbrowa Bolesławiecka",
+  "river": "Bóbr",
+  "lat": 51.3258,
+  "lng": 15.5706,
+  "voivodeship": "dolnośląskie"
+ },
+ {
+  "id": "151160180",
+  "name": "Bogdaszowice",
+  "river": "Strzegomka",
+  "lat": 51.0867,
+  "lng": 16.7925,
+  "voivodeship": "dolnośląskie"
+ },
+ {
+  "id": "153200030",
+  "name": "Kalisty",
+  "river": "Pasłęka",
+  "lat": 53.9172,
+  "lng": 20.1958,
+  "voivodeship": "warmińsko-mazurskie"
+ },
+ {
+  "id": "152230090",
+  "name": "Narew",
+  "river": "Narew",
+  "lat": 52.9158,
+  "lng": 23.5228,
+  "voivodeship": "podlaskie"
+ },
+ {
+  "id": "152150240",
+  "name": "Drawiny",
+  "river": "Drawa",
+  "lat": 52.8856,
+  "lng": 15.9778,
+  "voivodeship": "wielkopolskie"
+ },
+ {
+  "id": "152160010",
+  "name": "Krzyż",
+  "river": "Noteć",
+  "lat": 52.8617,
+  "lng": 16.0017,
+  "voivodeship": "wielkopolskie"
+ },
+ {
+  "id": "153210070",
+  "name": "Białobrzeg Bliższy",
+  "river": "Omulew",
+  "lat": 53.1083,
+  "lng": 21.4786,
+  "voivodeship": "mazowieckie"
+ },
+ {
+  "id": "149190340",
+  "name": "Rabka 2",
+  "river": "Raba",
+  "lat": 49.6136,
+  "lng": 19.9489,
+  "voivodeship": "małopolskie"
+ },
+ {
+  "id": "149220200",
+  "name": "Krówniki",
+  "river": "Wiar",
+  "lat": 49.7669,
+  "lng": 22.8231,
+  "voivodeship": "podkarpackie"
+ },
+ {
+  "id": "150220110",
+  "name": "Biłgoraj",
+  "river": "Biała Łada",
+  "lat": 50.5422,
+  "lng": 22.7153,
+  "voivodeship": "lubelskie"
+ },
+ {
+  "id": "149190370",
+  "name": "Lubień",
+  "river": "Lubieńka",
+  "lat": 49.7197,
+  "lng": 19.9783,
+  "voivodeship": "małopolskie"
+ },
+ {
+  "id": "150160220",
+  "name": "Bardo Śląskie",
+  "river": "Nysa Kłodzka",
+  "lat": 50.5044,
+  "lng": 16.7397,
+  "voivodeship": "dolnośląskie"
+ },
+ {
+  "id": "152150090",
+  "name": "Santok",
+  "river": "Noteć",
+  "lat": 52.7392,
+  "lng": 15.4178,
+  "voivodeship": "lubuskie"
+ },
+ {
+  "id": "150170080",
+  "name": "Jarnołtówek",
+  "river": "Złoty Potok",
+  "lat": 50.2858,
+  "lng": 17.4281,
+  "voivodeship": "opolskie"
+ },
+ {
+  "id": "150150130",
+  "name": "Błażkowa",
+  "river": "Bóbr",
+  "lat": 50.7394,
+  "lng": 15.9864,
+  "voivodeship": "dolnośląskie"
+ },
+ {
+  "id": "154190110",
+  "name": "Nowe Sadłuki",
+  "river": "Bauda",
+  "lat": 54.2603,
+  "lng": 19.7117,
+  "voivodeship": "warmińsko-mazurskie"
+ },
+ {
+  "id": "149220020",
+  "name": "Szczawne",
+  "river": "Osława",
+  "lat": 49.4036,
+  "lng": 22.1503,
+  "voivodeship": "podkarpackie"
+ },
+ {
+  "id": "150170220",
+  "name": "Dobra",
+  "river": "Biała",
+  "lat": 50.4481,
+  "lng": 17.8969,
+  "voivodeship": "opolskie"
+ },
+ {
+  "id": "151170010",
+  "name": "Krzyżanowice",
+  "river": "Widawa",
+  "lat": 51.1711,
+  "lng": 17.0475,
+  "voivodeship": "dolnośląskie"
+ },
+ {
+  "id": "153230080",
+  "name": "Sochonie",
+  "river": "Czarna",
+  "lat": 53.2169,
+  "lng": 23.1806,
+  "voivodeship": "podlaskie"
+ },
+ {
+  "id": "150190140",
+  "name": "Bieruń Nowy",
+  "river": "Wisła",
+  "lat": 50.0647,
+  "lng": 19.1936,
+  "voivodeship": "śląskie"
+ },
+ {
+  "id": "151230060",
+  "name": "Dorohusk",
+  "river": "Bug",
+  "lat": 51.185,
+  "lng": 23.8078,
+  "voivodeship": "lubelskie"
+ },
+ {
+  "id": "149180180",
+  "name": "Wisła Czarne",
+  "river": "Biała Wisełka",
+  "lat": 49.6181,
+  "lng": 18.9356,
+  "voivodeship": "śląskie"
+ },
+ {
+  "id": "154160020",
+  "name": "Białogórzyno",
+  "river": "Radew",
+  "lat": 54.0625,
+  "lng": 16.1167,
+  "voivodeship": "zachodniopomorskie"
+ },
+ {
+  "id": "149200270",
+  "name": "Łabowa",
+  "river": "Kamienic",
+  "lat": 49.5264,
+  "lng": 20.8589,
+  "voivodeship": "małopolskie"
+ },
+ {
+  "id": "151150070",
+  "name": "Żagań",
+  "river": "Czerna Wielka",
+  "lat": 51.6139,
+  "lng": 15.2897,
+  "voivodeship": "lubuskie"
+ },
+ {
+  "id": "150150190",
+  "name": "Podgórzyn",
+  "river": "Podgórna",
+  "lat": 50.8203,
+  "lng": 15.6836,
+  "voivodeship": "dolnośląskie"
+ },
+ {
+  "id": "153180140",
+  "name": "Elgiszewo",
+  "river": "Drwęca",
+  "lat": 53.0608,
+  "lng": 18.9281,
+  "voivodeship": "kujawsko-pomorskie"
+ },
+ {
+  "id": "151180010",
+  "name": "Ołobok",
+  "river": "Ołobok",
+  "lat": 51.6394,
+  "lng": 18.0689,
+  "voivodeship": "wielkopolskie"
+ },
+ {
+  "id": "153230070",
+  "name": "Sztabin",
+  "river": "Biebrza",
+  "lat": 53.6719,
+  "lng": 23.1164,
+  "voivodeship": "podlaskie"
+ },
+ {
+  "id": "152210070",
+  "name": "Wólka Mlądzka",
+  "river": "Świder",
+  "lat": 52.1392,
+  "lng": 21.3303,
+  "voivodeship": "mazowieckie"
+ },
+ {
+  "id": "150210070",
+  "name": "Wampierzów",
+  "river": "Bren",
+  "lat": 50.2994,
+  "lng": 21.2308,
+  "voivodeship": "podkarpackie"
+ },
+ {
+  "id": "153190130",
+  "name": "Kuligi (Nowe Miasto)",
+  "river": "Wel",
+  "lat": 53.4297,
+  "lng": 19.6908,
+  "voivodeship": "warmińsko-mazurskie"
+ },
+ {
+  "id": "150150050",
+  "name": "Piechowice",
+  "river": "Kamienna",
+  "lat": 50.85,
+  "lng": 15.5883,
+  "voivodeship": "dolnośląskie"
+ },
+ {
+  "id": "150160200",
+  "name": "Żelazno",
+  "river": "Biała Lądecka",
+  "lat": 50.3731,
+  "lng": 16.6739,
+  "voivodeship": "dolnośląskie"
+ },
+ {
+  "id": "149180160",
+  "name": "Wisła Czarne",
+  "river": "Wisła",
+  "lat": 49.6189,
+  "lng": 18.9186,
+  "voivodeship": "śląskie"
+ },
+ {
+  "id": "150190120",
+  "name": "Przeczyce",
+  "river": "Czarna Przemsza",
+  "lat": 50.4272,
+  "lng": 19.1778,
+  "voivodeship": "śląskie"
+ },
+ {
+  "id": "149190220",
+  "name": "Skawica Dolna",
+  "river": "Skawica",
+  "lat": 49.6861,
+  "lng": 19.6636,
+  "voivodeship": "małopolskie"
+ },
+ {
+  "id": "149190390",
+  "name": "Ludźmierz",
+  "river": "Wielki Rogoźnik",
+  "lat": 49.4594,
+  "lng": 19.9867,
+  "voivodeship": "małopolskie"
+ },
+ {
+  "id": "150220010",
+  "name": "Rzeszów",
+  "river": "Wisłok",
+  "lat": 50.0397,
+  "lng": 22.0156,
+  "voivodeship": "podkarpackie"
+ },
+ {
+  "id": "150160010",
+  "name": "Kamienna Góra",
+  "river": "Bóbr",
+  "lat": 50.7864,
+  "lng": 16.0361,
+  "voivodeship": "dolnośląskie"
+ },
+ {
+  "id": "150220130",
+  "name": "Zapałów",
+  "river": "Lubaczówka",
+  "lat": 50.1006,
+  "lng": 22.89,
+  "voivodeship": "podkarpackie"
+ },
+ {
+  "id": "149220210",
+  "name": "Nienowice",
+  "river": "Wisznia",
+  "lat": 49.9378,
+  "lng": 22.9169,
+  "voivodeship": "podkarpackie"
+ },
+ {
+  "id": "150150070",
+  "name": "Jelenia Góra 2",
+  "river": "Kamienna",
+  "lat": 50.8986,
+  "lng": 15.7222,
+  "voivodeship": "dolnośląskie"
+ },
+ {
+  "id": "154180080",
+  "name": "Wejherowo",
+  "river": "Reda",
+  "lat": 54.6133,
+  "lng": 18.225,
+  "voivodeship": "pomorskie"
+ },
+ {
+  "id": "150140020",
+  "name": "Sieniawka",
+  "river": "Nysa Łużycka",
+  "lat": 50.8964,
+  "lng": 14.8369,
+  "voivodeship": "dolnośląskie"
+ },
+ {
+  "id": "149200200",
+  "name": "Jakubkowice",
+  "river": "Łososina",
+  "lat": 49.7394,
+  "lng": 20.63,
+  "voivodeship": "małopolskie"
+ },
+ {
+  "id": "150170100",
+  "name": "Kopice",
+  "river": "Nysa Kłodzka",
+  "lat": 50.6456,
+  "lng": 17.4783,
+  "voivodeship": "opolskie"
+ },
+ {
+  "id": "149210060",
+  "name": "Topoliny",
+  "river": "Ropa",
+  "lat": 49.7247,
+  "lng": 21.4433,
+  "voivodeship": "podkarpackie"
+ },
+ {
+  "id": "150190150",
+  "name": "Poraj",
+  "river": "Warta",
+  "lat": 50.6733,
+  "lng": 19.2039,
+  "voivodeship": "śląskie"
+ },
+ {
+  "id": "151210050",
+  "name": "Gusin",
+  "river": "Wiała",
+  "lat": 51.8928,
+  "lng": 21.2544,
+  "voivodeship": "mazowieckie"
+ },
+ {
+  "id": "153140200",
+  "name": "Morzyczyn",
+  "river": "jez.Miedwie",
+  "lat": 53.3514,
+  "lng": 14.9164,
+  "voivodeship": "zachodniopomorskie"
+ },
+ {
+  "id": "153180010",
+  "name": "Czarna Woda",
+  "river": "Wda",
+  "lat": 53.8411,
+  "lng": 18.0928,
+  "voivodeship": "pomorskie"
+ },
+ {
+  "id": "150230080",
+  "name": "Michałów",
+  "river": "Wieprz",
+  "lat": 50.7342,
+  "lng": 23.0206,
+  "voivodeship": "lubelskie"
+ },
+ {
+  "id": "150180040",
+  "name": "Bojanów",
+  "river": "Psina",
+  "lat": 50.0306,
+  "lng": 18.1542,
+  "voivodeship": "śląskie"
+ },
+ {
+  "id": "154220050",
+  "name": "Jurkiszki",
+  "river": "Jarka",
+  "lat": 54.3092,
+  "lng": 22.3681,
+  "voivodeship": "warmińsko-mazurskie"
+ },
+ {
+  "id": "151210090",
+  "name": "Czekarzewice",
+  "river": "Kamienna",
+  "lat": 51.0331,
+  "lng": 21.6814,
+  "voivodeship": "świętokrzyskie"
+ },
+ {
+  "id": "150160230",
+  "name": "Lądek Zdrój",
+  "river": "Biała Lądecka",
+  "lat": 50.3467,
+  "lng": 16.8703,
+  "voivodeship": "dolnośląskie"
+ },
+ {
+  "id": "150140100",
+  "name": "Bogatynia",
+  "river": "Miedzianka",
+  "lat": 50.8922,
+  "lng": 14.995,
+  "voivodeship": "dolnośląskie"
+ },
+ {
+  "id": "149200130",
+  "name": "Stradomka",
+  "river": "Stradomka",
+  "lat": 49.9206,
+  "lng": 20.3083,
+  "voivodeship": "małopolskie"
+ },
+ {
+  "id": "150180100",
+  "name": "Staniszcze Wielkie",
+  "river": "Mała Panew",
+  "lat": 50.6633,
+  "lng": 18.3425,
+  "voivodeship": "opolskie"
+ },
+ {
+  "id": "151200090",
+  "name": "Nowe Miasto/Pilicą",
+  "river": "Pilica",
+  "lat": 51.6092,
+  "lng": 20.5733,
+  "voivodeship": "mazowieckie"
+ },
+ {
+  "id": "151150180",
+  "name": "Chojnów",
+  "river": "Skora",
+  "lat": 51.2728,
+  "lng": 15.9456,
+  "voivodeship": "dolnośląskie"
+ },
+ {
+  "id": "152220070",
+  "name": "Brańsk",
+  "river": "Nurzec",
+  "lat": 52.7439,
+  "lng": 22.8186,
+  "voivodeship": "podlaskie"
+ },
+ {
+  "id": "151210020",
+  "name": "Michałów 2",
+  "river": "Kamienna",
+  "lat": 51.0117,
+  "lng": 21.1011,
+  "voivodeship": "świętokrzyskie"
+ },
+ {
+  "id": "154170080",
+  "name": "Łupawa",
+  "river": "Łupawa",
+  "lat": 54.4194,
+  "lng": 17.4156,
+  "voivodeship": "pomorskie"
+ },
+ {
+  "id": "150190080",
+  "name": "Radocha",
+  "river": "Czarna Przemsza",
+  "lat": 50.2608,
+  "lng": 19.1403,
+  "voivodeship": "śląskie"
+ },
+ {
+  "id": "149190170",
+  "name": "Zator",
+  "river": "Skawa",
+  "lat": 49.9992,
+  "lng": 19.4456,
+  "voivodeship": "małopolskie"
+ },
+ {
+  "id": "153170040",
+  "name": "Wyrzysk",
+  "river": "Łobżonka",
+  "lat": 53.1508,
+  "lng": 17.2708,
+  "voivodeship": "wielkopolskie"
+ },
+ {
+  "id": "150170070",
+  "name": "Głuchołazy",
+  "river": "Biała Głuchołaska",
+  "lat": 50.3164,
+  "lng": 17.38,
+  "voivodeship": "opolskie"
+ },
+ {
+  "id": "150220100",
+  "name": "Jarosław",
+  "river": "San",
+  "lat": 50.0211,
+  "lng": 22.7028,
+  "voivodeship": "podkarpackie"
+ },
+ {
+  "id": "154160120",
+  "name": "Korzybie",
+  "river": "Wieprza",
+  "lat": 54.2806,
+  "lng": 16.8783,
+  "voivodeship": "pomorskie"
+ },
+ {
+  "id": "150160100",
+  "name": "Gorzuchów",
+  "river": "Ścinawka",
+  "lat": 50.4853,
+  "lng": 16.5711,
+  "voivodeship": "dolnośląskie"
+ },
+ {
+  "id": "150160150",
+  "name": "Bystrzyca Kłodzka 2",
+  "river": "Bystrzyca",
+  "lat": 50.2964,
+  "lng": 16.6486,
+  "voivodeship": "dolnośląskie"
+ },
+ {
+  "id": "151150060",
+  "name": "Leśna",
+  "river": "Kwisa",
+  "lat": 51.0283,
+  "lng": 15.2867,
+  "voivodeship": "dolnośląskie"
+ },
+ {
+  "id": "150180050",
+  "name": "Ozimek",
+  "river": "Mała Panew",
+  "lat": 50.6792,
+  "lng": 18.2039,
+  "voivodeship": "opolskie"
+ },
+ {
+  "id": "151160070",
+  "name": "Winnica",
+  "river": "Nysa Szalona",
+  "lat": 51.1117,
+  "lng": 16.0936,
+  "voivodeship": "dolnośląskie"
+ },
+ {
+  "id": "150160290",
+  "name": "Gniechowice",
+  "river": "Czarna Woda",
+  "lat": 50.9875,
+  "lng": 16.8292,
+  "voivodeship": "dolnośląskie"
+ },
+ {
+  "id": "152170150",
+  "name": "Trąbczyn",
+  "river": "Bawół",
+  "lat": 52.1381,
+  "lng": 17.9761,
+  "voivodeship": "wielkopolskie"
+ },
+ {
+  "id": "149190360",
+  "name": "Ludźmierz",
+  "river": "Lepietnica",
+  "lat": 49.4686,
+  "lng": 19.9756,
+  "voivodeship": "małopolskie"
+ },
+ {
+  "id": "151170110",
+  "name": "Bogusław",
+  "river": "Prosna",
+  "lat": 51.8983,
+  "lng": 17.9536,
+  "voivodeship": "wielkopolskie"
+ },
+ {
+  "id": "153180150",
+  "name": "Rogóźno",
+  "river": "Osa",
+  "lat": 53.5167,
+  "lng": 18.9489,
+  "voivodeship": "kujawsko-pomorskie"
+ },
+ {
+  "id": "149190310",
+  "name": "Stróża",
+  "river": "Raba",
+  "lat": 49.7969,
+  "lng": 19.9247,
+  "voivodeship": "małopolskie"
+ },
+ {
+  "id": "150170140",
+  "name": "Skorogoszcz",
+  "river": "Nysa Kłodzka",
+  "lat": 50.7619,
+  "lng": 17.675,
+  "voivodeship": "opolskie"
+ },
+ {
+  "id": "151160040",
+  "name": "Bukowna",
+  "river": "Czarna Woda",
+  "lat": 51.31,
+  "lng": 16.0469,
+  "voivodeship": "dolnośląskie"
+ },
+ {
+  "id": "151180030",
+  "name": "Kuźnica Skakawska",
+  "river": "Niesób",
+  "lat": 51.2797,
+  "lng": 18.1317,
+  "voivodeship": "łódzkie"
+ },
+ {
+  "id": "150160250",
+  "name": "Białobrzezie",
+  "river": "Ślęza",
+  "lat": 50.8022,
+  "lng": 16.8922,
+  "voivodeship": "dolnośląskie"
+ },
+ {
+  "id": "154170060",
+  "name": "Smołdzino",
+  "river": "Łupawa",
+  "lat": 54.6617,
+  "lng": 17.2147,
+  "voivodeship": "pomorskie"
+ },
+ {
+  "id": "154170120",
+  "name": "Soszyca",
+  "river": "Słupia",
+  "lat": 54.25,
+  "lng": 17.5797,
+  "voivodeship": "pomorskie"
+ },
+ {
+  "id": "149210070",
+  "name": "Żółków",
+  "river": "Wisłoka",
+  "lat": 49.73,
+  "lng": 21.4592,
+  "voivodeship": "podkarpackie"
+ },
+ {
+  "id": "150220020",
+  "name": "Ruda Jastkowska",
+  "river": "Bukowa",
+  "lat": 50.5975,
+  "lng": 22.1397,
+  "voivodeship": "podkarpackie"
+ },
+ {
+  "id": "151180110",
+  "name": "Uniejów",
+  "river": "Warta",
+  "lat": 51.9725,
+  "lng": 18.7911,
+  "voivodeship": "łódzkie"
+ },
+ {
+  "id": "150160130",
+  "name": "Mościsko",
+  "river": "Piława",
+  "lat": 50.7819,
+  "lng": 16.5842,
+  "voivodeship": "dolnośląskie"
+ },
+ {
+  "id": "150180270",
+  "name": "Kozłowa Góra",
+  "river": "Brynica",
+  "lat": 50.4122,
+  "lng": 18.9719,
+  "voivodeship": "śląskie"
+ },
+ {
+  "id": "150180080",
+  "name": "Grabówka",
+  "river": "Bierawka",
+  "lat": 50.2844,
+  "lng": 18.2758,
+  "voivodeship": "opolskie"
+ },
+ {
+  "id": "151180140",
+  "name": "Podgórze",
+  "river": "Widawka",
+  "lat": 51.465,
+  "lng": 18.9431,
+  "voivodeship": "łódzkie"
+ },
+ {
+  "id": "150180190",
+  "name": "Krupski Młyn",
+  "river": "Mała Panew",
+  "lat": 50.5711,
+  "lng": 18.6244,
+  "voivodeship": "śląskie"
+ },
+ {
+  "id": "151200020",
+  "name": "Spała",
+  "river": "Pilica",
+  "lat": 51.5372,
+  "lng": 20.1339,
+  "voivodeship": "łódzkie"
+ },
+ {
+  "id": "150190070",
+  "name": "Szabelnia",
+  "river": "-",
+  "lat": 50.2594,
+  "lng": 19.1367,
+  "voivodeship": "śląskie"
+ },
+ {
+  "id": "152160130",
+  "name": "Mosin",
+  "river": "Kanał Mosiński",
+  "lat": 52.2483,
+  "lng": 16.8564,
+  "voivodeship": "wielkopolskie"
+ },
+ {
+  "id": "149180060",
+  "name": "Cieszyn",
+  "river": "Olza",
+  "lat": 49.7458,
+  "lng": 18.6297,
+  "voivodeship": "śląskie"
+ },
+ {
+  "id": "150150040",
+  "name": "Barcinek",
+  "river": "Kamienica",
+  "lat": 50.9439,
+  "lng": 15.6039,
+  "voivodeship": "dolnośląskie"
+ },
+ {
+  "id": "150150110",
+  "name": "Kowary",
+  "river": "Jedlica",
+  "lat": 50.7947,
+  "lng": 15.8342,
+  "voivodeship": "dolnośląskie"
+ },
+ {
+  "id": "151210010",
+  "name": "Wąchock",
+  "river": "Kamienna",
+  "lat": 51.0758,
+  "lng": 21.0189,
+  "voivodeship": "świętokrzyskie"
+ },
+ {
+  "id": "150230010",
+  "name": "Nielisz",
+  "river": "Wieprz",
+  "lat": 50.8086,
+  "lng": 23.0411,
+  "voivodeship": "lubelskie"
+ },
+ {
+  "id": "150190240",
+  "name": "Kręciwilk",
+  "river": "Warta",
+  "lat": 50.5453,
+  "lng": 19.3703,
+  "voivodeship": "śląskie"
+ },
+ {
+  "id": "150150060",
+  "name": "Pilchowice",
+  "river": "Bóbr",
+  "lat": 50.9639,
+  "lng": 15.6406,
+  "voivodeship": "dolnośląskie"
+ },
+ {
+  "id": "151170070",
+  "name": "Odolanów",
+  "river": "Barycz",
+  "lat": 51.5756,
+  "lng": 17.67,
+  "voivodeship": "wielkopolskie"
+ },
+ {
+  "id": "150160060",
+  "name": "Jugowice",
+  "river": "Bystrzyca",
+  "lat": 50.7331,
+  "lng": 16.4033,
+  "voivodeship": "dolnośląskie"
+ },
+ {
+  "id": "150150030",
+  "name": "Jakuszyce",
+  "river": "Kamienna",
+  "lat": 50.8225,
+  "lng": 15.44,
+  "voivodeship": "dolnośląskie"
+ },
+ {
+  "id": "151160090",
+  "name": "Jawor",
+  "river": "Nysa Szalona",
+  "lat": 51.0483,
+  "lng": 16.1897,
+  "voivodeship": "dolnośląskie"
+ },
+ {
+  "id": "150160170",
+  "name": "Bystrzyca Kłodzka",
+  "river": "Nysa Kłodzka",
+  "lat": 50.2936,
+  "lng": 16.6483,
+  "voivodeship": "dolnośląskie"
+ },
+ {
+  "id": "150150200",
+  "name": "Sosnówka",
+  "river": "Sośniak",
+  "lat": 50.8222,
+  "lng": 15.7192,
+  "voivodeship": "dolnośląskie"
+ },
+ {
+  "id": "154190140",
+  "name": "Braniewo",
+  "river": "Pasłęka",
+  "lat": 54.3842,
+  "lng": 19.8264,
+  "voivodeship": "warmińsko-mazurskie"
+ },
+ {
+  "id": "151160170",
+  "name": "Brzeg Dolny",
+  "river": "Odra",
+  "lat": 51.2606,
+  "lng": 16.7267,
+  "voivodeship": "dolnośląskie"
+ },
+ {
+  "id": "151140020",
+  "name": "Pleśno",
+  "river": "Lubsza",
+  "lat": 51.9156,
+  "lng": 14.7544,
+  "voivodeship": "lubuskie"
+ },
+ {
+  "id": "153220010",
+  "name": "Piątnica-Łomża",
+  "river": "Narew",
+  "lat": 53.1933,
+  "lng": 22.0933,
+  "voivodeship": "podlaskie"
+ },
+ {
+  "id": "152210170",
+  "name": "Warszawa-Bulwary",
+  "river": "Wisła",
+  "lat": 52.2472,
+  "lng": 21.0208,
+  "voivodeship": "mazowieckie"
+ }
+]

@@ -153,6 +153,151 @@ def detect_outliers(
 
 
 # ============================================================
+# RATING CURVE (KRZYWA KONSUMCYJNA)
+# ============================================================
+
+def build_rating_curve(
+    df: pd.DataFrame,
+    station_id: str,
+    degree: int = 2,
+    level_col: str = "water_level_cm",
+    discharge_col: str = "discharge_m3s",
+) -> dict:
+    """Build a rating curve H → Q from paired water level and discharge data.
+
+    Fits a power-law relationship: Q = a * (H - H0)^b
+    using log-log linear regression, which is the standard hydrological approach.
+
+    Falls back to polynomial fit if power-law fails.
+
+    Args:
+        df: DataFrame with station data
+        station_id: station ID
+        degree: polynomial degree for fallback fit
+        level_col: water level column name
+        discharge_col: discharge column name
+
+    Returns:
+        dict with keys: 'type' ('power' or 'poly'), 'params', 'r2',
+        'n_points', 'H_range', 'Q_range'
+    """
+    sdf = df[df["station_id"] == station_id][[level_col, discharge_col]].dropna()
+    if len(sdf) < 30:
+        raise ValueError(
+            f"Not enough paired H-Q data ({len(sdf)} points). Need at least 30."
+        )
+
+    H = sdf[level_col].values / 100.0  # cm -> m
+    Q = sdf[discharge_col].values
+
+    # Try power-law fit: Q = a * (H - H0)^b
+    # Use H0 = 0 as simplification, fit in log-log space
+    mask = (H > 0) & (Q > 0)
+    H_pos, Q_pos = H[mask], Q[mask]
+
+    if len(H_pos) >= 30:
+        log_H = np.log(H_pos)
+        log_Q = np.log(Q_pos)
+        coeffs = np.polyfit(log_H, log_Q, 1)
+        b, log_a = coeffs[0], coeffs[1]
+        a = np.exp(log_a)
+
+        Q_pred = a * H_pos ** b
+        ss_res = np.sum((Q_pos - Q_pred) ** 2)
+        ss_tot = np.sum((Q_pos - Q_pos.mean()) ** 2)
+        r2 = 1.0 - ss_res / ss_tot
+
+        if r2 > 0.7:
+            return {
+                "type": "power",
+                "params": {"a": a, "b": b},
+                "r2": r2,
+                "n_points": len(H_pos),
+                "H_range": (float(H.min()), float(H.max())),
+                "Q_range": (float(Q.min()), float(Q.max())),
+            }
+
+    # Fallback: polynomial fit
+    coeffs = np.polyfit(H, Q, degree)
+    Q_pred = np.polyval(coeffs, H)
+    ss_res = np.sum((Q - Q_pred) ** 2)
+    ss_tot = np.sum((Q - Q.mean()) ** 2)
+    r2 = 1.0 - ss_res / ss_tot
+
+    return {
+        "type": "poly",
+        "params": {"coefficients": coeffs.tolist(), "degree": degree},
+        "r2": r2,
+        "n_points": len(H),
+        "H_range": (float(H.min()), float(H.max())),
+        "Q_range": (float(Q.min()), float(Q.max())),
+    }
+
+
+def apply_rating_curve(H_values: np.ndarray, rating: dict) -> np.ndarray:
+    """Apply rating curve to convert water levels [m] to discharge [m3/s].
+
+    Args:
+        H_values: water levels in meters
+        rating: dict from build_rating_curve()
+
+    Returns:
+        Estimated discharge values
+    """
+    if rating["type"] == "power":
+        a, b = rating["params"]["a"], rating["params"]["b"]
+        Q = a * np.maximum(H_values, 0.001) ** b
+    else:
+        Q = np.polyval(rating["params"]["coefficients"], H_values)
+
+    return np.maximum(Q, 0.0)  # discharge cannot be negative
+
+
+def reconstruct_discharge(
+    df: pd.DataFrame,
+    station_id: str,
+    rating: dict,
+    level_col: str = "water_level_cm",
+    discharge_col: str = "discharge_m3s",
+) -> pd.DataFrame:
+    """Reconstruct missing discharge from water level using a rating curve.
+
+    Only fills rows where discharge is NaN but water level is available.
+
+    Args:
+        df: DataFrame with station data
+        station_id: station ID
+        rating: dict from build_rating_curve()
+        level_col: water level column name
+        discharge_col: discharge column name
+
+    Returns:
+        DataFrame with filled discharge values
+    """
+    result = df.copy()
+    mask = (result["station_id"] == station_id)
+    sdf = result.loc[mask].copy()
+
+    # Find rows with missing Q but available H
+    fillable = sdf[discharge_col].isna() & sdf[level_col].notna()
+    n_fillable = fillable.sum()
+
+    if n_fillable == 0:
+        print(f"No missing discharge values with available water levels.")
+        return result
+
+    H_m = sdf.loc[fillable, level_col].values / 100.0  # cm -> m
+    Q_est = apply_rating_curve(H_m, rating)
+
+    sdf.loc[fillable, discharge_col] = Q_est
+    result.loc[mask, discharge_col] = sdf[discharge_col].values
+
+    print(f"Reconstructed {n_fillable} discharge values from water levels "
+          f"(rating curve R2 = {rating['r2']:.4f})")
+    return result
+
+
+# ============================================================
 # STATISTICS
 # ============================================================
 

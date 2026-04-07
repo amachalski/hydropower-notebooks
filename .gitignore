@@ -25,5 +25,8 @@ Thumbs.db
 # Claude Code
 .claude/
 
+# Other (reference Excel files)
+other/
+
 # Environment
 .env
