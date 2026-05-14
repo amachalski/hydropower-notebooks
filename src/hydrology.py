@@ -471,12 +471,17 @@ def year_completeness(
     sdf = df[df["station_id"] == station_id].copy()
     sdf["year"] = sdf["date"].dt.year
 
-    stats = sdf.groupby("year")[column].agg(
-        valid_days="count",
-        total_days="size",
+    valid_days = sdf.groupby("year")[column].agg(valid_days="count")
+    # Compare against actual calendar days per year (365 or 366)
+    expected = pd.Series(
+        {y: 366 if pd.Timestamp(year=y, month=12, day=31).is_leap_year else 365
+         for y in valid_days.index},
+        name="expected_days",
     )
-    stats["missing_days"] = stats["total_days"] - stats["valid_days"]
-    stats["pct_valid"] = (stats["valid_days"] / stats["total_days"] * 100).round(1)
+    stats = valid_days.copy()
+    stats["expected_days"] = expected
+    stats["missing_days"] = stats["expected_days"] - stats["valid_days"]
+    stats["pct_valid"] = (stats["valid_days"] / stats["expected_days"] * 100).round(1)
     stats.index.name = "year"
     return stats
 
