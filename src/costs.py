@@ -50,6 +50,16 @@ _OGAYAR_COEFFS = {
 # Source: Eurostat [prc_hicp_aind], EU-27 aggregate, all items
 INFLATION_2009_TO_2024 = 1.37
 
+# EUR/PLN exchange rate used throughout the course
+# (NBP średni 2024 ≈ 4.30–4.35; round 4.6 chosen for didactic
+# consistency with WPE_2.xlsm and notebook 05 unit costs).
+EUR_PLN_RATE = 4.6
+
+
+def eur_to_pln(eur: float, rate: float = EUR_PLN_RATE) -> float:
+    """Convert EUR amount to PLN at fixed didactic rate."""
+    return eur * rate
+
 
 def electromechanical_cost(
     P_kW: float,
@@ -296,11 +306,11 @@ def annual_om_cost(
 
 def annual_revenue(
     energy_mwh: float,
-    energy_price_eur_mwh: float = 140.0,
+    energy_price_eur_mwh: float = 106.5,
 ) -> float:
     """Annual revenue from energy sales.
 
-    Default price: EUR 140/MWh ≈ PLN 640/MWh at EUR/PLN ≈ 4.6
+    Default price: EUR 106.5/MWh ≈ PLN 490/MWh at EUR/PLN ≈ 4.6
     (consistent with notebook 05 parameter).
 
     Includes: wholesale energy + green certificates / feed-in premium.
@@ -323,7 +333,7 @@ def annual_revenue(
 def economic_analysis(
     energy_mwh: float,
     investment_eur: float,
-    energy_price_eur_mwh: float = 140.0,
+    energy_price_eur_mwh: float = 106.5,
     om_fraction: float = 0.025,
     discount_rate: float = 0.06,
     lifetime_years: int = 40,

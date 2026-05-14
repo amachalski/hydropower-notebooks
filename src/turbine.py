@@ -310,9 +310,15 @@ def dispatch_flow(
 ) -> tuple[np.ndarray, np.ndarray]:
     """Dispatch available flow among identical turbines.
 
-    Strategy: use minimum number of turbines at highest load.
-    Starting from all n_turbines, reduce count if Q per turbine
-    falls below Q_min. Cap each turbine at Q_design.
+    Strategy: use the **minimum** number of turbines that can pass the available
+    flow without exceeding Q_design per unit. This loads each running turbine as
+    close to its design point as possible (best efficiency).
+
+        n_active = clip( ceil(Q / Q_design), 1, n_turbines )
+        Q_per    = min( Q / n_active, Q_design )
+
+    Excess flow (Q > n_turbines · Q_design) is spilled.
+    If even a single turbine falls below Q_min, the plant shuts down for that day.
 
     Args:
         Q_available: available flow [m³/s] (array, shape (n_days,))
@@ -323,19 +329,19 @@ def dispatch_flow(
     Returns:
         (Q_per_turbine, n_active):
             Q_per_turbine — flow through each active turbine [m³/s], shape (n_days,)
-            n_active — number of active turbines per day, shape (n_days,)
+            n_active — number of active turbines per day (0..n_turbines), shape (n_days,)
     """
     Q = np.asarray(Q_available, dtype=float)
     Q_min = turbine_type.Q_ratio_min * Q_design
 
-    Q_per = np.zeros_like(Q)
-    n_active = np.zeros_like(Q, dtype=int)
+    # Minimum n_active so each turbine sees ≤ Q_design (use more turbines for high flow)
+    n_needed = np.ceil(np.maximum(Q, 0) / Q_design).astype(int)
+    n_active = np.clip(n_needed, 1, n_turbines)
+    Q_per = np.minimum(Q / np.maximum(n_active, 1), Q_design)
 
-    for n in range(n_turbines, 0, -1):
-        Q_each = Q / n
-        # This config works where Q_each >= Q_min and we haven't assigned yet
-        can_run = (Q_each >= Q_min) & (n_active == 0)
-        Q_per = np.where(can_run, np.minimum(Q_each, Q_design), Q_per)
-        n_active = np.where(can_run, n, n_active)
+    # Shut down where each turbine would be below Q_min, or Q ≤ 0
+    shutdown = (Q_per < Q_min) | (Q <= 0)
+    n_active = np.where(shutdown, 0, n_active)
+    Q_per = np.where(shutdown, 0.0, Q_per)
 
     return Q_per, n_active

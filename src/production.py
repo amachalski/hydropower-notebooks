@@ -31,6 +31,7 @@ def compute_power(
     n_turbines: int,
     turbine_type: TurbineType,
     loss_fns: list[Callable] | None = None,
+    H_design: float | None = None,
     gen_k_cu: float = 0.025,
     gen_k_fe: float = 0.010,
     gen_k_mech: float = 0.005,
@@ -41,29 +42,31 @@ def compute_power(
 
     Calculation chain for each day:
         1. Dispatch flow among turbines → Q_per_turbine, n_active
-        2. Compute head losses → H_net = H_gross - ΔH(Q_total_used)
-        3. Turbine efficiency → eta_t(Q_per_turbine / Q_design)
-        4. Shaft power → P_shaft = n_active * rho * g * Q_per_turb * H_net * eta_t
-        5. Generator efficiency → eta_g(P_shaft / P_rated)
-        6. Electrical power → P_el = P_shaft * eta_g
-        7. Daily energy → E = P_el * 24h
+        2. Compute head losses on Q_used (= n_active × Q_per_turbine)
+           → H_net = H_gross − ΔH
+        3. Turbine efficiency → η_t(Q_per_turbine / Q_design)
+        4. Shaft power → P_shaft = n_active · ρ·g·Q_per_turb·H_net·η_t
+        5. Generator efficiency η_g uses *per-unit* load:
+              P_ratio = (P_shaft / n_active) / P_rated_unit
+           so that a single turbine running near its rating sees η_g(1.0),
+           not a fleet-averaged value.
+        6. P_el = P_shaft · η_g     7. E = P_el · 24 h
 
     Args:
-        Q_sorted: sorted year flows [m³/s], shape (365,), descending
-        H_gross: gross head per day [m], shape (365,) or scalar
-        Q_design: design flow per turbine [m³/s]
-        n_turbines: number of identical turbines
+        Q_sorted: sorted year flows [m³/s], shape (n_days,), descending
+        H_gross: gross head per day [m], shape (n_days,) or scalar
+        Q_design: design flow **per turbine** [m³/s]
+        n_turbines: number of identical turbines installed
         turbine_type: TurbineType from catalog
-        loss_fns: list of head loss functions Q→ΔH (from src/losses).
-                  None = no losses (H_net = H_gross)
-        gen_k_cu: generator copper loss coefficient
-        gen_k_fe: generator iron loss coefficient
-        gen_k_mech: generator mechanical loss coefficient
-        rho: water density [kg/m³]
-        g: gravitational acceleration [m/s²]
+        loss_fns: list of head-loss callables Q→ΔH (from src/losses).
+                  None = no hydraulic losses (H_net = H_gross)
+        H_design: head at the design point [m]. Used to compute the
+                  per-unit rated shaft power. If None, max(H_gross) is used.
+        gen_k_cu, gen_k_fe, gen_k_mech: generator loss coefficients
+        rho, g: water density and gravitational acceleration
 
     Returns:
-        DataFrame with columns:
+        DataFrame columns:
             day, pct, Q_avail, Q_per_turbine, n_active, Q_used,
             H_gross, H_net, eta_t, P_shaft_kW, eta_g, P_el_kW, E_kWh
     """
@@ -82,18 +85,22 @@ def compute_power(
     else:
         H_net = H_gross.copy()
 
-    # Step 3: Turbine efficiency
+    # Step 3: Turbine efficiency (Q_ratio is per-unit by construction)
     Q_ratio = np.where(Q_design > 0, Q_per_turb / Q_design, 0.0)
     eta_t = turbine_efficiency(Q_ratio, turbine_type)
 
-    # Step 4: Shaft power (per turbine × n_active)
-    P_shaft_W = n_active * rho * g * Q_per_turb * H_net * eta_t
-    P_shaft_kW = P_shaft_W / 1000.0
+    # Step 4: Shaft power (fleet total = n_active × per-unit power)
+    P_shaft_kW = n_active * rho * g * Q_per_turb * H_net * eta_t / 1000.0
 
-    # Step 5: Generator efficiency
-    # P_rated = rated shaft power at full load
-    P_rated_kW = n_turbines * rho * g * Q_design * H_gross.mean() * turbine_type.eta_peak / 1000.0
-    P_ratio = np.where(P_rated_kW > 0, P_shaft_kW / P_rated_kW, 0.0)
+    # Step 5: Generator efficiency — uses PER-UNIT load
+    if H_design is None:
+        H_design = float(np.max(H_gross)) if H_gross.size > 0 else 0.0
+    P_rated_unit_kW = rho * g * Q_design * H_design * turbine_type.eta_peak / 1000.0
+    # per-unit shaft power = total / n_active (avoid div-by-zero when shut down)
+    P_shaft_per_unit_kW = np.where(
+        n_active > 0, P_shaft_kW / np.maximum(n_active, 1), 0.0,
+    )
+    P_ratio = np.where(P_rated_unit_kW > 0, P_shaft_per_unit_kW / P_rated_unit_kW, 0.0)
     eta_g = generator_efficiency(P_ratio, gen_k_cu, gen_k_fe, gen_k_mech)
 
     # Step 6: Electrical power

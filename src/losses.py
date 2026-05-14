@@ -89,10 +89,12 @@ def trash_rack_loss(
 # ============================================================
 
 def _colebrook_f(Re: np.ndarray, k_s: float, D: float) -> np.ndarray:
-    """Darcy friction factor from Colebrook-White equation (iterative).
+    """Darcy friction factor — Swamee-Jain explicit approximation of Colebrook-White.
 
-    Swamee-Jain explicit approximation:
-        f = 0.25 / [log10(k_s/(3.7*D) + 5.74/Re^0.9)]^2
+        f = 0.25 / [log10(k_s/(3.7·D) + 5.74/Re^0.9)]²
+
+    Valid for 5e3 ≤ Re ≤ 1e8 and 1e-6 ≤ k_s/D ≤ 1e-2 (well above
+    laminar; covers all turbulent pipe-flow regimes in small hydro).
     """
     Re = np.maximum(Re, 1.0)  # avoid log(0)
     term = k_s / (3.7 * D) + 5.74 / Re ** 0.9
@@ -166,71 +168,13 @@ def minor_loss(
     return xi * _velocity_head(Q, A)
 
 
-# ============================================================
-# SPIRAL CASING LOSSES
-# ============================================================
-
-def spiral_casing_loss(
-    Q: np.ndarray,
-    A_inlet: float,
-    xi: float = 0.1,
-) -> np.ndarray:
-    """Head loss in spiral (volute) casing.
-
-    ΔH = ξ * v²/(2g)
-
-    Typical ξ values:
-        - Well-designed spiral casing: 0.05-0.10
-        - Simple volute: 0.10-0.20
-
-    Args:
-        Q: flow [m³/s]
-        A_inlet: spiral casing inlet area [m²]
-        xi: loss coefficient (default 0.1)
-
-    Returns:
-        Head loss ΔH [m]
-    """
-    return minor_loss(Q, A_inlet, xi)
-
-
-# ============================================================
-# DRAFT TUBE LOSSES
-# ============================================================
-
-def draft_tube_loss(
-    Q: np.ndarray,
-    A_inlet: float,
-    A_outlet: float,
-    xi: float = 0.3,
-) -> np.ndarray:
-    """Head loss in draft tube (rura ssawna).
-
-    The draft tube recovers kinetic energy by decelerating flow.
-    Loss is referenced to inlet velocity:
-
-    ΔH = ξ * v_inlet²/(2g)
-
-    where ξ accounts for friction and imperfect diffusion.
-
-    Typical ξ values:
-        - Straight conical tube: 0.15-0.25
-        - Elbow draft tube: 0.25-0.40
-        - Simple pipe exit: 0.5-1.0
-
-    The net effect of a draft tube is usually beneficial
-    (without it, ξ_exit = 1.0 based on runner exit velocity).
-
-    Args:
-        Q: flow [m³/s]
-        A_inlet: draft tube inlet area (≈ runner exit area) [m²]
-        A_outlet: draft tube outlet area [m²]
-        xi: loss coefficient referenced to inlet velocity (default 0.3)
-
-    Returns:
-        Head loss ΔH [m]
-    """
-    return minor_loss(Q, A_inlet, xi)
+# Note: spiral casing and draft tube losses are also "minor losses" —
+# they use the same formula ΔH = ξ · v²/(2g) with context-specific ξ.
+# Call minor_loss(Q, A_inlet, xi) directly with appropriate ξ:
+#   - spiral casing: ξ ≈ 0.05–0.20 (well-designed → simple volute)
+#   - draft tube: ξ ≈ 0.15–0.40 (referenced to inlet velocity; a draft
+#     tube recovers kinetic energy by decelerating flow — without it,
+#     the exit loss would be ξ = 1.0 on the runner-exit velocity).
 
 
 # ============================================================
