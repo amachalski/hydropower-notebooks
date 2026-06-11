@@ -15,11 +15,33 @@ from typing import Optional
 
 
 # ============================================================
+# HYDROLOGICAL YEAR
+# ============================================================
+
+def hydro_year(dates) -> np.ndarray:
+    """Hydrological year for each date (Polish convention: Nov 1 → Oct 31).
+
+    Hydrological year N spans Nov 1 of calendar year N-1 through Oct 31 of
+    calendar year N, so November and December belong to the NEXT year's
+    hydrological year. IMGW daily files use this convention (month 01 =
+    November).
+
+    Args:
+        dates: array-like of datetimes (Series, DatetimeIndex, ndarray).
+
+    Returns:
+        np.ndarray of int hydrological years.
+    """
+    dt = pd.DatetimeIndex(dates)
+    return (dt.year + (dt.month >= 11).astype(int)).to_numpy()
+
+
+# ============================================================
 # DATA QUALITY
 # ============================================================
 
 def check_completeness(df: pd.DataFrame, station_id: str) -> pd.DataFrame:
-    """Check data completeness for a station. Returns summary by year."""
+    """Check data completeness for a station. Returns summary by hydrological year."""
     sdf = df[df["station_id"] == station_id].copy()
     if sdf.empty:
         return pd.DataFrame()
@@ -28,7 +50,7 @@ def check_completeness(df: pd.DataFrame, station_id: str) -> pd.DataFrame:
     date_range = pd.date_range(sdf.index.min(), sdf.index.max(), freq="D")
     sdf = sdf.reindex(date_range)
 
-    yearly = sdf.groupby(sdf.index.year).agg(
+    yearly = sdf.groupby(hydro_year(sdf.index)).agg(
         total_days=("discharge_m3s", "size"),
         discharge_valid=("discharge_m3s", lambda x: x.notna().sum()),
         discharge_missing=("discharge_m3s", lambda x: x.isna().sum()),
@@ -74,14 +96,28 @@ def fill_gaps_interpolation(
 ) -> pd.DataFrame:
     """Fill small gaps using time-series interpolation.
 
-    Only fills gaps up to max_gap_days long. Larger gaps are left as NaN.
+    Only fills gaps up to max_gap_days consecutive missing DAYS; longer gaps
+    are left entirely as NaN. Note: pandas' interpolate(limit=N) alone is not
+    enough — it fills the FIRST N values of every gap regardless of length.
+    Gap lengths are measured on a complete daily calendar, so missing rows
+    count toward the gap, not only NaN rows.
     """
     result = df.copy()
     mask = result["station_id"] == station_id
-    sdf = result.loc[mask].sort_values("date").copy()
+    sdf = result.loc[mask].sort_values("date").set_index("date")
 
-    sdf[column] = sdf[column].interpolate(method=method, limit=max_gap_days)
-    result.loc[mask, column] = sdf[column].values
+    full_range = pd.date_range(sdf.index.min(), sdf.index.max(), freq="D")
+    series = sdf[column].reindex(full_range)
+
+    is_missing = series.isna()
+    run_id = (is_missing != is_missing.shift()).cumsum()
+    run_len = is_missing.groupby(run_id).transform("sum")
+    fillable = is_missing & (run_len <= max_gap_days)
+
+    interpolated = series.interpolate(method=method, limit_area="inside")
+    series = series.where(~fillable, interpolated)
+
+    result.loc[mask, column] = result.loc[mask, "date"].map(series).values
     return result
 
 
@@ -119,6 +155,7 @@ def fill_gaps_correlation(
 
     missing = merged["target"].isna() & merged["reference"].notna()
     filled_values = slope * merged.loc[missing, "reference"] + intercept
+    filled_values = filled_values.clip(lower=0.0)  # discharge cannot be negative
 
     mask = result["station_id"] == target_id
     sdf = result.loc[mask].set_index("date")
@@ -355,7 +392,9 @@ def characteristic_flows(
         return pd.Series(dtype=float)
 
     sdf_valid = sdf.dropna(subset=[column, "date"])
-    annual = sdf_valid.groupby(sdf_valid["date"].dt.year)[column]
+    # Annual extremes (SNQ/SWQ) follow the hydrological year (Nov-Oct), so a
+    # winter season is never split across two "years".
+    annual = sdf_valid.groupby(hydro_year(sdf_valid["date"]))[column]
 
     annual_min = annual.min()
     annual_max = annual.max()
@@ -397,9 +436,9 @@ def annual_stats(
     station_id: str,
     column: str = "discharge_m3s",
 ) -> pd.DataFrame:
-    """Annual mean, min, max discharge for a station."""
+    """Annual mean, min, max discharge for a station (hydrological years)."""
     sdf = df[df["station_id"] == station_id].dropna(subset=[column, "date"]).copy()
-    sdf["year"] = sdf["date"].dt.year
+    sdf["year"] = hydro_year(sdf["date"])
 
     stats = sdf.groupby("year")[column].agg(["mean", "min", "max", "std", "count"])
     stats = stats.round(3)
@@ -498,17 +537,18 @@ def year_completeness(
     station_id: str,
     column: str = "discharge_m3s",
 ) -> pd.DataFrame:
-    """Calculate completeness per year for a station.
+    """Calculate completeness per hydrological year (Nov-Oct) for a station.
 
     Returns DataFrame with year, total_days, valid_days, missing_days, pct_valid.
     """
     sdf = df[df["station_id"] == station_id].copy()
-    sdf["year"] = sdf["date"].dt.year
+    sdf["year"] = hydro_year(sdf["date"])
 
     valid_days = sdf.groupby("year")[column].agg(valid_days="count")
-    # Compare against actual calendar days per year (365 or 366)
+    # Hydro year N contains Feb of calendar year N, so its length is 366
+    # exactly when calendar year N is a leap year.
     expected = pd.Series(
-        {y: 366 if pd.Timestamp(year=y, month=12, day=31).is_leap_year else 365
+        {y: 366 if pd.Timestamp(year=y, month=1, day=1).is_leap_year else 365
          for y in valid_days.index},
         name="expected_days",
     )
@@ -526,14 +566,14 @@ def identify_flood_years(
     column: str = "discharge_m3s",
     threshold_factor: float = 3.0,
 ) -> list[int]:
-    """Identify years with extreme floods (annual max >> long-term SWQ).
+    """Identify hydrological years with extreme floods (annual max >> long-term SWQ).
 
     A year is flagged if its max flow exceeds threshold_factor * SWQ.
 
-    Returns list of years.
+    Returns list of hydrological years (e.g. the July 1997 Odra flood → 1997).
     """
     sdf = df[df["station_id"] == station_id].dropna(subset=[column, "date"]).copy()
-    sdf["year"] = sdf["date"].dt.year
+    sdf["year"] = hydro_year(sdf["date"])
 
     annual_max = sdf.groupby("year")[column].max()
     swq = annual_max.mean()  # SWQ = mean of annual maxima
@@ -547,11 +587,12 @@ def filter_years(
     station_id: str,
     years_to_remove: list[int],
 ) -> pd.DataFrame:
-    """Remove specified years from a station's data.
+    """Remove specified hydrological years from a station's data.
 
     Returns filtered DataFrame (all stations, only specified station's years removed).
     """
-    mask = (df["station_id"] == station_id) & (df["date"].dt.year.isin(years_to_remove))
+    years_arr = pd.Series(hydro_year(df["date"]), index=df.index)
+    mask = (df["station_id"] == station_id) & (years_arr.isin(years_to_remove))
     return df[~mask].reset_index(drop=True)
 
 
@@ -582,8 +623,8 @@ def sorted_year(
     year: int,
     column: str = "discharge_m3s",
 ) -> np.ndarray:
-    """Get sorted (descending) daily flows for a single year."""
-    sdf = df[(df["station_id"] == station_id) & (df["date"].dt.year == year)]
+    """Get sorted (descending) daily flows for a single hydrological year."""
+    sdf = df[(df["station_id"] == station_id) & (hydro_year(df["date"]) == year)]
     values = sdf[column].dropna().values
     return np.sort(values)[::-1]
 
@@ -594,6 +635,8 @@ def average_sorted_year(
     column: str = "discharge_m3s",
 ) -> pd.DataFrame:
     """Calculate average sorted year (sredni rok uporzadkowany).
+
+    Years are hydrological years (Nov-Oct).
 
     For each year:
     1. Sort daily flows from highest to lowest
@@ -613,7 +656,7 @@ def average_sorted_year(
     Returns DataFrame with columns: rank, mean, min, max, std, n_years
     """
     sdf = df[df["station_id"] == station_id].dropna(subset=[column, "date"]).copy()
-    sdf["year"] = sdf["date"].dt.year
+    sdf["year"] = hydro_year(sdf["date"])
 
     years = sdf["year"].unique()
     sorted_arrays = []

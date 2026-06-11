@@ -37,6 +37,10 @@ class TurbineType:
         Q_ratio_min: minimum Q/Q_design for operation
         Q_ratio_max: maximum Q/Q_design for operation
         H_range: (H_min, H_max) applicable head range [m]
+        Q_max: maximum design flow PER UNIT [m³/s] — technology envelope.
+            E.g. crossflow (Banki-Michell) units are built up to ~13 m³/s;
+            sizing one for 50 m³/s is physically meaningless even though
+            its H_range would allow it.
     """
     name: str
     name_pl: str
@@ -48,6 +52,7 @@ class TurbineType:
     Q_ratio_min: float
     Q_ratio_max: float
     H_range: tuple[float, float]
+    Q_max: float = float("inf")
 
 
 # ============================================================
@@ -67,6 +72,7 @@ TURBINE_CATALOG: dict[str, TurbineType] = {
         Q_ratio_min=0.15,
         Q_ratio_max=1.10,
         H_range=(1.0, 20.0),
+        Q_max=250.0,   # largest low-head Kaplan/bulb units
     ),
 
     "francis": TurbineType(
@@ -80,6 +86,7 @@ TURBINE_CATALOG: dict[str, TurbineType] = {
         Q_ratio_min=0.40,
         Q_ratio_max=1.00,
         H_range=(10.0, 350.0),
+        Q_max=200.0,
     ),
 
     "propeller": TurbineType(
@@ -93,6 +100,7 @@ TURBINE_CATALOG: dict[str, TurbineType] = {
         Q_ratio_min=0.65,
         Q_ratio_max=1.00,
         H_range=(1.0, 15.0),
+        Q_max=100.0,
     ),
 
     "crossflow": TurbineType(
@@ -106,6 +114,7 @@ TURBINE_CATALOG: dict[str, TurbineType] = {
         Q_ratio_min=0.10,
         Q_ratio_max=1.00,
         H_range=(1.0, 200.0),
+        Q_max=13.0,    # Banki-Michell units top out around 10-13 m³/s
     ),
 
     # Specific models from WPE_2.xlsm
@@ -120,6 +129,7 @@ TURBINE_CATALOG: dict[str, TurbineType] = {
         Q_ratio_min=0.15,
         Q_ratio_max=1.00,
         H_range=(1.0, 20.0),
+        Q_max=250.0,
     ),
 
     "pl20": TurbineType(
@@ -133,6 +143,7 @@ TURBINE_CATALOG: dict[str, TurbineType] = {
         Q_ratio_min=0.20,
         Q_ratio_max=1.00,
         H_range=(1.0, 20.0),
+        Q_max=250.0,
     ),
 }
 
@@ -394,11 +405,12 @@ def filter_applicable_turbines(
 ) -> dict[str, TurbineType]:
     """Filter turbine types applicable for given head and design flow.
 
-    Checks if H falls within the turbine's H_range.
+    Checks that H falls within the turbine's H_range AND that the per-unit
+    design flow does not exceed the technology envelope Q_max.
 
     Args:
         H: design head [m]
-        Q_design: design flow [m³/s]
+        Q_design: design flow PER UNIT [m³/s]
         catalog: turbine catalog (default: TURBINE_CATALOG)
 
     Returns:
@@ -409,7 +421,7 @@ def filter_applicable_turbines(
     result = {}
     for name, ttype in catalog.items():
         H_min, H_max = ttype.H_range
-        if H_min <= H <= H_max:
+        if H_min <= H <= H_max and Q_design <= ttype.Q_max:
             result[name] = ttype
     return result
 
@@ -434,7 +446,13 @@ def dispatch_flow(
         Q_per    = min( Q / n_active, Q_design )
 
     Excess flow (Q > n_turbines · Q_design) is spilled.
-    If even a single turbine falls below Q_min, the plant shuts down for that day.
+
+    If sharing the flow among n_active units would drop each below Q_min
+    (possible just above a switching point for types with high Q_ratio_min,
+    e.g. propeller at Q ≈ 1.2·Q_design with 2 units → 0.6·Q_design each),
+    the dispatch falls back to FEWER units running at Q_design and spills
+    the excess, instead of shutting the whole plant down.
+    Only when even a single turbine cannot reach Q_min does the plant stop.
 
     Args:
         Q_available: available flow [m³/s] (array, shape (n_days,))
@@ -456,6 +474,15 @@ def dispatch_flow(
     n_needed = np.ceil(np.maximum(Q, 0) / Q_design).astype(int)
     n_active = np.clip(n_needed, 1, n_turbines)
     Q_per = np.minimum(Q / np.maximum(n_active, 1), Q_design)
+
+    # Fallback: if sharing among n_active drops each unit below Q_min while
+    # Q itself is at least one unit's Q_design, run fewer units at Q_design
+    # and spill the excess rather than shutting the plant down.
+    fallback = (Q_per < Q_min) & (Q >= Q_design)
+    if np.any(fallback):
+        n_fb = np.clip(np.floor(Q / Q_design).astype(int), 1, n_turbines)
+        n_active = np.where(fallback, n_fb, n_active)
+        Q_per = np.where(fallback, np.minimum(Q / np.maximum(n_fb, 1), Q_design), Q_per)
 
     # Shut down where each turbine would be below Q_min, or Q ≤ 0
     shutdown = (Q_per < Q_min) | (Q <= 0)

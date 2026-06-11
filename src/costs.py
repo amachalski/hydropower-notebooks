@@ -75,8 +75,10 @@ def electromechanical_cost(
 
     Then total:  C_em_total = C_em_per_kW * P_kW    [EUR]
 
-    Valid for P < 2 MW. For larger plants, the formula gives conservative
-    estimates (actual costs may be lower due to economies of scale).
+    Valid for P < 2 MW. Extrapolating to larger units UNDERESTIMATES cost:
+    the per-kW power law (P^b, b ≈ -0.58) keeps falling far below the
+    EUR/kW observed for multi-MW plants. Treat results beyond 2 MW as a
+    lower bound (actual costs are higher).
 
     Args:
         P_kW: installed capacity per unit [kW]
@@ -105,8 +107,8 @@ def electromechanical_cost(
         import warnings
         warnings.warn(
             f"Ogayar & Vidal (2009) validated for P<2 MW; extrapolating to P={P_kW:.0f} kW. "
-            f"Result likely biased low (the formula assumes a single curve; large plants "
-            f"actually benefit from extra economies of scale not captured here).",
+            f"Result biased LOW — the fitted power law keeps dropping below the EUR/kW "
+            f"observed for multi-MW plants. Treat as a lower bound on cost.",
             stacklevel=2,
         )
 
@@ -222,7 +224,7 @@ def total_investment(
     H: float,
     n_turbines: int = 1,
     turbine_type: str = "kaplan",
-    plant_type: str = "run_of_river_small",
+    plant_type: str = "auto",
     grid_cost_per_kw: float = 100.0,
     engineering_fraction: float = 0.10,
     inflation_factor: float = INFLATION_2009_TO_2024,
@@ -241,7 +243,9 @@ def total_investment(
         H: net head [m]
         n_turbines: number of identical turbines
         turbine_type: turbine type name
-        plant_type: 'run_of_river_small', 'run_of_river_large',
+        plant_type: 'auto' (default — picks the IRENA run-of-river size class
+                    from total capacity: <5 MW small, ≥5 MW large),
+                    'run_of_river_small', 'run_of_river_large',
                     'dam_reservoir', 'existing_dam'
         grid_cost_per_kw: grid connection [EUR/kW]
         engineering_fraction: engineering cost fraction
@@ -251,9 +255,13 @@ def total_investment(
     Returns:
         dict with keys:
             em_eur, civil_eur, grid_eur, engineering_eur,
-            total_eur, total_per_kw_eur, n_turbines, P_total_kW
+            total_eur, total_per_kw_eur, n_turbines, P_total_kW, plant_type
     """
     P_total = P_kW * n_turbines
+
+    # IRENA size classes: civil/EM ratio grows for larger run-of-river plants
+    if plant_type == "auto":
+        plant_type = "run_of_river_small" if P_total < 5000 else "run_of_river_large"
 
     # Electromechanical (per unit × n_turbines)
     em_per_unit = electromechanical_cost(P_kW, H, turbine_type, inflation_factor)
@@ -280,6 +288,7 @@ def total_investment(
         "total_per_kw_eur": total / P_total if P_total > 0 else 0,
         "n_turbines": n_turbines,
         "P_total_kW": P_total,
+        "plant_type": plant_type,
     }
 
 
