@@ -220,51 +220,167 @@ def rotational_speed(
     return turbine_type.n11 * np.sqrt(H) / D1
 
 
-def synchronous_speed(n_raw: float, f: float = 50.0) -> tuple[float, int]:
-    """Find nearest synchronous speed and number of pole pairs.
+def synchronous_speed(
+    n_raw: float,
+    f: float = 50.0,
+    mode: str = "nearest",
+    max_poles: int = 60,
+) -> tuple[float, int]:
+    """Snap an ideal rotational speed to an achievable grid synchronous speed.
 
-    n_sync = 60 * f / p, where p = number of pole pairs.
+    A grid-connected synchronous machine locks to discrete speeds:
+        n_sync = 60 * f / p_pairs,   p_pairs = poles / 2  (poles always even)
 
     Args:
-        n_raw: target rotational speed [rpm]
+        n_raw: target (ideal) rotational speed [rpm] from similarity laws
         f: grid frequency [Hz] (default 50 Hz)
+        mode: how to choose among achievable speeds:
+            'nearest' — closest synchronous speed (default)
+            'lower'   — highest n_sync <= n_raw (conservative: slower runner,
+                        larger D1, safe against under-sizing the flow path)
+            'higher'  — lowest n_sync >= n_raw
+        max_poles: largest pole count considered (default 60 → n_sync down to
+            100 rpm at 50 Hz, covering slow low-head hydro machines).
+            NOTE: the old version stopped at 30 poles (200 rpm) and silently
+            clamped slow machines — extended here.
 
     Returns:
-        (n_sync, n_poles) — synchronous speed [rpm] and number of poles
+        (n_sync, n_poles) — synchronous speed [rpm] and number of POLES (even)
+
+    Note:
+        In practice the engineer picks a synchronous speed, then RESIZES the
+        runner D1 so it passes Q_design at H_design. A lower speed → larger,
+        slower runner (conservative). 'nearest' is the usual first guess —
+        always verify the resulting nsN stays inside the turbine's range.
     """
-    # Possible pole numbers (even: 4, 6, 8, ..., 30)
-    best_n, best_poles = 0.0, 4
-    best_diff = float("inf")
-    for poles in range(4, 32, 2):
-        n_sync = 60 * f / (poles / 2)
-        diff = abs(n_sync - n_raw)
-        if diff < best_diff:
-            best_diff = diff
-            best_n = n_sync
-            best_poles = poles
-    return best_n, best_poles
+    candidates = [(60 * f / (poles / 2), poles) for poles in range(2, max_poles + 1, 2)]
+
+    if mode == "lower":
+        feasible = [c for c in candidates if c[0] <= n_raw]
+        chosen = max(feasible, key=lambda c: c[0]) if feasible else min(candidates, key=lambda c: c[0])
+    elif mode == "higher":
+        feasible = [c for c in candidates if c[0] >= n_raw]
+        chosen = min(feasible, key=lambda c: c[0]) if feasible else max(candidates, key=lambda c: c[0])
+    else:  # 'nearest'
+        chosen = min(candidates, key=lambda c: abs(c[0] - n_raw))
+
+    return chosen
 
 
 def specific_speed(
     n: float,
     P_kW: float,
     H: float,
+    metric_hp: bool = False,
 ) -> float:
-    """Specific speed (predkosc szybkobieznosci).
+    """Specific speed (wyroznik szybkobieznosci).
 
     nsN = n * sqrt(P) / H^(5/4)
-
-    where P is in kW, n in rpm, H in m.
 
     Args:
         n: rotational speed [rpm]
         P_kW: power [kW]
         H: head [m]
+        metric_hp: if True, multiply by 1.166 to convert kW under sqrt into
+            metric horsepower units — matches WPE_2.xlsm and classical European
+            hydropower tables (e.g. Penche 2004, Czekalski 2008).
 
     Returns:
         Specific speed nsN [-]
     """
-    return n * np.sqrt(P_kW) / H ** (5 / 4)
+    factor = 1.166 if metric_hp else 1.0
+    return factor * n * np.sqrt(P_kW) / H ** (5 / 4)
+
+
+# ============================================================
+# CAVITATION (Thoma sigma) — A1
+# ============================================================
+
+def atmospheric_pressure_head(elevation_m: float = 0.0) -> float:
+    """Atmospheric pressure expressed as head of water column [m].
+
+    Linear approximation: H_atm ≈ 10.33 - elevation/900 (valid below ~2000 m).
+    Sea level (z=0): 10.33 m.
+    """
+    return max(10.33 - elevation_m / 900.0, 0.0)
+
+
+def vapor_pressure_head(water_temp_C: float = 10.0) -> float:
+    """Saturated water-vapor pressure expressed as head [m].
+
+    Approximation (Antoine-like): H_v ≈ 0.0625 · exp(0.0683·T) [T in °C].
+    Examples: T=5°C→0.088 m, 10°C→0.124 m, 15°C→0.174 m, 20°C→0.245 m.
+    """
+    return 0.0625 * np.exp(0.0683 * water_temp_C)
+
+
+def thoma_sigma_critical(nsN_metric_hp: float, turbine_key: str) -> float:
+    """Critical Thoma cavitation coefficient σ_c as a function of specific speed.
+
+    Empirical formulas (Penche 2004, Czekalski 2008) using nsN in metric-HP form
+    (the WPE_2 ×1.166 convention):
+
+        Pelton:          σ_c = 0          (impulse turbine, no cavitation risk)
+        Francis:         σ_c = 7.54e-5 · nsN^1.41
+        Kaplan / prop.:  σ_c = 4.41e-9 · nsN^2.81
+
+    σ_actual must exceed σ_c — otherwise cavitation pits the runner.
+
+    Args:
+        nsN_metric_hp: specific speed in metric HP form (multiply kW-form by 1.166)
+        turbine_key: 'pelton', 'francis', 'kaplan', 'propeller', 'semi_kaplan',
+                     'crossflow', or one of the PL10/PL20 catalog entries.
+    """
+    if turbine_key == "pelton":
+        return 0.0
+    if turbine_key == "francis":
+        return 7.54e-5 * nsN_metric_hp ** 1.41
+    if turbine_key in ("kaplan", "pl10", "pl20", "propeller", "semi_kaplan", "crossflow"):
+        return 4.41e-9 * nsN_metric_hp ** 2.81
+    raise ValueError(f"Unknown turbine type for cavitation: {turbine_key!r}")
+
+
+def thoma_sigma(
+    H_s_m: float,
+    H_net_m: float,
+    elevation_m: float = 0.0,
+    water_temp_C: float = 10.0,
+) -> float:
+    """Actual Thoma cavitation coefficient σ for an installation.
+
+        σ = (H_atm - H_v - H_s) / H_net
+
+    H_s is the **suction head** = height of runner centerline above tailwater
+    (positive when above; negative when submerged below tailwater = safer).
+    """
+    H_atm = atmospheric_pressure_head(elevation_m)
+    H_v = vapor_pressure_head(water_temp_C)
+    return (H_atm - H_v - H_s_m) / H_net_m
+
+
+def suction_head_max(
+    nsN_metric_hp: float,
+    H_net_m: float,
+    turbine_key: str,
+    elevation_m: float = 0.0,
+    water_temp_C: float = 10.0,
+    safety_margin: float = 0.0,
+) -> float:
+    """Maximum permissible suction head H_s before cavitation [m].
+
+    Sets σ_actual = σ_critical and solves for H_s:
+        H_s_max = H_atm - H_v - (σ_c + safety_margin) · H_net
+
+    If H_s_max < 0, the runner must be SUBMERGED below tailwater by |H_s_max| m
+    to avoid cavitation. Common for Kaplan turbines at high nsN.
+
+    Args:
+        safety_margin: extra Δσ above σ_critical (typical 0.05–0.1 for design).
+    """
+    sigma_c = thoma_sigma_critical(nsN_metric_hp, turbine_key)
+    H_atm = atmospheric_pressure_head(elevation_m)
+    H_v = vapor_pressure_head(water_temp_C)
+    return H_atm - H_v - (sigma_c + safety_margin) * H_net_m
 
 
 # ============================================================
@@ -332,6 +448,8 @@ def dispatch_flow(
             n_active — number of active turbines per day (0..n_turbines), shape (n_days,)
     """
     Q = np.asarray(Q_available, dtype=float)
+    # Treat NaN/inf as no flow available — avoids ceil() raising on weird inputs
+    Q = np.where(np.isfinite(Q), Q, 0.0)
     Q_min = turbine_type.Q_ratio_min * Q_design
 
     # Minimum n_active so each turbine sees ≤ Q_design (use more turbines for high flow)

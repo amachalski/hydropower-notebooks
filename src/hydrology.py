@@ -162,13 +162,17 @@ def build_rating_curve(
     degree: int = 2,
     level_col: str = "water_level_cm",
     discharge_col: str = "discharge_m3s",
+    fit_H0: bool = True,
 ) -> dict:
     """Build a rating curve H → Q from paired water level and discharge data.
 
     Fits a power-law relationship: Q = a * (H - H0)^b
-    using log-log linear regression, which is the standard hydrological approach.
+    in log-log space, where H0 is the stage of zero flow (the cease-to-flow
+    datum). For lowland gauges H0 is usually NOT zero, so assuming H0=0
+    distorts the exponent b and biases reconstructed low flows. When
+    fit_H0=True we search H0 in [0, min(H)) for the value maximizing R².
 
-    Falls back to polynomial fit if power-law fails.
+    Falls back to polynomial fit if power-law R² stays below 0.7.
 
     Args:
         df: DataFrame with station data
@@ -176,10 +180,12 @@ def build_rating_curve(
         degree: polynomial degree for fallback fit
         level_col: water level column name
         discharge_col: discharge column name
+        fit_H0: search for the best zero-flow stage offset (default True).
+            Set False to force H0=0 (legacy behavior).
 
     Returns:
-        dict with keys: 'type' ('power' or 'poly'), 'params', 'r2',
-        'n_points', 'H_range', 'Q_range'
+        dict with keys: 'type' ('power' or 'poly'), 'params' (power params
+        include 'a', 'b', 'H0'), 'r2', 'n_points', 'H_range', 'Q_range'
     """
     sdf = df[df["station_id"] == station_id][[level_col, discharge_col]].dropna()
     if len(sdf) < 30:
@@ -190,28 +196,36 @@ def build_rating_curve(
     H = sdf[level_col].values / 100.0  # cm -> m
     Q = sdf[discharge_col].values
 
-    # Try power-law fit: Q = a * (H - H0)^b
-    # Use H0 = 0 as simplification, fit in log-log space
+    # Power-law fit: Q = a * (H - H0)^b, fitted in log-log space.
     mask = (H > 0) & (Q > 0)
     H_pos, Q_pos = H[mask], Q[mask]
 
     if len(H_pos) >= 30:
-        log_H = np.log(H_pos)
-        log_Q = np.log(Q_pos)
-        coeffs = np.polyfit(log_H, log_Q, 1)
-        b, log_a = coeffs[0], coeffs[1]
-        a = np.exp(log_a)
+        # Candidate zero-flow offsets: 0 up to just below the lowest stage.
+        if fit_H0:
+            H0_candidates = np.linspace(0.0, H_pos.min() * 0.95, 40)
+        else:
+            H0_candidates = np.array([0.0])
 
-        Q_pred = a * H_pos ** b
-        ss_res = np.sum((Q_pos - Q_pred) ** 2)
-        ss_tot = np.sum((Q_pos - Q_pos.mean()) ** 2)
-        r2 = 1.0 - ss_res / ss_tot
+        best = None
+        for H0 in H0_candidates:
+            dH = H_pos - H0
+            if np.any(dH <= 0):
+                continue
+            b, log_a = np.polyfit(np.log(dH), np.log(Q_pos), 1)
+            a = np.exp(log_a)
+            Q_pred = a * dH ** b
+            ss_res = np.sum((Q_pos - Q_pred) ** 2)
+            ss_tot = np.sum((Q_pos - Q_pos.mean()) ** 2)
+            r2 = 1.0 - ss_res / ss_tot
+            if best is None or r2 > best["r2"]:
+                best = {"a": float(a), "b": float(b), "H0": float(H0), "r2": float(r2)}
 
-        if r2 > 0.7:
+        if best is not None and best["r2"] > 0.7:
             return {
                 "type": "power",
-                "params": {"a": a, "b": b},
-                "r2": r2,
+                "params": {"a": best["a"], "b": best["b"], "H0": best["H0"]},
+                "r2": best["r2"],
                 "n_points": len(H_pos),
                 "H_range": (float(H.min()), float(H.max())),
                 "Q_range": (float(Q.min()), float(Q.max())),
@@ -246,7 +260,8 @@ def apply_rating_curve(H_values: np.ndarray, rating: dict) -> np.ndarray:
     """
     if rating["type"] == "power":
         a, b = rating["params"]["a"], rating["params"]["b"]
-        Q = a * np.maximum(H_values, 0.001) ** b
+        H0 = rating["params"].get("H0", 0.0)  # zero-flow stage offset
+        Q = a * np.maximum(H_values - H0, 0.001) ** b
     else:
         Q = np.polyval(rating["params"]["coefficients"], H_values)
 
@@ -400,7 +415,21 @@ def calc_area_exponent(Q_up: float, A_up: float, Q_down: float, A_down: float) -
     """Calculate catchment area exponent n from two gauging stations.
 
     n = ln(Q_down / Q_up) / ln(A_down / A_up)
+
+    Raises:
+        ValueError: if areas are non-positive, equal (no area gradient), or
+            flows are non-positive (log undefined).
+
+    Note: numerically UNSTABLE when A_down ≈ A_up (tiny denominator amplifies
+    noise in Q_down/Q_up). For nearly equal catchments prefer a single
+    long-term exponent or linear interpolation (see transfer_flow_between).
     """
+    if A_up <= 0 or A_down <= 0:
+        raise ValueError(f"Catchment areas must be positive (got A_up={A_up}, A_down={A_down}).")
+    if A_down == A_up:
+        raise ValueError("Cannot compute area exponent: A_up == A_down (no area gradient).")
+    if Q_up <= 0 or Q_down <= 0:
+        raise ValueError(f"Flows must be positive for log-ratio (got Q_up={Q_up}, Q_down={Q_down}).")
     return np.log(Q_down / Q_up) / np.log(A_down / A_up)
 
 
@@ -434,7 +463,12 @@ def transfer_flow_between(
         Q_up, A_up: discharge and catchment area at upstream gauge
         Q_down, A_down: discharge and catchment area at downstream gauge
         A_target: catchment area at target location
+
+    Raises:
+        ValueError: if A_down == A_up (zero area gradient → divide-by-zero).
     """
+    if A_down == A_up:
+        raise ValueError("Cannot interpolate: A_up == A_down (zero area gradient).")
     return Q_up + (Q_down - Q_up) * (A_target - A_up) / (A_down - A_up)
 
 
@@ -562,11 +596,19 @@ def average_sorted_year(
     """Calculate average sorted year (sredni rok uporzadkowany).
 
     For each year:
-    1. Sort daily flows from highest to lowest (365 values)
-    2. Assign rank 1..365
+    1. Sort daily flows from highest to lowest
+    2. Resample to **exactly 365 rank positions** (Feb 29 is dropped from leap
+       years — see note below)
 
     Then for each rank position, calculate mean, min, max across all years.
     This gives a smoothed "typical" FDC based on annual averages.
+
+    Note on the 365-day convention:
+        Leap years contribute 366 sorted values which are interpolated down to
+        365. The annual energy estimate sum(P_kW)*24h works over the 365 ranks
+        = 8760 hours/year, which matches the denominator used in
+        `capacity_factor` (P_rated * 8760). Internally consistent; ignores one
+        day every four years (≈ 0.07% bias).
 
     Returns DataFrame with columns: rank, mean, min, max, std, n_years
     """
@@ -602,3 +644,123 @@ def average_sorted_year(
     # Add exceedance percentage (rank/365 * 100)
     result["exceedance_pct"] = (result["rank"] / 365 * 100).round(2)
     return result
+
+
+# ============================================================
+# ENVIRONMENTAL FLOW (A2) — Polish "nienaruszalny przeplyw"
+# ============================================================
+
+def environmental_flow(
+    Q_sorted: np.ndarray,
+    method: str = "Q90",
+    multiplier: float = 1.0,
+    mar_fraction: float = 0.10,
+) -> float:
+    """Estimate environmental (biological) flow requirement [m³/s].
+
+    Polish water law (Prawo wodne 2017) requires a minimum biological flow —
+    'nienaruszalny przeplyw' — that must remain in the river bed regardless
+    of plant operation. Common rules:
+
+        'Q90' (default)  flow exceeded 90% of the time; common baseline.
+        'Q95'            stricter (5% of year); for sensitive streams.
+        'Q_med'          0.5 × median (Tennant 'fair habitat'); 50/30/10 rule.
+        'MAR'            mar_fraction × mean annual runoff (default 10% MAR).
+
+    Args:
+        Q_sorted: average sorted year flows (descending), or equivalent FDC.
+        method: 'Q90', 'Q95', 'Q_med', or 'MAR'.
+        multiplier: scale factor on the chosen statistic (e.g. 1.5 for fish migration).
+        mar_fraction: used only when method='MAR'.
+
+    Returns:
+        Environmental flow [m³/s] (single scalar).
+    """
+    Q_sorted = np.asarray(Q_sorted, dtype=float)
+    if Q_sorted.size == 0:
+        raise ValueError("Q_sorted is empty.")
+    n = Q_sorted.size
+    if method == "Q90":
+        return float(Q_sorted[min(int(0.90 * n), n - 1)] * multiplier)
+    if method == "Q95":
+        return float(Q_sorted[min(int(0.95 * n), n - 1)] * multiplier)
+    if method == "Q_med":
+        return float(Q_sorted[min(int(0.50 * n), n - 1)] * 0.5 * multiplier)
+    if method == "MAR":
+        return float(Q_sorted.mean() * mar_fraction)
+    raise ValueError(f"Unknown method: {method!r}. Choose Q90 / Q95 / Q_med / MAR.")
+
+
+# ============================================================
+# EW LOCATION INTERPOLATION (D1) — single source of truth
+# ============================================================
+
+def interpolate_q_to_location(
+    Q_up: np.ndarray,
+    Q_down: np.ndarray,
+    A_up: float,
+    A_down: float,
+    A_target: float,
+    method: str = "daily_n",
+) -> np.ndarray:
+    """Interpolate discharge from two gauges to an intermediate target location.
+
+    Three methods:
+
+        'daily_n'  (default; matches WPE_2.xlsm)
+            Per-day power-law exponent:
+                n(t) = ln(Q_down(t) / Q_up(t)) / ln(A_down / A_up)
+                Q_target(t) = Q_up(t) · (A_target / A_up) ** n(t)
+            ⚠ NUMERICALLY UNSTABLE when A_down ≈ A_up — the small denominator
+            amplifies noise in Q_down/Q_up. Use only when catchments differ
+            substantially. See nb 05's three-method comparison.
+
+        'global_n'
+            Same formula but with a SINGLE exponent computed from period means:
+                n = ln(mean(Q_down) / mean(Q_up)) / ln(A_down / A_up)
+            Stable; loses per-day variability of the scaling.
+
+        'linear'
+            Linear interpolation by catchment area (no logarithms):
+                Q_target(t) = Q_up(t) + (Q_down(t) − Q_up(t)) · (A_target − A_up)/(A_down − A_up)
+            Most intuitive; treats Q as varying linearly with A in time slice.
+
+    Args:
+        Q_up, Q_down: paired time series at the two gauges (must be aligned).
+        A_up, A_down, A_target: catchment areas (any consistent unit, e.g. km²).
+            Constraint: A_down ≠ A_up (zero area gradient → undefined).
+        method: 'daily_n', 'global_n', or 'linear'.
+
+    Returns:
+        Q at target location [same units as Q_up/Q_down], numpy array.
+    """
+    Q_up = np.asarray(Q_up, dtype=float)
+    Q_down = np.asarray(Q_down, dtype=float)
+    if A_down == A_up:
+        raise ValueError("Cannot interpolate: A_up == A_down (zero area gradient).")
+    if A_up <= 0 or A_down <= 0 or A_target <= 0:
+        raise ValueError(
+            f"Catchment areas must be positive (A_up={A_up}, A_down={A_down}, A_target={A_target})."
+        )
+    if Q_up.shape != Q_down.shape:
+        raise ValueError(f"Shape mismatch: Q_up{Q_up.shape} vs Q_down{Q_down.shape}.")
+
+    if method == "daily_n":
+        ln_A = np.log(A_down / A_up)
+        # Suppress warnings on Q ≤ 0; consumer should pre-clean. Result will be NaN there.
+        with np.errstate(divide="ignore", invalid="ignore"):
+            n = np.log(Q_down / Q_up) / ln_A
+            return Q_up * (A_target / A_up) ** n
+    if method == "global_n":
+        ln_A = np.log(A_down / A_up)
+        Q_up_mean = float(np.nanmean(Q_up))
+        Q_down_mean = float(np.nanmean(Q_down))
+        if Q_up_mean <= 0 or Q_down_mean <= 0:
+            raise ValueError("Mean flows must be positive for global_n method.")
+        n_global = np.log(Q_down_mean / Q_up_mean) / ln_A
+        return Q_up * (A_target / A_up) ** n_global
+    if method == "linear":
+        w = (A_target - A_up) / (A_down - A_up)
+        return Q_up + (Q_down - Q_up) * w
+
+    raise ValueError(f"Unknown method: {method!r}. Choose daily_n / global_n / linear.")

@@ -1,5 +1,5 @@
 pandas>=2.0
-numpy>=1.24
+numpy>=1.24,!=2.4.3   # 2.4.3 crashes on import on Windows (blas_fpe_check, 0xc06d007f)
 requests>=2.31
 plotly>=5.18
 jupyter>=1.0
@@ -7,3 +7,4 @@ notebook>=7.0
 scipy>=1.11
 pyarrow>=14.0
 statsmodels>=0.14
+pymoo>=0.6   # genetic algorithm / Pareto front (nb 12)

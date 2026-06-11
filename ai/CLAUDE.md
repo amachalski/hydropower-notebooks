@@ -50,7 +50,7 @@ Use both reviewers after completing a notebook. Apply their review criteria to c
 - Plotly for all plots (interactive in notebook).
 - Data download runs once, results cached in `data/`. Station IDs provided by user.
 - Polish river/station names preserved in data, English for code/comments.
-- Keep notebooks GENERIC -- not specific to MEW or any single project type.
+- Keep notebooks GENERIC -- not specific to EW or any single project type.
 - For non-obvious concepts, add **educational markdown cells** with:
   - What the concept is and why it matters
   - Equations (LaTeX) where applicable

@@ -1,7 +1,7 @@
 # Metodologia tworzenia projektu z agentem LLM
 
 ## Kontekst
-Projekt EW (Energetyka Wodna) — notebooki Jupyter do analiz hydrologicznych i projektowania MEW.
+Projekt EW (Energetyka Wodna) — notebooki Jupyter do analiz hydrologicznych i projektowania EW.
 Stworzony wspólnie z Claude Code (agent LLM) w sesji ~2h.
 
 ## Struktura projektu

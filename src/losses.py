@@ -89,16 +89,24 @@ def trash_rack_loss(
 # ============================================================
 
 def _colebrook_f(Re: np.ndarray, k_s: float, D: float) -> np.ndarray:
-    """Darcy friction factor — Swamee-Jain explicit approximation of Colebrook-White.
+    """Darcy friction factor — laminar/turbulent split.
 
-        f = 0.25 / [log10(k_s/(3.7·D) + 5.74/Re^0.9)]²
+    Laminar (Re < 2300):     f = 64 / Re
+    Turbulent (Re ≥ 2300):   f = 0.25 / [log10(k_s/(3.7·D) + 5.74/Re^0.9)]²
+                              (Swamee-Jain explicit approximation of Colebrook-White)
 
-    Valid for 5e3 ≤ Re ≤ 1e8 and 1e-6 ≤ k_s/D ≤ 1e-2 (well above
-    laminar; covers all turbulent pipe-flow regimes in small hydro).
+    The turbulent form is valid for 5e3 ≤ Re ≤ 1e8 and 1e-6 ≤ k_s/D ≤ 1e-2;
+    we evaluate it across the formal "transition" range (2300-4000) too rather
+    than introduce a smoothing blend — small hydro pipes are almost always firmly
+    turbulent at design flow, so the boundary value matters only at the dry tail
+    of the FDC.
     """
-    Re = np.maximum(Re, 1.0)  # avoid log(0)
-    term = k_s / (3.7 * D) + 5.74 / Re ** 0.9
-    return 0.25 / np.log10(term) ** 2
+    Re = np.asarray(Re, dtype=float)
+    f_laminar = 64.0 / np.maximum(Re, 1e-6)
+    Re_safe = np.maximum(Re, 1.0)  # avoid log(0) inside turbulent branch only
+    term = k_s / (3.7 * D) + 5.74 / Re_safe ** 0.9
+    f_turbulent = 0.25 / np.log10(term) ** 2
+    return np.where(Re < 2300, f_laminar, f_turbulent)
 
 
 def pipe_friction_loss(

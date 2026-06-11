@@ -31,3 +31,5 @@ other/
 
 # Environment
 .env
+.tmp_audit.txt
+.tmp_audit.py

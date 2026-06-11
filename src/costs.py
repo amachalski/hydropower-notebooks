@@ -101,6 +101,15 @@ def electromechanical_cost(
     key = type_map.get(turbine_type, "kaplan")
     coeffs = _OGAYAR_COEFFS[key]
 
+    if P_kW > 2000:
+        import warnings
+        warnings.warn(
+            f"Ogayar & Vidal (2009) validated for P<2 MW; extrapolating to P={P_kW:.0f} kW. "
+            f"Result likely biased low (the formula assumes a single curve; large plants "
+            f"actually benefit from extra economies of scale not captured here).",
+            stacklevel=2,
+        )
+
     # C_em in EUR/kW (2009 prices)
     c_per_kw = coeffs["a"] * P_kW ** coeffs["b"] * H ** coeffs["c"]
 
@@ -356,7 +365,8 @@ def economic_analysis(
     om = annual_om_cost(investment_eur, om_fraction)
     net = rev - om
 
-    # Simple payback
+    # Simple payback: only meaningful when net cash-flow is positive. If O&M
+    # exceeds revenue (net ≤ 0) the project never pays back — return inf.
     payback = investment_eur / net if net > 0 else float("inf")
 
     # NPV: -I + sum(net / (1+r)^t)

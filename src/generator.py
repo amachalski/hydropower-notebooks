@@ -13,7 +13,12 @@ Generator efficiency model:
         P_fe  — iron/core losses (constant, independent of load)
         P_mech — mechanical losses (friction, windage, constant)
 
-Reference: Kovalev (1986), IEEE Std 115, IEC 60034
+Reference: Kovalev (1986), IEEE Std 115, IEC 60034-30-1 (efficiency classes).
+
+The default coefficients (0.025 / 0.010 / 0.005) are mid-range for a ~500 kW
+machine (η_peak ≈ 0.961 ≈ IEC IE3). Real losses scale with machine size:
+small machines have proportionally larger losses, large ones smaller — use
+`generator_loss_coefs_for_size()` to pick coefficients matched to your P_rated.
 """
 
 import numpy as np
@@ -22,6 +27,29 @@ import numpy as np
 # ============================================================
 # GENERATOR EFFICIENCY
 # ============================================================
+
+def generator_loss_coefs_for_size(P_rated_kW: float) -> dict:
+    """Suggested loss coefficients scaled by generator size.
+
+    Empirical log-linear scaling matching IEC 60034-30-1 efficiency classes
+    for synchronous machines (small hydro). Anchor points:
+        ~50 kW:   k_cu ≈ 0.040, k_fe ≈ 0.015, k_mech ≈ 0.008  (η_full ≈ 0.94)
+        ~500 kW:  k_cu ≈ 0.025, k_fe ≈ 0.010, k_mech ≈ 0.005  (η_full ≈ 0.96)
+        ~5 MW:    k_cu ≈ 0.015, k_fe ≈ 0.005, k_mech ≈ 0.002  (η_full ≈ 0.978)
+
+    Clamped to [50 kW, 5 MW]; outside this range coefficients are pinned.
+
+    Returns:
+        dict with keys k_cu, k_fe, k_mech — pass as **kwargs to generator_efficiency.
+    """
+    P = max(50.0, min(float(P_rated_kW), 5000.0))
+    t = (np.log10(P) - np.log10(50)) / (np.log10(5000) - np.log10(50))
+    return {
+        "k_cu":   0.040 + t * (0.015 - 0.040),
+        "k_fe":   0.015 + t * (0.005 - 0.015),
+        "k_mech": 0.008 + t * (0.002 - 0.008),
+    }
+
 
 def generator_efficiency(
     P_ratio: np.ndarray,
@@ -39,15 +67,15 @@ def generator_efficiency(
         P_fe   = k_fe               — iron losses (constant, hysteresis + eddy)
         P_mech = k_mech             — mechanical losses (bearings, windage)
 
-    Typical loss coefficients for small hydro generators:
-        k_cu:   0.015-0.035  (copper/winding losses)
-        k_fe:   0.005-0.015  (iron/core losses)
-        k_mech: 0.003-0.008  (mechanical losses)
+    Typical loss coefficients (size-dependent — see `generator_loss_coefs_for_size`):
+        Small (~50 kW):  k_cu≈0.040, k_fe≈0.015, k_mech≈0.008
+        Medium (~500 kW, **default**): 0.025 / 0.010 / 0.005
+        Large (~5 MW):   k_cu≈0.015, k_fe≈0.005, k_mech≈0.002
 
     At full load (P_ratio=1.0):
         eta_g = 1 / (1 + k_cu + k_fe + k_mech)
 
-    Example: k_cu=0.025, k_fe=0.010, k_mech=0.005 → eta_g(1.0) = 0.961
+    Example: defaults → eta_g(1.0) = 0.961 (peak at P/Pn ≈ 0.77, eta ≈ 0.963).
 
     Args:
         P_ratio: P / P_rated [-] (scalar or array, 0..1+)

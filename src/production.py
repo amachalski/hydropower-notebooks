@@ -32,6 +32,7 @@ def compute_power(
     turbine_type: TurbineType,
     loss_fns: list[Callable] | None = None,
     H_design: float | None = None,
+    Q_env: float = 0.0,
     gen_k_cu: float = 0.025,
     gen_k_fe: float = 0.010,
     gen_k_mech: float = 0.005,
@@ -41,6 +42,7 @@ def compute_power(
     """Full power calculation for average sorted year with variable efficiencies.
 
     Calculation chain for each day:
+        0. Subtract environmental flow: Q_avail = max(Q_natural − Q_env, 0)
         1. Dispatch flow among turbines → Q_per_turbine, n_active
         2. Compute head losses on Q_used (= n_active × Q_per_turbine)
            → H_net = H_gross − ΔH
@@ -61,21 +63,29 @@ def compute_power(
         loss_fns: list of head-loss callables Q→ΔH (from src/losses).
                   None = no hydraulic losses (H_net = H_gross)
         H_design: head at the design point [m]. Used to compute the
-                  per-unit rated shaft power. If None, max(H_gross) is used.
-        gen_k_cu, gen_k_fe, gen_k_mech: generator loss coefficients
+                  per-unit rated shaft power. If None, falls back to
+                  median(H_gross) and warns.
+        Q_env: environmental (biological) flow [m³/s] reserved for the river
+            and not available to the turbine. Use src.hydrology.environmental_flow
+            to derive (e.g. from Q90% of the FDC). Default 0 (no constraint).
+        gen_k_cu, gen_k_fe, gen_k_mech: generator loss coefficients (size-dependent
+            via src.generator.generator_loss_coefs_for_size).
         rho, g: water density and gravitational acceleration
 
     Returns:
         DataFrame columns:
-            day, pct, Q_avail, Q_per_turbine, n_active, Q_used,
+            day, pct, Q_avail, Q_for_turbine, Q_per_turbine, n_active, Q_used,
             H_gross, H_net, eta_t, P_shaft_kW, eta_g, P_el_kW, E_kWh
     """
     Q_sorted = np.asarray(Q_sorted, dtype=float)
     H_gross = np.broadcast_to(np.asarray(H_gross, dtype=float), Q_sorted.shape).copy()
     n_days = len(Q_sorted)
 
+    # Step 0: Reserve environmental flow for the river
+    Q_for_turbine = np.maximum(Q_sorted - Q_env, 0.0)
+
     # Step 1: Dispatch
-    Q_per_turb, n_active = dispatch_flow(Q_sorted, Q_design, n_turbines, turbine_type)
+    Q_per_turb, n_active = dispatch_flow(Q_for_turbine, Q_design, n_turbines, turbine_type)
     Q_used = Q_per_turb * n_active
 
     # Step 2: Head losses
@@ -94,7 +104,16 @@ def compute_power(
 
     # Step 5: Generator efficiency — uses PER-UNIT load
     if H_design is None:
-        H_design = float(np.max(H_gross)) if H_gross.size > 0 else 0.0
+        # Use median(H_gross) as a typical operating head, with a warning.
+        # Caller should ideally pass the actual design-point head (e.g. H at
+        # install_day); falling back to max() over-rates the generator.
+        import warnings
+        H_design = float(np.median(H_gross)) if H_gross.size > 0 else 0.0
+        warnings.warn(
+            f"H_design not provided; defaulted to median(H_gross)={H_design:.2f} m. "
+            f"For accurate generator rating pass H_design = head at design point.",
+            stacklevel=2,
+        )
     P_rated_unit_kW = rho * g * Q_design * H_design * turbine_type.eta_peak / 1000.0
     # per-unit shaft power = total / n_active (avoid div-by-zero when shut down)
     P_shaft_per_unit_kW = np.where(
@@ -113,6 +132,7 @@ def compute_power(
         "day": np.arange(1, n_days + 1),
         "pct": np.round(np.arange(1, n_days + 1) / n_days * 100, 2),
         "Q_avail": Q_sorted,
+        "Q_for_turbine": Q_for_turbine,
         "Q_per_turbine": Q_per_turb,
         "n_active": n_active,
         "Q_used": Q_used,
@@ -180,6 +200,7 @@ def compute_power_constant_eta(
     n_turbines: int,
     Q_min_fraction: float = 0.15,
     eta_total: float = 0.848,
+    Q_env: float = 0.0,
     rho: float = 998.0,
     g: float = 9.81,
 ) -> pd.DataFrame:
@@ -195,6 +216,7 @@ def compute_power_constant_eta(
         n_turbines: number of turbines (for Q_min only)
         Q_min_fraction: minimum Q/Q_design for operation
         eta_total: constant total efficiency
+        Q_env: environmental (biological) flow [m³/s] reserved for river
         rho, g: physical constants
 
     Returns:
@@ -204,9 +226,16 @@ def compute_power_constant_eta(
     H = np.broadcast_to(np.asarray(H_gross, dtype=float), Q_sorted.shape).copy()
     n_days = len(Q_sorted)
 
-    Q_min = Q_min_fraction * Q_design
-    mask = Q_sorted >= Q_min
-    Q_used = np.where(mask, np.minimum(Q_sorted, Q_design), 0.0)
+    # Reserve environmental flow for the river
+    Q_for_turbine = np.maximum(Q_sorted - Q_env, 0.0)
+
+    # Plant minimum flow: at least one turbine running at its own Q_min.
+    # Q_design here is TOTAL flow (sum across turbines), so the per-turbine
+    # threshold is Q_min_fraction × (Q_design / n_turbines) — NOT
+    # Q_min_fraction × Q_design (which would be n_turbines× too strict).
+    Q_min_plant = Q_min_fraction * Q_design / max(n_turbines, 1)
+    mask = Q_for_turbine >= Q_min_plant
+    Q_used = np.where(mask, np.minimum(Q_for_turbine, Q_design), 0.0)
 
     P_kW = rho * g * Q_used * H * eta_total / 1000.0
     E_kWh = P_kW * 24.0
