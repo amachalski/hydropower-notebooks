@@ -186,6 +186,43 @@ def minor_loss(
 
 
 # ============================================================
+# OPEN-CHANNEL FRICTION (Manning)
+# ============================================================
+
+def manning_loss(
+    Q: np.ndarray,
+    b: float,
+    h: float,
+    L: float,
+    n_manning: float = 0.013,
+) -> np.ndarray:
+    """Friction head loss in a rectangular open channel (Manning).
+
+    Uses the Manning–Strickler formula for a rectangular section:
+
+        ΔH = (n · v / R^(2/3))² · L,   v = Q/A,   R = A/P_wet,
+        A = b·h,   P_wet = b + 2h
+
+    Args:
+        Q: flow [m³/s] (scalar or array)
+        b: channel bed width [m]
+        h: water depth [m]
+        L: channel length [m]
+        n_manning: Manning roughness coefficient (smooth concrete 0.013,
+            rough concrete 0.017, clean earth 0.025, vegetated earth 0.035)
+
+    Returns:
+        Head loss ΔH [m]
+    """
+    Q = np.asarray(Q, dtype=float)
+    A = b * h
+    P_wet = b + 2 * h
+    R = A / P_wet
+    v = Q / A
+    return (n_manning * v / R ** (2 / 3)) ** 2 * L
+
+
+# ============================================================
 # COMBINERS
 # ============================================================
 

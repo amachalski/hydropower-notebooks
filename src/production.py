@@ -167,8 +167,12 @@ def capacity_factor(power_df: pd.DataFrame, P_rated_kW: float) -> float:
     return power_df["E_kWh"].sum() / E_max
 
 
-def operating_hours(power_df: pd.DataFrame) -> int:
-    """Number of operating days (P > 0)."""
+def operating_days(power_df: pd.DataFrame) -> int:
+    """Number of operating days (P > 0).
+
+    Note: the average sorted year has one row per day, so this counts days,
+    not hours (the function was previously misnamed ``operating_hours``).
+    """
     return int((power_df["P_el_kW"] > 0).sum())
 
 
