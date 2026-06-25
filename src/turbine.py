@@ -331,42 +331,24 @@ def thoma_sigma_critical(nsN_metric_hp: float, turbine_key: str) -> float:
     Empirical formulas (Penche 2004, Czekalski 2008) using nsN in metric-HP form
     (the WPE_2 ×1.166 convention):
 
-        Pelton:          σ_c = 0          (impulse turbine, no cavitation risk)
-        Francis:         σ_c = 7.54e-5 · nsN^1.41
-        Kaplan / prop.:  σ_c = 4.41e-9 · nsN^2.81
+        Pelton / crossflow:  σ_c = 0      (impulse / free-jet — atmospheric runner, no submergence)
+        Francis:             σ_c = 7.54e-5 · nsN^1.41
+        Kaplan / propeller:  σ_c = 4.41e-9 · nsN^2.81
 
     σ_actual must exceed σ_c — otherwise cavitation pits the runner.
 
     Args:
         nsN_metric_hp: specific speed in metric HP form (multiply kW-form by 1.166)
-        turbine_key: 'pelton', 'francis', 'kaplan', 'propeller', 'semi_kaplan',
-                     'crossflow', or one of the PL10/PL20 catalog entries.
+        turbine_key: 'pelton', 'crossflow' (impulse → σ_c=0), 'francis', 'kaplan',
+                     'propeller', or one of the PL10/PL20 catalog entries.
     """
-    if turbine_key == "pelton":
-        return 0.0
+    if turbine_key in ("pelton", "crossflow"):
+        return 0.0  # impulse / free-jet turbine — no cavitation submergence requirement
     if turbine_key == "francis":
         return 7.54e-5 * nsN_metric_hp ** 1.41
-    if turbine_key in ("kaplan", "pl10", "pl20", "propeller", "semi_kaplan", "crossflow"):
+    if turbine_key in ("kaplan", "pl10", "pl20", "propeller"):
         return 4.41e-9 * nsN_metric_hp ** 2.81
     raise ValueError(f"Unknown turbine type for cavitation: {turbine_key!r}")
-
-
-def thoma_sigma(
-    H_s_m: float,
-    H_net_m: float,
-    elevation_m: float = 0.0,
-    water_temp_C: float = 10.0,
-) -> float:
-    """Actual Thoma cavitation coefficient σ for an installation.
-
-        σ = (H_atm - H_v - H_s) / H_net
-
-    H_s is the **suction head** = height of runner centerline above tailwater
-    (positive when above; negative when submerged below tailwater = safer).
-    """
-    H_atm = atmospheric_pressure_head(elevation_m)
-    H_v = vapor_pressure_head(water_temp_C)
-    return (H_atm - H_v - H_s_m) / H_net_m
 
 
 def suction_head_max(

@@ -211,22 +211,3 @@ def get_station_area(
         delineator_path=delineator_path,
     )
 
-
-def interpolate_area(
-    A_up: float,
-    A_down: float,
-    fraction: float = 0.5,
-) -> float:
-    """Estimate catchment area at a point between two stations.
-
-    Simple linear interpolation by fraction of distance along the river.
-
-    Args:
-        A_up: catchment area at upstream station [km2]
-        A_down: catchment area at downstream station [km2]
-        fraction: position between stations (0 = upstream, 1 = downstream)
-
-    Returns:
-        Estimated catchment area [km2]
-    """
-    return A_up + (A_down - A_up) * fraction

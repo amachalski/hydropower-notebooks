@@ -356,7 +356,7 @@ def economic_analysis(
     discount_rate: float = 0.06,
     lifetime_years: int = 40,
 ) -> dict:
-    """Full economic analysis: NPV, payback, LCOE, IRR.
+    """Full economic analysis: NPV, payback, LCOE.
 
     Args:
         energy_mwh: annual energy production [MWh/year]
