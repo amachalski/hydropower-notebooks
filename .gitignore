@@ -15,6 +15,10 @@ data/raw/
 data/processed/
 data/*.csv
 
+# Hill-chart scans (large binary inputs for the paused digitization work;
+# reference values are transcribed into src/hillchart.py REFERENCE_POLY3)
+data/char_tur/
+
 # IDE
 .vscode/
 .idea/
