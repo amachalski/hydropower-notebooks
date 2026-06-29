@@ -106,14 +106,18 @@ def electromechanical_cost(
     if P_kW > 2000:
         import warnings
         warnings.warn(
-            f"Ogayar & Vidal (2009) validated for P<2 MW; extrapolating to P={P_kW:.0f} kW. "
-            f"Result biased LOW — the fitted power law keeps dropping below the EUR/kW "
-            f"observed for multi-MW plants. Treat as a lower bound on cost.",
+            f"Ogayar & Vidal (2009) validated for P<2 MW; for P={P_kW:.0f} kW the per-kW "
+            f"cost is held FLAT at its 2 MW value (the fitted P^b decline is unphysical for "
+            f"multi-MW units). Plateau approximation — treat large-unit cost as indicative.",
             stacklevel=2,
         )
 
-    # C_em in EUR/kW (2009 prices)
-    c_per_kw = coeffs["a"] * P_kW ** coeffs["b"] * H ** coeffs["c"]
+    # C_em in EUR/kW (2009 prices). Ogayar's P^b decline is only validated to 2 MW;
+    # above that, hold the per-kW cost FLAT at its 2 MW value (extrapolating the decline
+    # is unphysical and made larger/fewer units look unrealistically cheap). Total still
+    # scales with the real P_kW below.
+    P_eff = min(P_kW, 2000.0)
+    c_per_kw = coeffs["a"] * P_eff ** coeffs["b"] * H ** coeffs["c"]
 
     # Adjust for inflation
     c_per_kw *= inflation_factor
