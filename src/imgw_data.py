@@ -152,6 +152,10 @@ def _parse_csv_from_zip(
                     na_values=["", " "],
                 )
                 df["station_id"] = df["station_id"].str.strip()
+                # Coerce to numeric first — a malformed/odd file could otherwise leave
+                # these as object/str, making the sentinel comparison below raise TypeError.
+                df["water_level_cm"] = pd.to_numeric(df["water_level_cm"], errors="coerce")
+                df["discharge_m3s"] = pd.to_numeric(df["discharge_m3s"], errors="coerce")
                 # Replace IMGW sentinel values with NaN
                 df.loc[df["water_level_cm"] >= 9999, "water_level_cm"] = pd.NA
                 df.loc[df["discharge_m3s"] >= 99999, "discharge_m3s"] = pd.NA
