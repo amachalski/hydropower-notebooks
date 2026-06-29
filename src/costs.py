@@ -233,6 +233,7 @@ def total_investment(
     engineering_fraction: float = 0.10,
     inflation_factor: float = INFLATION_2009_TO_2024,
     civil_ratio: float | None = None,
+    min_total_per_kw: float = 2500.0,
 ) -> dict:
     """Total investment cost with full breakdown.
 
@@ -283,6 +284,20 @@ def total_investment(
 
     total = subtotal + eng
 
+    # Realism floor: the empirical models (Ogayar EM + IRENA civil ratios)
+    # collectively underestimate all-in CAPEX for run-of-river new build, which
+    # bottoms out around ~2500 EUR/kW (IRENA 2023, EU). If the breakdown falls
+    # below the floor, scale the components up uniformly so total/kW >= the floor
+    # (component proportions preserved). Set min_total_per_kw=0 to disable.
+    floored = bool(min_total_per_kw and P_total > 0 and total < min_total_per_kw * P_total)
+    if floored:
+        scale = (min_total_per_kw * P_total) / total
+        em_total *= scale
+        civil *= scale
+        grid *= scale
+        eng *= scale
+        total = min_total_per_kw * P_total
+
     return {
         "em_eur": em_total,
         "civil_eur": civil,
@@ -293,6 +308,7 @@ def total_investment(
         "n_turbines": n_turbines,
         "P_total_kW": P_total,
         "plant_type": plant_type,
+        "floored": floored,
     }
 
 
